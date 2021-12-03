@@ -1,0 +1,189 @@
+INFO FÖR APPEN
+
+Mappar (Reminder - huvudmappen):
+1. API (kan vara premilinär atm)
+    - users.json
+[
+    {
+        "id": 1,
+        "username": "John",
+        "email": "johndoe@hotmail.com",
+        "password": "johnisgone",
+        "pictures": "---.img"
+    }
+]
+    - lists.json
+[
+    {
+        "id": 1,
+        "owner": 1,
+        "priorty": "A", // prioriteringssak A = röd, B = gul, C = grön (???)
+        "to-do": "Läsa en bok"
+    }
+]
+
+2. ADMIN
+    - Log-in.php
+<h1> --> RUBRIK ELLER NÅT
+<form method="POST" action="log-in.php">
+    <input type = "text" [...]>
+    <input type = "password" [...]>
+    <button> Sign in </button>
+</form>
+
+<?php
+    if-satser (för felmeddelanden):
+        - fälten är tomma
+        - fel email eller lösenord
+?>
+<p> Don't have an account? <a href=""> Create one! </a></p>
+
+    - Sign-up.php
+<h1> --> RUBRIK ELLER NÅT
+<form method="POST" action="sign-up.php">
+    <input type = "text" [...]> // för username
+    <input type = "text" [...]> // för email
+    <input type = "password" name="password1" [...]> // för lösenord
+    <input type = "password" name="password2" [...]> // för att confirma lösenordet igen
+    <button> Sign in </button>
+</form>
+
+<?php
+    if-satser (för felmeddelanden):
+        - fälten är tomma
+        - lösenord matchar inte
+        - för kort/långt email eller lösenord
+        - email måste innehålla @
+        - email/username existerar redan
+?>
+
+<p> Already have an account? <a href=""> Log in! </a></p>
+
+    - Log-out.php
+<?php
+    session_destroy();
+    header(../welcome-page.php);
+    exit();
+?>
+
+3. PAGES
+    - welcome-page.php (är då välkomsttext sen val om login eller register + animation)
+<h1> Welcome to reminder! </h1>
+<button> Sign in </button>
+<button> Register </button>
+
+    - app-info.js
+<h1> Welcome to reminder! </h1>
+<div>
+    <div>
+        <svg>
+        <h3> </h3
+        <p> </p>
+    </div>
+    <div>
+        <svg>
+        <h3> </h3
+        <p> </p>
+    </div>
+    <div>
+        <svg>
+        <h3> </h3
+        <p> </p>
+    </div>
+    <div>
+        <svg>
+        <h3> </h3
+        <p> </p>
+    </div>
+</div>
+
+<button> Continue </button>
+
+    - contract.js
+<h2> Contract info </h2>
+<p> Hint! </p>
+
+<div id="sunButton"></div>
+
+    - profile.js // kommer det behövas en sida till för profilbild?? är det då php?
+<div> [profilsaken här] </div>
+// fortsätta här!
+
+    - timer.js
+<div id="focusTimer">
+    <div id="timerContainer">
+        <div id="timer">
+            <div id="time">
+                <span id="minutes">25</span>
+                <span id="colon">:</span>
+                <span id="seconds">00</span>
+            </div>
+        </div>
+
+        <div id="buttons">
+        <button id="focus"> Focus </button>
+        <button id="longBreak"> Long Break</button>
+        <button id="shortBreak"> Short Break </button>
+        <button id="stop">Stop</button>
+        </div>
+    </div>
+</div>
+
+    - to-do.js
+<div id="listContainer">
+</div>
+
+<div>
+    <input type="text>
+    <div class="prioColours">
+        <div> RED </div>
+        <div> YELLOW </div>
+        <div> GREEN </div>
+    </div>
+    <div>
+        <button><svg></button> // icon med X
+        <button><svg></button> // icon med √
+    </div> 
+</div>
+
+4. APPARANCE
+    - auxiliar.js
+function {
+
+}
+
+array = [
+    färger [...]
+]
+    - CSS-mapp
+        - profile.css
+        - timer.css
+        - to-do.css
+        - welcome.css
+
+5. INCLUDES
+    - header.php
+if-sats:
+    - om man inte är inloggad ska man inte kunna se den.
+
+<?php
+  session_start();  
+?>
+
+<!DOCTYPE [...]>
+...
+<main>
+
+    - footer.php
+if-sats (inloggad och utloggad):
+    - isset($_GET[])
+        - utloggad: inte kunna se naven.
+        - inloggad: kunna se navven.
+    
+
+6. functions.php (ingen mapp)
+    - funktion som hämtar all json.
+    - funktion som gör det till associative array.
+    - funktion som gör AA till json och sparar det till databasen.
+
+7. index.html/index.php (ingen mapp)
