@@ -1,4 +1,4 @@
-INFO FÖR APPEN
+INFO FÖR APPEN...
 
 Mappar (Reminder - huvudmappen):
 1. API (kan vara premilinär atm)
