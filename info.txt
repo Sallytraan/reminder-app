@@ -1,7 +1,30 @@
-INFO FÖR APPEN...
+INFO FÖR APPEN
 
-Mappar (Reminder - huvudmappen):
-1. API (kan vara premilinär atm)
+Mappar + filer:
+1. API-mapp (kan vara premilinär atm)
+    - users.json
+    - lists.json
+2. ADMIN-mapp
+    - log-in.php
+    - sign-up.php
+    - log-out.php
+3. PAGES-mapp
+    - welcome-page.php
+    - app-info.js
+    - contract.js
+    - to-do.js
+    - timer.js
+    - profile.js
+4. APPARANCE-mapp
+    - auxiliar.js
+5. INCLUDES-mapp
+    - header.php
+    - footer.php
+6. functions.php (fil med funktioner man lätt kan komma åt)
+
+
+// innehåll i mapparna + filerna
+1. API 
     - users.json
 [
     {
@@ -9,7 +32,7 @@ Mappar (Reminder - huvudmappen):
         "username": "John",
         "email": "johndoe@hotmail.com",
         "password": "johnisgone",
-        "pictures": "---.img"
+        "pictures": "john.img"
     }
 ]
     - lists.json
@@ -18,7 +41,7 @@ Mappar (Reminder - huvudmappen):
         "id": 1,
         "owner": 1,
         "priorty": "A", // prioriteringssak A = röd, B = gul, C = grön (???)
-        "to-do": "Läsa en bok"
+        "to-do": "Read a book"
     }
 ]
 
@@ -183,7 +206,16 @@ if-sats (inloggad och utloggad):
 
 6. functions.php (ingen mapp)
     - funktion som hämtar all json.
+    function getJson() {
+
+    }
     - funktion som gör det till associative array.
+    function loadJson() {
+
+    }
     - funktion som gör AA till json och sparar det till databasen.
+    function saveJson() {
+        
+    }
 
 7. index.html/index.php (ingen mapp)
