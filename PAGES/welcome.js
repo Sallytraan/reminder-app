@@ -13,5 +13,9 @@ function welcomePage(){
 
   wrapper.innerHTML = `
   <div id="welcomeTitle">Welcome to Reminder!</div>
+  <div id="welcomeContainer">
+     <button class="sign-in">Sign in</button>
+     <button class="sign-up">Create an account</button>
+  </div>
   `;
 }

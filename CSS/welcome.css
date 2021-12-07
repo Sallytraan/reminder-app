@@ -1,0 +1,33 @@
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(255, 204, 251);
+    margin: 0;
+}
+
+#welcomeTitle {
+    font-size: 28px;
+    margin-top: 100px;
+}
+
+#welcomeContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#welcomeContainer > button {
+    border-radius: 20px;
+    margin: 10px 0px;
+
+    height: 50px;
+    width: 150px;
+
+    background-color: rgb(231, 170, 231);
+}
+
+#welcomeContainer > :first-child {
+    margin-top: 100px;
+}
