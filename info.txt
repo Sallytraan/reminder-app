@@ -2,25 +2,26 @@ INFO FÖR APPEN
 
 Mappar + filer:
 1. API-mapp (kan vara premilinär atm)
+    - functions.php (fil med funktioner man lätt kan komma åt)
+    - api.php (?)
     - users.json
     - lists.json
 2. ADMIN-mapp
     - log-in.php
     - sign-up.php
     - log-out.php
-3. PAGES-mapp
-    - welcome-page.php
+3. PAGES-mapp (samma sida men olika view?)
+    - (index.js) --> skapa funktioner t.ex. function createView() {}
+    - welcome-page.php --> index.php
     - app-info.js
     - contract.js
     - to-do.js
     - timer.js
     - profile.js
-4. APPARANCE-mapp
-    - auxiliar.js
-5. INCLUDES-mapp
+        - funktion i profile för färgschema
+4. INCLUDES-mapp
     - header.php
     - footer.php
-6. functions.php (fil med funktioner man lätt kan komma åt)
 
 
 // innehåll i mapparna + filerna
@@ -32,18 +33,32 @@ Mappar + filer:
         "username": "John",
         "email": "johndoe@hotmail.com",
         "password": "johnisgone",
-        "pictures": "john.img"
+        "pictures": "john.img",
+        "color-scheme": 0 // eller "pink" --> välj sen.
     }
 ]
-    - lists.json
+    - tasks.json
+        --> (kanske sen) fixa ordning i listan.
 [
     {
         "id": 1,
         "owner": 1,
-        "priorty": "A", // prioriteringssak A = röd, B = gul, C = grön (???)
-        "to-do": "Read a book"
+        "priorty": 0, // prioriteringssak 0 = röd, 1 = gul, 2 = grön (???)
+        "to-do": "Read a book",
+        "week/date": ---
     }
 ]
+    - focus.json --> något sånt för att kunna uppdatera "focus time".
+[
+    {
+        "id": 1,
+        "owner": 1,
+        "focusTimer": ---,
+        "week/date": ---
+    }
+]
+
+// göra så att man vet vilken vecka det är - för att kunna radera det.
 
 2. ADMIN
     - Log-in.php
@@ -169,7 +184,7 @@ Mappar + filer:
     </div> 
 </div>
 
-4. APPARANCE
+4. APPARANCE // kanske ändra med arrayen(?)
     - auxiliar.js
 function {
 
@@ -187,7 +202,7 @@ array = [
 5. INCLUDES
     - header.php
 if-sats:
-    - om man inte är inloggad ska man inte kunna se den.
+    - om man inte är inloggad ska man inte kunna se navven.
 
 <?php
   session_start();  
