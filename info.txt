@@ -12,7 +12,6 @@ Mappar + filer:
     - log-out.php
 3. PAGES-mapp (samma sida men olika view?)
     - (index.js) --> skapa funktioner t.ex. function createView() {}
-    - welcome-page.php --> index.php
     - app-info.js
     - contract.js
     - to-do.js
@@ -22,6 +21,7 @@ Mappar + filer:
 4. INCLUDES-mapp
     - header.php
     - footer.php
+5. welcome-page.php --> index.php (lättare åtkomst iom den är "huvudsidan")
 
 
 // innehåll i mapparna + filerna
