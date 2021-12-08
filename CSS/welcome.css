@@ -98,3 +98,12 @@
     background-color: rgb(231, 170, 231);
     margin-left: 60px;
 }
+
+
+
+#signInForm {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

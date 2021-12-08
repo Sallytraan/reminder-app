@@ -1,5 +1,5 @@
 "use strict";
-
+/*
 
 navList.addEventListener("click", () => {
     // här skriver vi hur vi vill ha ‘Fade In’
@@ -19,3 +19,6 @@ navProfile.addEventListener("click", () => {
     // här skriver vi hur vi vill ha ‘Fade out’
 });
     
+*/
+
+
