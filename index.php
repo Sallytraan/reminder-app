@@ -1,5 +1,6 @@
 <?php
 require_once "INCLUDES/header.php";
+require_once "ADMIN/sign-up.php";
 ?>
 
 <script src="globalVariables.js"></script>
