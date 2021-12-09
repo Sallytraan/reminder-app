@@ -21,6 +21,7 @@
     <script src="commonsElements.js"></script>
 
     <script src="PAGES/welcome.js"></script>
+    <script src="PAGES/welcomeText.js"></script>
     <script src="PAGES/app-info.js"></script>
     <script src="PAGES/contract.js"></script>
 

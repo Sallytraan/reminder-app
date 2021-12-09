@@ -48,14 +48,11 @@ function welcomeText(){
     </div>
 
 
-    <button id="continueToSignUp">Continue</button>
+    <button id="continueToSignUp"><a href="../ADMIN/sign-up.php">Continue</a></button>
     </div>
     `;
 
-    document.querySelector("#continueToSignUp").addEventListener('click', ()=> {
 
-        window.location = "localhost:9797/ADMIN/sign-in.php"
-    });
     
 }
 

@@ -1,23 +1,19 @@
 <?php
-// Inloggningssidan. Tänk på att formuläret kan skicka uppgifterna till denna
-// filen också. Det gäller då att du t.ex. kontrollerar om $_POST innehåller
-// något. Om inloggningen lyckas slussar du vidare dom till listningssidan.
-?>
-<?php
-session_start();
+require_once "../INCLUDES/header.php";
 ?>
 
 
-<form method="POST" action="/check.php">
+<form method="POST" action="sign-up.php">
 <div id="signInForm">
     <h1>Create an account</h1>
     <input type="text" name="name" placeholder="Name">
     <input type="text" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <input type="password" name="password" placeholder="Confirm password">
-    <button>Sign in</button>
+    <button id="sign-up-button">Sign in</button>
     </div>
 </form>
+
 <?php
 if (isset($_GET["error"])){
     $error = $_GET["error"];
