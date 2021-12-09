@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "username": "John",
+        "email": "johndoe@hotmail.com",
+        "password": "johnisgone",
+        "pictures": "john.img",
+        "color-scheme": 0
+    },
+    {
+        "id": 2,
+        "username": "Alhe",
+        "email": "jodew@hotmail.com",
+        "password": "j123",
+        "pictures": "johnny.img",
+        "color-scheme": 0
+    }
+]
