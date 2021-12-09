@@ -1,3 +1,19 @@
 body {
     margin: 0;
 }
+
+/* till navven */
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav > div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-basis: 0;
+    flex-grow: 1;
+}
