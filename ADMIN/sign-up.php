@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once "../INCLUDES/header.php";
 
 function allUsers(){
@@ -10,7 +11,7 @@ function allUsers(){
 }
 
 function addUser($postInfo){
-    //nycklar för den nya hunden
+    //nycklar för den nya usern
     $newUser = [
         "username" => $postInfo["username"],
         "email" => $postInfo["email"],
@@ -18,7 +19,7 @@ function addUser($postInfo){
         "pictures" => "welcome.img",
         "color-scheme" => 0  
     ];
-    //foreachen räknar ut den nya hundens id utifrån vilka som redan finns
+    //foreachen räknar ut den nya userns id utifrån vilka som redan finns
     $highestID = 0;
 
     $allUsers = allUsers();
@@ -28,9 +29,9 @@ function addUser($postInfo){
         }
     }
 
-    //ID:et av den nya hunden
+    //ID:et av den nya usern
     $newUser["id"] = $highestID + 1;
-    //lägg till hund i db.json
+    //lägg till user i db.json
     $data = json_decode(file_get_contents("../API/users.json"), true);
     array_push($data, $newUser);
     $json = json_encode($data, JSON_PRETTY_PRINT);
@@ -48,6 +49,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"])) {
         $error = 1;
     } else {
         addUser($_POST);
+        header("Location: /localhost:7000");
     }
 }
 
@@ -63,7 +65,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"])) {
     <button id="sign-up-button">Sign in</button>
     </div>
     <?php
-//Error eller info om tilllagd hund
+//Error
     if (isset($error)) { ?>
         <p class="error">Write something!</p>
     <?php } ?>

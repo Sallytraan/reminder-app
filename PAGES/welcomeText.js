@@ -13,7 +13,7 @@ function welcomeText(){
     <div id="welcomeText">
 
     <div class=welcomePage wp1"> 
-    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/user_black.svg"></div> 
+    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/profile-icon.svg"></div> 
     <div class="introWrapper">
     <p>Create tasks fast and easy</p>
     <p>Input tasks are sorted depending on your priority</p>
@@ -21,7 +21,7 @@ function welcomeText(){
     </div>
 
     <div class="welcomePage wp2"> 
-    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/timer_black.svg"></div> 
+    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/timer-icon.svg"></div> 
     <div class="introWrapper">
     <p>Focus timer</p>
     <p>Set a focus timer to help you get your tasks done</p>
@@ -29,7 +29,7 @@ function welcomeText(){
     </div>
 
     <div class="welcomePage wp3">  
-    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/trophy_black.svg"></div> 
+    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/trophy-icon.svg"></div> 
     <div class="introWrapper">
     <p>Task and timer milestones</p>
     <p>Get an weekly oversight on how much work you have put into your tasks</p>
@@ -37,7 +37,7 @@ function welcomeText(){
     </div>
 
     <div class="welcomePage wp4"> 
-    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/hanger_black.svg"></div> 
+    <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/custom-icon.svg"></div> 
     <div class="introWrapper">
     <p>Custom themes</p>
     <p>Choose the theme you like and start your wonderful day</p>
