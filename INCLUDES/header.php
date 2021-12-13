@@ -18,7 +18,7 @@ session_start();
         <header>
             <?php
             // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
-            if (isset($_SESSION["id"])) {
+            if (isset($_SESSION["id"]) && $value["contract"]) {
                 echo "
                 <p> LOGGAN HÄR! </p>";
             }

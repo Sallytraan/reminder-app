@@ -15,6 +15,7 @@ wrapper.innerHTML = “ ”;
 */
 
 "use strict";
+contractSite()
 
 function contractSite(){
     //Hamna högst upp på sidan

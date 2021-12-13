@@ -17,7 +17,8 @@ function addUser($postInfo){
         "email" => $postInfo["email"],
         "password" => $postInfo["password"],  
         "pictures" => "welcome.img",
-        "color-scheme" => 0  
+        "color-scheme" => 0,
+        "contract" => false
     ];
     //foreachen räknar ut den nya userns id utifrån vilka som redan finns
     $highestID = 0;
@@ -31,6 +32,7 @@ function addUser($postInfo){
 
     //ID:et av den nya usern
     $newUser["id"] = $highestID + 1;
+    $_SESSION["id"] = $newUser["id"];
     //lägg till user i db.json
     $data = json_decode(file_get_contents("../API/users.json"), true);
     array_push($data, $newUser);
@@ -49,7 +51,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"])) {
         $error = 1;
     } else {
         addUser($_POST);
-        header("Location: /localhost:7000");
+        header("Location: /index.php");
     }
 }
 

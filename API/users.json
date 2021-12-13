@@ -5,7 +5,8 @@
         "email": "johndoe@hotmail.com",
         "password": "johnisgone",
         "pictures": "john.img",
-        "color-scheme": 0
+        "color-scheme": 0,
+        "contract": true
     },
     {
         "id": 2,
@@ -13,6 +14,16 @@
         "email": "jodew@hotmail.com",
         "password": "j123",
         "pictures": "johnny.img",
-        "color-scheme": 0
+        "color-scheme": 0,
+        "contract": true
+    },
+    {
+        "username": "Hej",
+        "email": "hej@gmail.com",
+        "password": "hej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "id": 3,
+        "contract": false
     }
 ]
