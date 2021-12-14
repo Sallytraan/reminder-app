@@ -35,6 +35,7 @@ require_once "../INCLUDES/header.php";
 </div>
 
 <?php
+/*
 if (isset($_GET["error"])){
     $error = $_GET["error"];
 
@@ -47,7 +48,7 @@ if (isset($_GET["error"])){
     } elseif ($error == 4) { //fel kombination av lösenord och
         echo '<p class="error">Incorrect username or password.</p>';
     }
-}
+} */
 ?>
 
 <?php
