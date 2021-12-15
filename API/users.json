@@ -20,10 +20,19 @@
     {
         "username": "Hej",
         "email": "hej@gmail.com",
-        "password": "hej",
+        "password": "heej",
         "pictures": "welcome.img",
         "color-scheme": 0,
         "id": 3,
         "contract": false
+    },
+    {
+        "username": "hej hopp",
+        "email": "hejsan@gmail.com",
+        "password": "12345",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 4
     }
 ]

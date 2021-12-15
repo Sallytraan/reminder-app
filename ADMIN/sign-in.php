@@ -8,6 +8,10 @@ if (isset($_POST["email"], $_POST["password"])) {
     $password = $_POST["password"];
 
     $userData = loadJson("../API/users.json"); // ska hämta användarens info.
+    if (empty($email) && empty($password)) {
+        header("Location: /ADMIN/sign-in.php?error=1");
+        exit();
+    }
 
     if (!empty($email) && !empty($password)) {
         // kollar om lösenordet är större än 3 och om email innehåller @.
@@ -64,6 +68,3 @@ require_once "../INCLUDES/header.php";
     <a href="sign-up.php"> Create an account </a>
 </div>
 
-<?php
-require_once "../INCLUDES/footer.php";
-?>
