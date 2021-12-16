@@ -1,5 +1,7 @@
 <?php
+error_reporting(-1);
 session_start();
+require_once "API/api.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +20,18 @@ session_start();
         <header>
             <?php
             // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
-            if (isset($_SESSION["id"]) && $value["contract"]) {
-                echo "
-                <p> LOGGAN HÄR! </p>";
+            if (isset($_SESSION["id"])) {
+                $id = $_SESSION["id"];
+
+                $dataUsers = loadJson("API/users.json");
+                foreach ($dataUsers as $key => $value) {
+                    if ($id === $value["id"]) {
+                        echo "
+                        <p> LOGGAN HÄR! </p>
+                        ";
+                    }
+
+                }
             }
             ?>
         </header>

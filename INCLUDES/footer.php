@@ -24,10 +24,10 @@
 
         <footer>
             <?php 
-            foreach ($data as $key => $value) {
-                if (isset($_SESSION["id"])) {
-                    $id = $_SESSION["id"];
+            if (isset($_SESSION["id"])) {
+                $id = $_SESSION["id"];
 
+                foreach ($data as $key => $value) {
                     if ($id == $value["id"]) {
                         // göra if-sats för bara inloggning har tillgång till anv.
                         if ($value["contract"]) {
