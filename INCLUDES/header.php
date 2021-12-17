@@ -26,6 +26,9 @@ session_start();
         </header>
         <main id="wrapper">
 
-<?php
-
-?>
+        <?php
+        $id = $_SESSION["id"];
+        $userName = $_SESSION["username"];
+            echo "<script> const ID = $id </script>";
+            echo "<script> const USER_NAME = $userName </script>";
+        ?>

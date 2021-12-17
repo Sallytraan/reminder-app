@@ -96,3 +96,23 @@
 }
 
 
+
+
+#contractWrapper {
+    background-color: #A8E7F6;
+
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+#contractButton {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 142);
+    border: 5px solid rgb(241, 255, 118);
+}

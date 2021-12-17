@@ -7,5 +7,4 @@ require_once "INCLUDES/footer.php";
 
 // destroy the session
 // session_destroy();
-
 ?>

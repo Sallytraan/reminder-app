@@ -1,4 +1,4 @@
-        <?php
+    <?php
         $data = json_decode(file_get_contents("API/users.json"), true);
         
         if (!isset($_SESSION["id"])){

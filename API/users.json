@@ -34,5 +34,32 @@
         "color-scheme": 0,
         "contract": false,
         "id": 4
+    },
+    {
+        "username": "annalisa",
+        "email": "anna",
+        "password": "potatmis",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 5
+    },
+    {
+        "username": "hejhejhej",
+        "email": "hej@gmail.com",
+        "password": "hejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 6
+    },
+    {
+        "username": "hejhejhej",
+        "email": "hej@gmail.com",
+        "password": "hejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 7
     }
 ]
