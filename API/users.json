@@ -24,7 +24,7 @@
         "pictures": "welcome.img",
         "color-scheme": 0,
         "id": 3,
-        "contract": false
+        "contract": true
     },
     {
         "username": "hej hopp",
@@ -34,5 +34,23 @@
         "color-scheme": 0,
         "contract": false,
         "id": 4
+    },
+    {
+        "username": "Louise",
+        "email": "louise@gmail.com",
+        "password": "12345",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 5
+    },
+    {
+        "username": "Louise",
+        "email": "louise@gmail.com",
+        "password": "12345",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 6
     }
 ]

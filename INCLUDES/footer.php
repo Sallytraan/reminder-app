@@ -10,9 +10,9 @@
                 // echo $_SESSION["id"];
                 
                 if (!$value["contract"]){
-                    echo '<script src="PAGES/contract.js"></script>';
+                    echo '<script src="../PAGES/contract.js"></script>';
                 } else {
-                    echo '<script src="PAGES/to-do.js"></script>'; 
+                    echo '<script src="../PAGES/to-do.js"></script>'; 
                 }
 
                 // if ($_SESSION["id"]){}

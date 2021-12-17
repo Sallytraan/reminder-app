@@ -2,12 +2,14 @@
 session_start();
 require_once "../API/api.php";
 
+$userData = loadJson("../API/users.json"); // ska hämta användarens info.
+
 // behöver inte kolla om 
 if (isset($_POST["email"], $_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $userData = loadJson("../API/users.json"); // ska hämta användarens info.
+
     if (empty($email) && empty($password)) {
         header("Location: /ADMIN/sign-in.php?error=1");
         exit();
@@ -67,4 +69,5 @@ require_once "../INCLUDES/header.php";
     <p> Don't have an account? </p>
     <a href="sign-up.php"> Create an account </a>
 </div>
+
 

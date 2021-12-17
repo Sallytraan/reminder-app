@@ -1,7 +1,7 @@
 <?php
-error_reporting(-1);
+//error_reporting(-1);
 session_start();
-require_once "API/api.php";
+// require_once __DIR__ . "/API/api.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,10 @@ require_once "API/api.php";
     </head>
     <body>
         <header>
+        <?php
+            // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
+
+            /*
             <?php
             // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
             if (isset($_SESSION["id"])) {
@@ -33,9 +37,20 @@ require_once "API/api.php";
                 }
             }
             ?>
+            */
+            if (isset($_SESSION["id"]) && $value["contract"]) {
+                echo "
+                <p> LOGGAN HÄR! </p>";
+            }
+            ?>
         </header>
         <main id="wrapper">
 
-<?php
-
-?>
+        <?php
+        if (isset($_SESSION["id"], $_SESSION["username"])) {
+            $id = $_SESSION["id"];
+            $userName = $_SESSION["username"];
+                echo "<script> const ID = $id </script>";
+                echo "<script> const USER_NAME = $userName </script>";            
+        }
+        ?>
