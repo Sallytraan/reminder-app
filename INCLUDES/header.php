@@ -30,7 +30,6 @@ require_once "API/api.php";
                         <p> LOGGAN HÄR! </p>
                         ";
                     }
-
                 }
             }
             ?>
