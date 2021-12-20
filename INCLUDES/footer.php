@@ -1,23 +1,25 @@
         <?php
+        // variabler
         $data = json_decode(file_get_contents("API/users.json"), true);
-        
-        if (!isset($_SESSION["id"])){
+        $sessionID = $_SESSION["id"];
+
+        // kollar om användaren har skrivit på ett kontrakt eller inte.
+        if (!isset($sessionID)){
             echo '<script src="PAGES/welcome.js"></script>';
             //SIGNED
         } else {
             foreach ($data as $key => $value) {
                 // echo $value["id"];
                 // echo $_SESSION["id"];
-                
-                if (!$value["contract"]){
-                    echo '<script src="../PAGES/contract.js"></script>';
-                } else {
-                    echo '<script src="../PAGES/to-do.js"></script>'; 
+                if ($sessionID == $value["id"]) {
+                    // om kontrakt ej påskrivet --> visa kontraktet
+                    if (!$value["contract"]){
+                        echo '<script src="../PAGES/contract.js"></script>';
+                    } else { // annars skickas till to-do sidan
+                        echo '<script src="../PAGES/to-do.js"></script>'; 
+                    }
                 }
-
-                // if ($_SESSION["id"]){}
             }
-            // echo '<script src="PAGES/to-do.js"></script>';
         }
         ?>
         </main>
@@ -62,5 +64,6 @@
 
     <script src="PAGES/focus.js"></script>
     <script src="PAGES/profile.js"></script>
+    <script src="PAGES/to-do.js"></script>
 </body>
 </html> 

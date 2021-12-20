@@ -16,7 +16,7 @@ function toDo(){
     </div>
     `;
 
-
-    
 }
 
+document.getElementById("navList").style.backgroundColor = "grey";
+// document.querySelector("#navList > img").style.color = "fill: white";

@@ -38,9 +38,23 @@ session_start();
             }
             ?>
             */
-            if (isset($_SESSION["id"]) && $value["contract"]) {
-                echo "
-                <p> LOGGAN HÄR! </p>";
+
+            $data = json_decode(file_get_contents("../API/users.json"), true);
+            $sessionID = $_SESSION["id"];
+
+            // kollar om man är inloggad + kontrakt = visar headern för användaren.
+            if (isset($_SESSION["id"])) {
+                $id = $_SESSION["id"];
+
+                foreach ($data as $key => $value) {
+                    if ($id == $value["id"]) {
+                        // göra if-sats för bara inloggning har tillgång till anv.
+                        if ($value["contract"]) {
+                            echo "
+                            <p> LOGGAN HÄR! </p>";                
+                        }                          
+                    }
+                }  
             }
             ?>
         </header>
