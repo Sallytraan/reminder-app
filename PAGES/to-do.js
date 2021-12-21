@@ -10,12 +10,9 @@ function toDo(){
   
     wrapper.innerHTML = `
     <div id="toDoWrapper">
-    <h1>LIST</h1>
-
-
+        <h1>LIST</h1>
     </div>
     `;
-
 }
 
 document.getElementById("navList").style.backgroundColor = "grey";

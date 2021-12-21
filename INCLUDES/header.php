@@ -39,7 +39,7 @@ session_start();
             ?>
             */
 
-            $data = json_decode(file_get_contents("../API/users.json"), true);
+            $data = json_decode(file_get_contents("API/users.json"), true);
             $sessionID = $_SESSION["id"];
 
             // kollar om man är inloggad + kontrakt = visar headern för användaren.

@@ -1,0 +1,25 @@
+{
+    "ongoing": [
+        {
+            "id": 1,
+            "user": 1,
+            "priority": 2,
+            "task": "wash clothes"
+        },
+        {
+            "id": 2,
+            "user": 1,
+            "priority": 2,
+            "task": "read a book"
+        },
+        {
+            "id": 3,
+            "user": 1,
+            "priority": 2,
+            "task": "buy food"
+        }
+    ],
+    "finished": [
+        []
+    ]
+}
