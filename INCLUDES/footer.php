@@ -1,13 +1,18 @@
         <?php
         $data = json_decode(file_get_contents("API/users.json"), true);
         
+        $sessionID = $_SESSION["id"];
+        $userName = $_SESSION["username"];
+        
+        echo "<script> const ID = $id </script>";
+        echo "<script> const USER_NAME = $userName </script>";
+        
         if (!isset($_SESSION["id"])){
             echo '<script src="PAGES/welcome.js"></script>';
             //SIGNED
         } else {
             foreach ($data as $key => $value) {
-                // echo $value["id"];
-                // echo $_SESSION["id"];
+
                 
                 if (!$value["contract"]){
                     echo '<script src="../PAGES/contract.js"></script>';
@@ -15,9 +20,8 @@
                     echo '<script src="../PAGES/to-do.js"></script>'; 
                 }
 
-                // if ($_SESSION["id"]){}
             }
-            // echo '<script src="PAGES/to-do.js"></script>';
+
         }
         ?>
         </main>

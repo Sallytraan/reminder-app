@@ -29,6 +29,7 @@ if (isset($_POST["email"], $_POST["password"])) {
                 $_SESSION["username"] = $foundUser["username"];
                 $_SESSION["email"] = $foundUser["email"];
                 $_SESSION["id"] = $foundUser["id"];
+                
 
                 // vart användaren ska skickas om lyckad inloggning.
                 header("Location: ../index.php");

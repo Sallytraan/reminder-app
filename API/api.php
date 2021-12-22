@@ -22,4 +22,19 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
+$changeTheContract = function(){
+
+    $json = file_get_contents("../API/users.json");
+    $data = json_decode($json, true);
+    $allUsers = $data;
+
+    foreach ($companies as $index => $company) {
+        if ($allUsers["id"] == $_SESSION["id"]) {
+            $found = true;
+            if ($found = true){
+                $allUsers["contract"] = true;
+            }
+        }
+    }
+}
 ?>

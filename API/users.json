@@ -52,5 +52,50 @@
         "color-scheme": 0,
         "contract": false,
         "id": 6
+    },
+    {
+        "username": "Pranvera",
+        "email": "verapran@hotmail.com",
+        "password": "hejhejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 7
+    },
+    {
+        "username": "verav",
+        "email": "verapran@hotmail.com1",
+        "password": "123123",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 8
+    },
+    {
+        "username": "annalisa",
+        "email": "anna@hotmail.com",
+        "password": "1234",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 9
+    },
+    {
+        "username": "gugug",
+        "email": "hejjijo@gmail.com",
+        "password": "gugugu",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 10
+    },
+    {
+        "username": "hejhejte",
+        "email": "tete@gmail.com",
+        "password": "tete",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 11
     }
 ]
