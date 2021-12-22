@@ -19,13 +19,12 @@ session_start();
     <body>
         <header>
         <?php
-            // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
+$data = json_decode(file_get_contents("API/users.json"), true);
+$sessionID = $_SESSION["id"];
 
-            /*
-            <?php
-            // kollar om id:et finns i sessionen. Om den finns ska man kunna se loggan i headern.
-            if (isset($_SESSION["id"])) {
-                $id = $_SESSION["id"];
+// kollar om man är inloggad + kontrakt = visar headern för användaren.
+if (isset($_SESSION["id"])) {
+    $id = $_SESSION["id"];
 
                 $dataUsers = loadJson("API/users.json");
                 foreach ($dataUsers as $key => $value) {
@@ -37,7 +36,7 @@ session_start();
                 }
             }
             ?>
-            */
+            
 
             $data = json_decode(file_get_contents("API/users.json"), true);
             $sessionID = $_SESSION["id"];
@@ -56,15 +55,14 @@ session_start();
                     }
                 }  
             }
+
+    $sessionID = $_SESSION["id"];
+    $userName = $_SESSION["username"];
+    
+
+    echo "<script> const ID = $id </script>";
+    echo "<script> const USER_NAME = $userName </script>";
             ?>
         </header>
         <main id="wrapper">
 
-        <?php
-        if (isset($_SESSION["id"], $_SESSION["username"])) {
-            $id = $_SESSION["id"];
-            $userName = $_SESSION["username"];
-                echo "<script> const ID = $id </script>";
-                echo "<script> const USER_NAME = $userName </script>";            
-        }
-        ?>
