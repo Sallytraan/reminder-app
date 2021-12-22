@@ -12,6 +12,11 @@ scroll (0, 0);
 
 //Töm nuvarande innehåll i wrapper
 wrapper.innerHTML = “ ”;
+
+
+    navList.classList.remove("selectedNav");
+    navFocus.classList.remove("selectedNav");
+    navProfile.classList.add("selectedNav");
 }
 
 */
