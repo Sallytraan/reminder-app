@@ -26,7 +26,7 @@ $sessionID = $_SESSION["id"];
 if (isset($_SESSION["id"])) {
     $id = $_SESSION["id"];
 
-                $dataUsers = loadJson("API/users.json");
+                $dataUsers = loadJson("../API/users.json");
                 foreach ($dataUsers as $key => $value) {
                     if ($id === $value["id"]) {
                         echo "
@@ -37,7 +37,7 @@ if (isset($_SESSION["id"])) {
             }
             ?>
             
-
+<?php
             $data = json_decode(file_get_contents("API/users.json"), true);
             $sessionID = $_SESSION["id"];
 
