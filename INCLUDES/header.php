@@ -35,7 +35,7 @@ if (isset($_SESSION["id"])) {
                     }
                 }
             }
-            ?>
+            
             
 
             $data = json_decode(file_get_contents("API/users.json"), true);
