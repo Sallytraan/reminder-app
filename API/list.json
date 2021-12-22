@@ -4,19 +4,29 @@
             "id": 1,
             "user": 1,
             "priority": 2,
-            "task": "wash clothes"
+            "task": "wash clothes",
+            "date": "December 21, 2021"
         },
         {
             "id": 2,
             "user": 1,
             "priority": 2,
-            "task": "read a book"
+            "task": "read a book",
+            "date": "December 21, 2021"
         },
         {
             "id": 3,
             "user": 1,
             "priority": 2,
-            "task": "buy food"
+            "task": "buy food",
+            "date": "December 21, 2021"
+        },
+        {
+            "id": 4,
+            "user": 1,
+            "priority": 2,
+            "task": "eat with friend",
+            "date": "December 21, 2021"
         }
     ],
     "finished": [

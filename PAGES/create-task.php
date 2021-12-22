@@ -18,6 +18,7 @@ if (isset($_SESSION["id"])) {
         // variabler
         $task = $_POST["task"];
         $highestID = 0;
+        $today = date("F j, Y"); // variabel för dagens datum.
 
         if (empty($task)) {
             header("Location: /PAGES/create-task.php?error=1");
@@ -35,7 +36,8 @@ if (isset($_SESSION["id"])) {
                     "id" => $highestID + 1,
                     "user" => $sessionID,
                     "priority" => 2, // DENNA MÅSTE FIXAS, har inte gjort en array med färger osv. än.
-                    "task" => $task
+                    "task" => $task,
+                    "date" => $today
                 ];
 
                 // sparar ner det till list.json
@@ -68,6 +70,7 @@ if (isset($_SESSION["id"])) {
     </head>
     <body>
         <header>
+            <p> LOGGAN HÄR! </p>
 <?php
 // require_once "../INCLUDES/header.php"; funkar ej eftersom de har annorlunda sökväg än index.php
 ?>
@@ -78,15 +81,15 @@ if (isset($_SESSION["id"])) {
                     <?php 
                         // Skriva felmeddelande angånde task-skrivandet här!!  
                     ?>
-                    <input type="text" name="task" placeholder="What do you need to be reminded of?">
+                    <input type="text" name="task" id="taskInput" placeholder="What do you need to be reminded of?">
                     <div>
                         <div id="taskText">
-                            <p>What is the level of importance?</p>
+                            <p>What's the level of importance?</p>
                         </div>
-                        <div id="importanceCircles">
-                            <div class="circle"> Red </div>
-                            <div class="circle"> Yellow </div>
-                            <div class="circle"> Green </div>
+                        <div id="importantCircles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
                         </div>
                     </div>
                     <button id="undo-button">

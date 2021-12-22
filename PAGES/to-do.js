@@ -11,6 +11,7 @@ function toDo(){
     wrapper.innerHTML = `
     <div id="toDoWrapper">
         <h1>LIST</h1>
+        <p></p>
     </div>
     `;
 }

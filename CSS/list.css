@@ -1,0 +1,51 @@
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    width: 75%;
+}
+
+/* input saken */
+#taskInput {
+    width: 95%;
+    border: none;
+    border-bottom: 1.5px solid grey;
+
+    padding: 10px;
+    margin-top: 30px;
+}
+
+#taskInput:focus {
+    border-bottom: 1.5px solid black;
+}
+
+/* text */
+#taskText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+}
+
+/* cirklarna */
+#importantCircles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.circle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+
+    margin: 5px 25px 5px 25px;
+}
+
+.circle:first-child { background-color: #FFA19B;}
+.circle:nth-child(2) { background-color: #FFD79B;}
+.circle:last-child { background-color: #9BFFB7;}
