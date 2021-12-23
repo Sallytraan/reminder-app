@@ -11,93 +11,45 @@ function theTimer(){
     wrapper.innerHTML = `
     <div id="theTimerWrapper">
 
-    <div class="app-container">
-  <input type="text" class="app-header" value="Pomodoro" />
-  <div class="clocks">
-    <ul class="clock-list">
-      <li class="activeLi" data-tab-target="#pomodoro">pomodoro</li>
-      <li data-tab-target="#short">break</li>
-    </ul>
-  </div>
-  <div class="clocks-container">
-    <div id="pomodoro" data-tab-content>
-      <span class="time-left">
-        <span id="pomodoro-minutes">00</span>
-        :
-        <span id="pomodoro-seconds">00</span>
-      </span>
-      <button class="button" id="pomodoro-playPause">play</button>
-    </div>
-    <div id="short" data-tab-content>
-      <span class="time-left">
-        <span id="break-minutes">00</span>
-        :
-        <span id="break-seconds">00</span>
-      </span>
-      <button class="button" id="break-playPause">play</button>
-    </div>
-  </div>
-  <div class="settings">
-    <i class="fas fa-cog"></i>
-  </div>
-</div>
 
-<div id="task-app">
-    <form action="">
 
-      <input type="text" placeholder="New Task" class="task-input" id="" autocomplete />
-      <button type="submit" class="task-btn">
-        <i class="fas fa-plus-square"></i>
-      </button>
-    </form>
+    <div class="bgSun"></div>
+    <div class="water"></div>
 
-    <div class="task-container">
-      <ul class="task-list"></ul>
-    </div>
-
-    <div id="advanced">
-      <button type="submit" class="clr-task">Clear items</button>
-    </div>
-  </div>
-
-<ul id="notif-container"></ul>
-
-<form class="modal">
-  <div class="settings-panel">
-    <header class="panel-header">
-      <h1>Settings</h1>
-          <i style="color: black;" class="fas fa-times close-btn"></i>
-    </header>
-    <div class="flexbox">
-      <section class="row timer-settings" style="flex-direction: column; align-items: flex-start;">
-        <label for="timer-inputs">time (minutes)</label>
-        <div id="timer-inputs">
-          <div style="flex: 0 0 auto;display: flex; flex-direction: column;">
-            <label for="timer">Pomodoro</label>
-            <input type="number" min="0" id="timer"/>
-          </div>
-          <div style="flex: 0 0 auto;display: flex; flex-direction: column;">
-            <label for="break">Break</label>
-            <input type="number" min="0" id="break"/>
-          </div>
+    <div class="maincontainer">
+        <div class="clockContainer">
+            <div class="pomodoroDisplay">
+                <h2 class="currentClockStat">Ready?</h2>
+                <div class="timeDisplay">25:00</div>
+                <div class="controls">
+                    <div class="startClock"><i class="fas fa-play"></i> START</div>
+                    <div class="pauseClock"><i class="fas fa-pause"></i> PAUSE</div>
+                    <div class="restartClock"><i class="fas fa-sync-alt"></i> RESET</div>
+                </div>
+            </div>
         </div>
-      </section>
-      <section class="row font-settings">
-        <label for="fonts">font</label>
-        <div id="fonts"></div>
-      </section>
-      <section class="row color-settings">
-        <label for="colors">color</label>
-        <div id="colors">
-          <div class="color"></div>
-          <div class="color"></div>
-          <div class="color"></div>
-        </div>
-      </section>
     </div>
-    <button type="submit" class="apply-settings" id="applySettings">Apply</button>
-  </div>
-</form>
+    
+    <div class="cloud1"></div>
+    <div class="cloud2"></div>
+    <div class="cloud3"></div>
+    
+    <div class="cloud">
+        <div class="timeIntervalsContainer">
+            <div class="sessionContainer">
+                <div class="increaseSession"><i class="fas fa-angle-double-up"></i></div>
+                <div>Session</div>
+                <div class="currentSession">25</div>
+                <div class="decreaseSession"><i class="fas fa-angle-double-down"></i></div>
+            </div>
+            <div class="breakContainer">
+                <div class="increaseBreak"><i class="fas fa-angle-double-up"></i></div>
+                <div>Break</div>
+                <div class="currentBreak">5</div>
+                <div class="decreaseBreak"><i class="fas fa-angle-double-down"></i></div>
+            </div>
+        </div>
+    </div>
     
     </div>
     `;
@@ -109,445 +61,303 @@ function theTimer(){
 
     
 // POMODORO
+var startClock = document.querySelector(".startClock")
+    var pauseClock = document.querySelector(".pauseClock")
+    var restartClock = document.querySelector(".restartClock")
+    var timeIntervalsContainer = document.querySelector(".timeIntervalsContainer")
+    var currentClockStat = document.querySelector(".currentClockStat")
 
-// session
-const sessionData = {
-    title: 'Pomodoro',
-    pomodoro: 25,
-    break: 5,
-  };
-  
-  //selectors
-  const title = document.querySelector('.app-header');
-  
-  //settings selectors
-  const settings = document.querySelector('.fa-cog');
-  const modal = document.querySelector('.modal');
-  const settingsPanel = document.querySelector('.settings-panel');
-  const closeBtn = document.querySelector('.close-btn');
-  const timer = document.getElementById('timer');
-  const breakTime = document.getElementById('break');
-  const applyBtn = document.querySelector('#applySettings');
-  
-  // tabs selectors
-  const tabs = document.querySelectorAll('[data-tab-target]');
-  const tabContents = document.querySelectorAll('[data-tab-content]');
-  
-  // timers selectors
-  const playPausePomodoro = document.getElementById('pomodoro-playPause');
-  var pomodoroPaused = true;
-  var mainMins = sessionData.pomodoro;
-  var mainSecd = 0;
-  let pomodoroInterval;
-  const mainMinutes = document.getElementById('pomodoro-minutes');
-  const mainSeconds = document.getElementById('pomodoro-seconds');
-  mainMinutes.innerText = mainMins;
-  
-  const playPauseBreak = document.getElementById('break-playPause');
-  var breakPaused = true;
-  var breakMins = sessionData.break;
-  var breakSecd = 0;
-  let breakInterval;
-  const breakMinutes = document.getElementById('break-minutes');
-  const breakSeconds = document.getElementById('break-seconds');
-  breakMinutes.innerText = breakMins;
-  
-  // Event listeners
-  title.addEventListener('change', ()=>{
-    sessionData.title = title.value;
-  })
-  
-  settings.addEventListener('click', openSettings);
-  
-  timer.addEventListener('change', ()=>{
-    sessionData.pomodoro = timer.value;
-    // mainMins = sessionData.pomodoro;
-  });
-  
-  breakTime.addEventListener('change', ()=>{
-    sessionData.break = breakTime.value;
-    // breakMins = sessionData.break;
-  });
-  
-  playPausePomodoro.addEventListener('click', ()=>{
-    if(pomodoroPaused){
-      pomodoroPaused = false;
-      playPausePomodoro.innerText = 'pause';
-      pomodoroInterval = setInterval(checkPomodoroTime, 1000);
+    var sessionRunning = true;
+
+    startClock.addEventListener("click", function() {
+
+        startClock.style.display = "none"
+        pauseClock.style.display = "block"
+        restartClock.style.display = "block"
+
+        if (sessionRunning) {
+            currentClockStat.innerHTML = "Session"
+        } else {
+            currentClockStat.innerHTML = "Break"
+        }
+
+        if (!timerStarted) {
+            setStartInterval()
+            
+            cloud.style.top = "500px"
+            cloud1.style.top = "300px"
+            cloud2.style.top = "200px"
+            cloud3.style.right = "200%"
+            timeIntervalsContainer.style.opacity = "0.0"
+        }
+
+        startTimer()
+    })
+
+    pauseClock.addEventListener("click", function() {
+
+        startClock.style.display = "block"
+        pauseClock.style.display = "none"
+        restartClock.style.display = "block"
+        currentClockStat.innerHTML = "Ready?"
+
+        pauseTimer()
+    })
+
+    restartClock.addEventListener("click", function() {
+
+        startClock.style.display = "block"
+        pauseClock.style.display = "none"
+        restartClock.style.display = "none"
+
+        resetTimer()
+        
+        cloud.style.left = "46%"
+        cloud1.style.left = "25%"
+        cloud2.style.left = "75%"
+        cloud3.style.left = "54%"
+        timeIntervalsContainer.style.opacity = "0.8"
+        sunSet.classList.add("bgSunClass");
+    })
+
+
+    var currentBreak = document.querySelector(".currentBreak")
+    var currentSession = document.querySelector(".currentSession")
+
+    var selecetedBreakTime = parseInt(currentBreak.innerHTML)
+    var selecetedSessionTime = parseInt(currentSession.innerHTML)
+
+    var increaseBreak = document.querySelector(".increaseBreak")
+    var increaseSession = document.querySelector(".increaseSession")
+    var decreaseBreak = document.querySelector(".decreaseBreak")
+    var decreaseSession = document.querySelector(".decreaseSession")
+
+    var currentSessionTime
+    var currentBreakTime
+    var currentTimeDisplayed
+    var timeDisplay = document.querySelector(".timeDisplay")
+
+
+
+    increaseSession.addEventListener("click", function() {
+
+        if (selecetedSessionTime < 60) {
+            selecetedSessionTime++
+
+            currentSession.innerHTML = selecetedSessionTime.toString()
+
+            currentMinutInt = selecetedSessionTime
+
+            displayClock()
+        }
+    })
+
+    decreaseSession.addEventListener("click", function() {
+
+        if (selecetedSessionTime > 1) {
+
+            selecetedSessionTime--
+
+            currentSession.innerHTML = selecetedSessionTime.toString()
+
+            currentMinutInt = selecetedSessionTime
+
+            displayClock()
+        }
+    })
+
+    increaseBreak.addEventListener("click", function() {
+
+        if (selecetedBreakTime < 30) {
+            selecetedBreakTime++
+
+            currentBreak.innerHTML = selecetedBreakTime.toString()
+        }
+    })
+
+    decreaseBreak.addEventListener("click", function() {
+
+        if (selecetedBreakTime > 1) {
+            selecetedBreakTime--
+
+            currentBreak.innerHTML = selecetedBreakTime.toString()
+        }
+    })
+
+    var currentMinutInt = selecetedSessionTime
+    var currentSecondInt = 0;
+    var currentMinutString = currentMinutInt.toString();
+    var currentSecondSting = currentSecondInt.toString();
+
+
+    function displayClock() {
+
+        console.log("time display")
+
+        currentMinutString = currentMinutInt.toString();
+        currentSecondSting = currentSecondInt.toString();
+
+        checkTime(currentMinutInt, currentSecondInt)
+
+        currentTimeDisplayed = currentMinutString + ":" + currentSecondSting
+
+        timeDisplay.innerHTML = currentTimeDisplayed;
     }
-    else{
-      pomodoroPaused = true;
-      playPausePomodoro.innerText = 'play';
-      clearInterval(pomodoroInterval);
+
+
+
+    function checkTime(currentMinutInt, currentSecondInt) {
+
+        if (currentMinutInt < 10) {
+
+            currentMinutString = "0" + currentMinutString
+        }
+        if (currentSecondInt < 10) {
+
+            currentSecondSting = "0" + currentSecondSting
+        }
     }
-  });
-  
-  playPauseBreak.addEventListener('click', ()=>{
-    if(breakPaused){
-      breakPaused = false;
-      playPauseBreak.innerText = 'pause';
-      breakInterval = setInterval(checkBreakTime, 1000);
+
+    var finalSessionTimer
+    var finalBreakTimer
+    var currentStatDisplay
+    var timerStarted = false;
+
+
+    function setStartInterval() {
+
+        finalSessionTimer = selecetedSessionTime;
+        finalBreakTimer = selecetedBreakTime;
+
+        currentStatDisplay = finalSessionTimer
+
+        timerStarted = true;
     }
-    else{
-      breakPaused = true;
-      playPauseBreak.innerText = 'play';
-      clearInterval(breakInterval);
+
+
+    var myTimer
+    var seconds = 60
+    var pomodoroSessionStat = true;
+
+    function startTimer() {
+
+        myTimer = setInterval(function() {
+
+            if (seconds == 60) {
+
+                currentStatDisplay = currentStatDisplay - 1
+                currentMinutInt = currentStatDisplay
+            }
+
+            seconds = seconds - 1
+            currentSecondInt = seconds
+
+
+            if (seconds == 0 && currentMinutInt == 0) {
+
+                if (pomodoroSessionStat) {
+                    seconds = 60
+                    currentStatDisplay = finalBreakTimer
+                    currentMinutInt = currentStatDisplay
+
+                    pomodoroSessionStat = false;
+                    sessionRunning = false;
+                    currentClockStat.innerHTML = "Break"
+                    
+                   /* url = "sound/hellodarknessmyoldfriend.mp3";
+
+                    playSound(url)*/
+                    
+                    sunSet.classList.remove("bgSunClass");
+
+                } else {
+                    seconds = 60
+                    currentStatDisplay = finalSessionTimer
+                    currentMinutInt = currentStatDisplay
+
+                    pomodoroSessionStat = true;
+                    sessionRunning = true;
+                    currentClockStat.innerHTML = "Session"
+                    
+                   /* url = "sound/work.mp3";
+
+                    playSound(url)*/
+                    
+                    sunSet.classList.add("bgSunClass");
+                }
+            }
+
+            if (seconds < 1) {
+                seconds = 60
+            }
+
+            displayClock()
+
+        }, 1000);
     }
-  });
-  
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const activeTab = document.querySelector('.activeLi');
-      activeTab.classList.remove('activeLi');
-      tab.classList.add('activeLi');
-      const target = document.querySelector(tab.dataset.tabTarget);
-      tabContents.forEach(tabContent => {
-        tabContent.style.display="none";
-      });
-      target.style.display="grid";
-    });
-  });
-  
-  function openSettings(){
-    modal.style.display = 'grid';
-    modal.addEventListener('click', (e) => {
-      if(e.target == modal || e.target == closeBtn){
-        e.preventDefault();
-        modal.style.display = 'none';
-        applyBtn.removeEventListener('click', applyEvent);
-      }
-    });
-    
-    applyBtn.addEventListener('click', (e) => applyEvent(e));
-  }
-  
-  function applyEvent(e){
-    e.preventDefault();
-    modal.style.display = 'none';
-    if(timer.value == 0) return;
-    else{
-      mainMins = timer.value;
-      mainMinutes.innerText = mainMins;
+
+    function pauseTimer() {
+        clearInterval(myTimer);
     }
-  }
-  
-  function checkPomodoroTime(){
-    if(mainSecd == 0 && mainMins == 0) clearInterval(breakInterval);
-    if(mainSecd == 0){
-      mainMins--;
-      mainMinutes.innerText = mainMins;
-      mainSecd = 60;
+
+    function resetTimer() {
+
+        clearInterval(myTimer);
+
+        currentMinutInt = finalSessionTimer
+        currentSecondInt = 0;
+        seconds = 60
+
+        displayClock()
+
+        timerStarted = false;
+        pomodoroSessionStat = true;
+        sessionRunning = true;
+        currentClockStat.innerHTML = "Ready?"
     }
-    mainSecd--;
-    mainSecd = mainSecd >= 10 ? mainSeconds.innerText = mainSecd : mainSeconds.innerHTML = '0' + mainSecd;
-    if(mainMins == 0) clearInterval(pomodoroInterval);
-  }
-  
-  function checkBreakTime(){
-    breakSecd--;
-    breakSecd = mainSecd >= 10 ? breakSeconds.innerText = breakSecd : breakSeconds.innerHTML = '0' + breakSecd;
-    if(breakSecd == 0){
-      breakMins--;
-      breakMinutes.innerText = breakMins;
-      breakSecd = 60;
+
+
+  /* var url = "sound/hellodarknessmyoldfriend.mp3";
+   
+    function playSound(url) {
+        var audio = document.createElement('audio');
+        audio.style.display = "none";
+        audio.src = url;
+        audio.autoplay = true;
+        audio.onended = function() {
+            audio.remove() //Remove when played.
+        };
+        document.body.appendChild(audio);
     }
-    if(breakMins == 0) clearInterval(breakInterval);
-  }
-  
-  // TODO APP
-  
-  function clearTasks() {
-    if(confirm("Clear all tasks from the list?")){
-        const tasks = document.querySelectorAll(".task");
-  
-        tasks.forEach(function (task) {
-          removeLocaltasks(task);
-          task.remove();
-          checkList();
-        });
-  
-        setBackToDefault();
-        displayNotif("Deleted all tasks from the list", "warning");
-    }
-  }
-  
-  function deletecheck(e){
-  
-    //delete
-    const item = e.target;
-    if (item.classList[0] === "trash-btn") {
-      setBackToDefault();
-      const task = item.parentElement;
-      //task.classList.add("fade");
-      displayNotif("Task deleted", "warning");
-      removeLocaltasks(task);
-      task.remove();
-      checkList();
-    }
-  
-    //check
-    if (item.classList[0] === "check") {
-      const task = item.parentElement.parentElement.parentElement;
-      task.classList.toggle("completed");
-      if (task.classList.contains("completed")) {
-        displayNotif("Task completed", "success");
-      } else {
-        displayNotif("Task unchecked", "warning");
-      }
-    }
-  
-    //edit
-    if (item.classList[0] === "task-item") {
-      editElement = item;
-      taskInput.value = editElement.innerText;
-      taskInput.focus();
-      editFlag = true;
-      editId = editElement.dataset.id;
-    }
-  
-  }
-  
-  
-  function setBackToDefault() {
-    editFlag = false;
-    taskInput.value = "";
-    editId = "";
-  }
-  
-  function filter(e) {
-    const tasks = taskList.childNodes;
-    tasks.forEach(function (task) {
-      switch (e.target.value) {
-        case "All":
-          task.style.display = "flex";
-          checkList();
-          break;
-        case "Completed":
-          if (task.classList.contains("completed")) {
-            task.style.display = "flex";
-          } else {
-            task.style.display = "none";
-          }
-          checkList();
-          break;
-        case "Remaining":
-          if (!task.classList.contains("completed")) {
-            task.style.display = "flex";
-          } else {
-            task.style.display = "none";
-          }
-          checkList();
-          break;
-      }
-    });
-  }
-  
-  //selectors
-  
-  const notifs = document.getElementById("notif-container");
-  const taskInput = document.querySelector(".task-input");
-  const taskButton = document.querySelector(".task-btn");
-  const emptyDiv = document.querySelector(".empty");
-  const taskList = document.querySelector(".task-list");
-  const clrtask = document.querySelector(".clr-task");
-  const color = document.querySelector(".color");
-  const hex = ["0", "1", "2", "3", "4", "5", "6", "7",
-               "8", "9", "B", "C", "D", "E", "F"];
-  let editFlag = false;
-  let editId = "";
-  let editElement;
-  
-  //eventlisteners
-  document.addEventListener("DOMContentLoaded", getTasks);
-  //taskInput.addEventListener('input', markdown);
-  taskButton.addEventListener("click", addtask);
-  taskList.addEventListener("click", deletecheck);
-  clrtask.addEventListener("click", clearTasks);
-  color.addEventListener("click", function () {
-    let hexcolor = "#";
-    for (i = 0; i < 6; i++) {
-      hexcolor += hex[getRandomNumber()];
-    }
-    document.documentElement.style.setProperty("--theme", hexcolor);
-  });
-  
-  //functions
-  
-  function getRandomNumber() {
-    return Math.floor(Math.random() * hex.length);
-  }
-  
-  function markdown(){
-    var text = taskInput.value;
-    
-  }
-  
-  function addtask(event) {
-    event.preventDefault();
-    const id = new Date().getTime().toString();
-  
-    if (taskInput.value && !editFlag) {
-  
-      //id
-      const attr = document.createAttribute("data-id");
-      attr.value = id;
-  
-      //new div
-      const taskdiv = document.createElement("div");
-      taskdiv.classList.add("task");
-  
-      //Completed button
-      const completedButton = document.createElement("button");
-      completedButton.innerHTML = '<label class="checkbox"><input type="checkbox" class="check" /><svg viewBox="0 0 24 24" filter="url(#goo-light)"><path class="tick" d="M4.5 10L10.5 16L24.5 1" /><circle class="dot" cx="10.5" cy="15.5" r="1.5" /><circle class="drop" cx="25" cy="-1" r="2" /></svg></label>';
-      completedButton.classList.add("complete-btn");
-      taskdiv.appendChild(completedButton);
-  
-      //new list
-      const newtask = document.createElement("li");
-      newtask.setAttributeNode(attr);
-      let value = taskInput.value;
-      newtask.innerText = value;
-      newtask.classList.add("task-item");
-      taskdiv.appendChild(newtask);
-  
-      //Trash Button
-      const trashbtn = document.createElement("button");
-      trashbtn.innerHTML = '<i class="fas fa-times"></i>';
-      trashbtn.classList.add("trash-btn");
-      taskdiv.appendChild(trashbtn);
-  
-      //saveLocal
-      saveLocaltasks(id, taskInput.value);
-      //append
-      taskList.appendChild(taskdiv);
-      taskdiv.scrollIntoView();
-      //clear input
-      taskInput.value = "";
-      displayNotif("Task added to the list", "success");
-      checkList();
-  
-    } else if (taskInput.value && editFlag) {
-      let value = taskInput.value;
-      editElement.innerText = value;
-      displayNotif("Task edited", "success");
-      editLocalTasks(editId, value);
-      setBackToDefault();
-  
-    } else {
-      displayNotif("Please enter a value", "warning");
-    }
-  
-  }
-  
-  function displayNotif(text, action) {
-    const notif = document.createElement('p');
-    notif.innerText = text;
-    notif.classList.add("notif");
-    notif.classList.add(`alert-${action}`);
-    notifs.appendChild(notif);
-    //remove alert
-    setTimeout(function () {
-      notifs.removeChild(notif);
-    }, 2000);
-  }
-  
-  function saveLocaltasks(id, value) {
-    const items = { id, value };
-    let tasks;
-    if (localStorage.getItem("tasks") === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem("tasks"));
-    }
-  
-    tasks.push(items);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
-  
-  function getTasks() {
-    let tasks;
-    if (localStorage.getItem("tasks") === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem("tasks"));
-    }
-  
-    tasks.forEach((task) => {
-      //id
-      const attr = document.createAttribute("data-id");
-      attr.value = task.id;
-  
-      //new div
-      const taskdiv = document.createElement("div");
-      taskdiv.classList.add("task");
-  
-      //Completed button
-      const completedButton = document.createElement("button");
-      completedButton.innerHTML = '<label class="checkbox"><input type="checkbox" class="check"/><svg viewBox="0 0 24 24" filter="url(#goo-light)"><path class="tick" d="M4.5 10L10.5 16L24.5 1" /><circle class="dot" cx="10.5" cy="15.5" r="1.5" /><circle class="drop" cx="25" cy="-1" r="2" /></svg></label>';
-      completedButton.classList.add("complete-btn");
-      taskdiv.appendChild(completedButton);
-  
-      //new list
-      const newtask = document.createElement("li");
-      newtask.setAttributeNode(attr);
-      let value = task.value;
-      newtask.innerText = value;
-      newtask.classList.add("task-item");
-      taskdiv.appendChild(newtask);
-  
-      //Trash Button
-      const trashbtn = document.createElement("button");
-      trashbtn.innerHTML = '<i class="fas fa-times"></i>';
-      trashbtn.classList.add("trash-btn");
-      taskdiv.appendChild(trashbtn);
-  
-      //append
-      taskList.appendChild(taskdiv);
-    });
-  }
-  
-  function editLocalTasks(id, value) {
-    let tasks;
-    if (localStorage.getItem("tasks") === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem("tasks"));
-    }
-  
-    tasks = tasks.map((task) => {
-      if (task.id == id) {
-        task.value = value;
-      }
-      return task;
-    });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
-  
-  function removeLocaltasks(task) {
-    let tasks;
-    if (localStorage.getItem("tasks") === null) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem("tasks"));
-    }
-  
-    const taskIndex = task.children[0].innerText;
-    tasks.splice(tasks.indexOf(taskIndex), 1);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
-  
-  function checkList() {
-    const tasks = taskList.childNodes;
-    if (tasks.length == 0) {
-      taskList.style.display = "none";
-    } else {
-      taskList.style.display = "block";
-    }
-  }
-  
-  window.addEventListener("load", () => {
-    checkList();
-  });
+    */
+
+    var sunSet = document.querySelector(".bgSun")
+    var maincontainer = document.querySelector(".maincontainer")
+    var cloud = document.querySelector(".cloud") 
+    var cloud1 = document.querySelector(".cloud1") 
+    var cloud2 = document.querySelector(".cloud2") 
+    var cloud3 = document.querySelector(".cloud3") 
+
+    setTimeout(function() {
+
+        sunSet.classList.add("bgSunClass");
+
+        setTimeout(function() {
+            maincontainer.style.opacity = "0.8"
+        }, 4000);
+        
+        setTimeout(function() {
+            timeIntervalsContainer.style.opacity = "0.8"
+        }, 7000);
+        
+        setTimeout(function() {
+            
+            cloud.style.left = "46%"
+            cloud1.style.left = "25%"
+            cloud2.style.left = "75%"
+            cloud3.style.left = "54%"
+            
+        }, 2000);
+    }, 500);
 
 }
-// document.querySelector("#navList > img").style.color = "fill: white";
