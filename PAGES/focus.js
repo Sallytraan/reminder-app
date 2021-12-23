@@ -87,7 +87,8 @@ var startClock = document.querySelector(".startClock")
             cloud.style.top = "500px"
             cloud1.style.top = "300px"
             cloud2.style.top = "200px"
-            cloud3.style.right = "200%"
+            cloud2.style.left = "200px"
+            cloud3.style.top = "450px"
             timeIntervalsContainer.style.opacity = "0.0"
         }
 

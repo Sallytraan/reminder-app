@@ -27,13 +27,12 @@
 
     .water {
         position: absolute;
-        top: 95%;
+        top: 92%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100vw;
-        height: 50%;
+        height: 300px;
         background: radial-gradient(ellipse at 50% 50%, #60BFFF, #26547C 90%);
-        border-radius: 100%;
         z-index: 1;
     }
 
@@ -151,8 +150,8 @@
     
     .cloud2{
         position: absolute;
-        width: 200px;
-        height: 100px;
+        width: 150px;
+        height: 75px;
         left: -100%;
         top: 58%;
         transform: translate(0%, -50%);
@@ -164,8 +163,8 @@
     
     .cloud3{
         position: absolute;
-        width: 200px;
-        height: 100px;
+        width: 180px;
+        height: 90px;
         left: -100%;
         top: 57%;
         transform: translate(0%, -50%);
