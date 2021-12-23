@@ -14,7 +14,7 @@
             foreach ($data as $key => $value) {
 
                 
-                if (!$value["contract"]){
+                if ($value["contract"]){
                     echo '<script src="../PAGES/contract.js"></script>';
                 } else {
                     echo '<script src="../PAGES/to-do.js"></script>'; 
