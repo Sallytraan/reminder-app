@@ -1,3 +1,4 @@
+/* FIRST PAGE */ 
 
 #wrapperSignInSignUp {
     display: flex;
@@ -6,6 +7,7 @@
     height: 100vh;
     background-color: rgb(255, 204, 251);
     margin: 0;
+    width: 100%;
 }
 
 #welcomeTitle {
@@ -34,7 +36,7 @@
 
 
 
-
+/* WELCOME INTRO */ 
 
 
 
@@ -46,6 +48,7 @@
     height: 100vh;
     background-color: rgb(255, 204, 251);
     margin: 0;
+    width: 100%;
 }
 
 #welcomeTitleIntro {
@@ -99,7 +102,7 @@
 
 
 
-
+/* CONTRACT */ 
 
 
 #contractWrapper {
@@ -137,3 +140,95 @@
     margin-bottom: 75px;
 }
 
+
+
+
+
+/* SIGN UP */ 
+
+.iconUserName {
+    background-image: url(../ICONS_BLACK/profile-icon.svg);
+}
+
+.inputIcon {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-y: center;
+    background-position-x: 2px;
+    padding-left: 25px;
+}
+
+.iconEmail {
+    background-image: url(../ICONS_BLACK/email-icon.svg);
+}
+
+.iconPassword {
+    background-image: url(../ICONS_BLACK/lock-icon.svg);
+}
+
+#signUpWrapper {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(255, 204, 251);
+    margin: 0;
+    width: 100%;
+
+    padding-top: 20px;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpForm > input {
+    border: 1px solid black;
+    height: 25px;
+    width: 200px;
+    margin: 5px 0px;
+}
+
+.signUpForm > h1 {
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+.signUpForm > p {
+    text-align: center;
+}
+
+.signUpForm > p > a {
+    color: black;
+}
+
+.signUpSignInButton {
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 10px 0px;
+
+    height: 35px;
+    width: 150px;
+
+    background-color: rgb(231, 170, 231);
+    margin-top: 20px;
+}
+
+.error {
+    position: absolute;
+}
+
+
+/* SIGN IN */
+
+#signInWrapper {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(255, 204, 251);
+    margin: 0;
+    width: 100%;
+
+    padding-top: 20px;
+}

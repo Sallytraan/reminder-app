@@ -56,16 +56,18 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"])) {
 }
 
 ?>
-
-<form method="POST" action="sign-up.php">
-<div id="signInForm">
-    <h1>Create an account</h1>
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="password" placeholder="Confirm password">
-    <button id="sign-up-button">Sign in</button>
+<div id="signUpWrapper">
+ <form method="POST" action="sign-up.php">
+    <div class="signUpForm">
+      <h1>Create an account</h1>
+      <input type="text" name="username" placeholder="Username" class="iconUserName inputIcon">
+      <input type="text" name="email" placeholder="Email" class="iconEmail inputIcon">
+      <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
+      <input type="password" name="password" placeholder="Confirm password" class="iconPassword inputIcon">
+      <button class="signUpSignInButton">Create an account</button>
+      <p>Already have an account? <br> <a href="../ADMIN/sign-in.php">Sign in</a></p>
     </div>
+</div>
     <?php
 //Error
     if (isset($error)) { ?>

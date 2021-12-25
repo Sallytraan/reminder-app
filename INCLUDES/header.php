@@ -15,6 +15,9 @@ session_start();
         <link rel="stylesheet" href="../CSS/list.css">
         <link rel="stylesheet" href="../CSS/welcome.css">
         <link rel="stylesheet" href="../CSS/profile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -31,7 +34,7 @@ if (isset($_SESSION["id"])) {
             // göra if-sats för bara inloggning har tillgång till anv.
             if ($value["contract"]) {
                 echo "
-                <p id='logotyp'> REMINDER </p>";                
+                <p id='logotyp'> Reminder </p>";                
             }        
         }
     }  

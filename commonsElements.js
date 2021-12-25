@@ -23,9 +23,13 @@ navFocus.addEventListener("click", () => {
 });
     
 navProfile.addEventListener("click", () => {
-    // här skriver vi hur vi vill ha ‘Fade In’
-    
-    // här skriver vi hur vi vill ha ‘Fade out’
+    wrapper.style.opacity = 0;
+
+    //Fade In
+    setTimeout(function(){
+        theProfile();
+        wrapper.style.opacity = 1;
+    }, transitionDuration);
 });
     
 
