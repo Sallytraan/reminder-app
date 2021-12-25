@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: rgb(255, 204, 251);
+    background-color: #FFB69B;
     margin: 0;
     width: 100%;
 }
@@ -21,20 +21,33 @@
 }
 
 #welcomeContainer > button {
-    border-radius: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
     margin: 10px 0px;
 
-    height: 50px;
+    height: 40px;
     width: 150px;
 
-    background-color: rgb(231, 170, 231);
+    background-color: #FF936B;
+    margin-top: 20px;
+    transition: 1s;
+}
+#welcomeContainer > button:hover {
+    cursor: pointer;
 }
 
 #welcomeContainer > :first-child {
     margin-top: 100px;
 }
 
+#welcomeContainer > button > a {
+    text-decoration: none;
+    color: black;
+}
 
+#welcomeContainer > button:hover {
+    background-color: #fc6f3c;
+}
 
 /* WELCOME INTRO */ 
 
@@ -46,7 +59,7 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: rgb(255, 204, 251);
+    background-color: #FFB69B;
     margin: 0;
     width: 100%;
 }
@@ -94,8 +107,8 @@
     height: 50px;
     width: 150px;
 
-    background-color: rgb(231, 170, 231);
-
+    background-color: #FF936B;
+    transition: 1s;
 }
 
 
@@ -170,7 +183,7 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-color: rgb(255, 204, 251);
+    background-color: #FFB69B;
     margin: 0;
     width: 100%;
 
@@ -211,14 +224,19 @@
     height: 35px;
     width: 150px;
 
-    background-color: rgb(231, 170, 231);
+    background-color: #FF936B;
+    transition: 1s;
     margin-top: 20px;
+}
+
+.signUpSignInButton:hover {
+    background-color: #fc6f3c;
+    cursor: pointer;
 }
 
 .error {
     position: absolute;
 }
-
 
 /* SIGN IN */
 
@@ -226,7 +244,7 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-color: rgb(255, 204, 251);
+    background-color:#FFB69B;
     margin: 0;
     width: 100%;
 
