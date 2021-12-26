@@ -14,7 +14,9 @@ function toDo(){
         <p></p>
     </div>
     `;
+    navList.classList.add("selectedNav");
+    navFocus.classList.remove("selectedNav");
+    navProfile.classList.remove("selectedNav");
 }
 
-document.getElementById("navList").style.backgroundColor = "grey";
 // document.querySelector("#navList > img").style.color = "fill: white";

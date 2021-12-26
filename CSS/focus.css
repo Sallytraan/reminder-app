@@ -1,0 +1,232 @@
+
+#theTimerWrapper {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    width: 100vw;
+}
+    .bgSun {
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: radial-gradient(circle at 50% 50%, #fff 12%, #FFE460 20%, #ffe577 25%, #fec051 40%, #ff8967 60%, #fd6051 80%, #392033 95%, #000 100%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100vw;
+        z-index: -2;
+        transition: all 5s;
+        background-size: 100% 500%;
+        transform: rotateX(180deg);
+        background-position: bottom;
+    }
+
+    .bgSunClass {
+        transition: all 5s;
+        background-size: 200% 100%;
+    }
+
+
+    .water {
+        position: absolute;
+        top: 92%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 300px;
+        background: radial-gradient(ellipse at 50% 50%, #60BFFF, #26547C 90%);
+        z-index: 1;
+    }
+
+    .water:after {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        display: block;
+        content: '';
+        width: 40vmin;
+        height: 80vmin;
+        background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.35), transparent 30%);
+    }
+
+
+    .maincontainer {
+        position: absolute;
+        text-align: center;
+        font-family: 'Old Standard TT', serif;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 3s;
+    }
+
+    .clockContainer {
+        margin: 0 auto;
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+    }
+
+    .pomodoroDisplay {
+        height: 200px;
+        width: 200px;
+        position: relative;
+        top: 100px;
+        left: 100px;
+        border-radius: 50%;
+    }
+
+    .pomodoroDisplay h2 {
+        font-size: 20px;
+        padding-top: 55px;
+        margin: 0;
+        font-family: 'Josefin Slab', serif;
+    }
+
+    .timeDisplay {
+        font-size: 40px;
+        margin: 0;
+    }
+
+    .controls {
+        text-align: left;
+        padding-left: 65px;
+    }
+
+    .controls div {
+        cursor: pointer;
+    }
+
+    .controls i {
+        font-size: 12px;
+    }
+
+    .startClock {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pauseClock {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+
+    .restartClock {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+    
+    .cloud{
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        left: 0%;
+        top: 58%;
+        transform: translate(-100%, -50%);
+        background: url("https://www.svgimages.com/svg-image/s7/cloud.svg");
+        background-size: cover;
+        z-index: 3;
+        transition: all 5s;
+    }
+    
+    .cloud1{
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        left: 0%;
+        top: 57%;
+        transform: translate(-100%, -50%);
+        background: url("https://www.svgimages.com/svg-image/s7/cloud.svg");
+        background-size: cover;
+        z-index: 3;
+        transition: all 8s;
+    }
+    
+    .cloud2{
+        position: absolute;
+        width: 150px;
+        height: 75px;
+        left: -100%;
+        top: 58%;
+        transform: translate(0%, -50%);
+        background: url("https://www.svgimages.com/svg-image/s7/cloud.svg");
+        background-size: cover;
+        z-index: 3;
+        transition: all 10s;
+    }
+    
+    .cloud3{
+        position: absolute;
+        width: 180px;
+        height: 90px;
+        left: -100%;
+        top: 57%;
+        transform: translate(0%, -50%);
+        background: url("https://www.svgimages.com/svg-image/s7/cloud.svg");
+        background-size: cover;
+        z-index: 3;
+        transition: all 8s;
+    }
+    
+    .timeIntervalsContainer {
+        position: relative;
+        text-align: center;
+        width: 130px;
+        display: grid;
+        grid-template-areas: "sessions breaks";
+        font-size: 20px;
+        z-index: 3;
+        top: 60px;
+        left: 140px;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .breakContainer {
+        grid-area: breaks;
+    }
+
+    .sessionContainer {
+        grid-area: sessions;
+    }
+
+    .timeIntervalsContainer i {
+        font-size: 25px;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .currentBreak {
+        margin: 0 auto;
+        height: 40px;
+        width: 60px;
+        background-color: rgba(0,0,0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+        margin-bottom: 5px;
+
+    }
+
+    .currentSession {
+        margin: 0 auto;
+        height: 40px;
+        width: 60px;
+        background-color: rgba(0,0,0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+        margin-bottom: 5px;
+    }   
+
+    
+    
+    

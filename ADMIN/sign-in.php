@@ -43,8 +43,9 @@ if (isset($_POST["email"], $_POST["password"])) {
 <?php
 require_once "../INCLUDES/header.php";
 ?>
-
-<form method="POST" action="sign-in.php">
+<div id="signUpWrapper">
+  <form method="POST" action="sign-in.php">
+  <div class="signUpForm">
     <h1>Let's get you logged in!</h1>
     <?php 
         // Om inloggning misslyckas.  
@@ -62,13 +63,13 @@ require_once "../INCLUDES/header.php";
             }
         } 
     ?>
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <button id="sign-up-button">Sign in</button>
-</form>
-<div>
-    <p> Don't have an account? </p>
-    <a href="sign-up.php"> Create an account </a>
+    <input type="text" name="email" placeholder="Email" class="iconEmail inputIcon">
+    <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
+    <button class="signUpSignInButton">Sign in</button>
+    <p> Don't have an account? 
+    <br> <a href="sign-up.php"> Create an account </a></p>
+ </div>
+ </form>
 </div>
 
 
