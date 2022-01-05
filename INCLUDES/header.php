@@ -22,33 +22,61 @@ session_start();
     <body>
         <header>
         <?php
-$data = json_decode(file_get_contents("API/users.json"), true);
-$sessionID = $_SESSION["id"];
+        // variabler
+        $data = json_decode(file_get_contents("API/users.json"), true);
+        $taskData = json_decode(file_get_contents("API/list.json"), true);
+        $ongoingTasks = $taskData["ongoing"];
+        $id = $_SESSION["id"];
+        $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
 
-// kollar om man är inloggad + kontrakt = visar headern för användaren.
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
+        //echo $user;
 
-    foreach ($data as $key => $value) {
-        if ($id == $value["id"]) {
-            // göra if-sats för bara inloggning har tillgång till anv.
-            if ($value["contract"]) {
-                echo "
-                <p id='logotyp'> Reminder </p>";                
-            }        
+        // kollar om man är inloggad + kontrakt = visar headern för användaren.
+        if (isset($_SESSION["id"])) {
+            $id = $_SESSION["id"];
+
+            foreach ($data as $key => $value) {
+                if ($id == $value["id"]) {
+                    // göra if-sats för bara inloggning har tillgång till anv.
+                    if ($value["contract"]) {
+                        echo "
+                        <p id='logotyp'> Reminder </p>";                
+                    }        
+                }
+            }
+            
+            // går igenom list.json för att få fram användarens tasks.
+            foreach ($ongoingTasks as $obj => $value) {
+                $taskArray = [];
+                if ($id == $value["user"]) {
+                    $task = $value["task"];
+                    $date = $value["date"];                    
+                }
+
+                // så vi får JSON-datat                    
+                $JSONdataTasks = json_encode($task, JSON_PRETTY_PRINT);
+                $JSONdataDates = json_encode($date, JSON_PRETTY_PRINT);
+            }
+            echo "<script> const TASK = $JSONdataTasks </script>";
+            echo "<script> const DATE = $JSONdataDates </script>";
+
+            echo "
+            <script> 
+                const ID = $id 
+                const USER = $userName
+            </script>
+            ";
+                //echo "<script>  </script>";
+                //$sessionID = $_SESSION["id"];
+                // $contractChange = $changeTheContract;
+                
+                // echo "<script> const changeContract = $contractChange </script>";
+                //echo "<script> const ID = $id </script>";
+                //echo "<script> const USER_NAME = $userName </script>";
         }
-    }  
-
-    $sessionID = $_SESSION["id"];
-    $userName = $_SESSION["username"];
-    $contractChange = $changeTheContract;
-    
-    echo "<script> const changeContract = $contractChange </script>";
-    echo "<script> const ID = $id </script>";
-    echo "<script> const USER_NAME = $userName </script>";
-
-}
-    ?>
+        ?>
         </header>
         <main id="wrapper">
+
+
 

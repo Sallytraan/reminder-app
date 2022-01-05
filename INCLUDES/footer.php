@@ -1,6 +1,4 @@
-
-        </main>
-
+    </main>
         <footer>
             <?php 
             if (isset($_SESSION["id"])) {

@@ -1,7 +1,9 @@
 #wrapper {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+
+    margin: 15px;
 }
 form {
     width: 75%;
@@ -49,3 +51,19 @@ form {
 .circle:first-child { background-color: #FFA19B;}
 .circle:nth-child(2) { background-color: #FFD79B;}
 .circle:last-child { background-color: #9BFFB7;}
+
+/* individuella tasks */
+
+/* måste fixa taskboxen i js för att man ska kunna ändra färg beroende på vilken knapp som trycks. */
+.taskBox {
+    display: flex;
+    align-items: center;
+
+    height: 50px;
+    background-color: #FFA19B;
+    border-radius: 8px;
+}
+
+.task {
+    margin: 10px;
+}
