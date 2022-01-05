@@ -25,9 +25,11 @@ session_start();
         // variabler
         $data = json_decode(file_get_contents("API/users.json"), true);
         $taskData = json_decode(file_get_contents("API/list.json"), true);
-        $ongoingTasks = $taskData["ongoing"];
         $id = $_SESSION["id"];
         $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+
+        // testar om jag kan överföra JSON till js.
+        $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
 
         //echo $user;
 
@@ -44,26 +46,13 @@ session_start();
                     }        
                 }
             }
-            
-            // går igenom list.json för att få fram användarens tasks.
-            foreach ($ongoingTasks as $obj => $value) {
-                $taskArray = [];
-                if ($id == $value["user"]) {
-                    $task = $value["task"];
-                    $date = $value["date"];                    
-                }
 
-                // så vi får JSON-datat                    
-                $JSONdataTasks = json_encode($task, JSON_PRETTY_PRINT);
-                $JSONdataDates = json_encode($date, JSON_PRETTY_PRINT);
-            }
-            echo "<script> const TASK = $JSONdataTasks </script>";
-            echo "<script> const DATE = $JSONdataDates </script>";
-
+            // det vi vill överföra till js och använda
             echo "
             <script> 
                 const ID = $id 
                 const USER = $userName
+                const TASK_DATA = $JSONTaskData
             </script>
             ";
                 //echo "<script>  </script>";

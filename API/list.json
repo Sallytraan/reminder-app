@@ -27,6 +27,13 @@
             "priority": 2,
             "task": "eat with friend",
             "date": "December 21, 2021"
+        },
+        {
+            "id": 5,
+            "user": 1,
+            "priority": 2,
+            "task": "do homework",
+            "date": "January 5, 2022"
         }
     ],
     "finished": [

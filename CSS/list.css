@@ -55,15 +55,32 @@ form {
 /* individuella tasks */
 
 /* måste fixa taskboxen i js för att man ska kunna ändra färg beroende på vilken knapp som trycks. */
-.taskBox {
+.taskWrapper {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
     height: 50px;
     background-color: #FFA19B;
     border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.taskBox {
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    font-size: 10px;
+    margin: 0px 10px 0px 10px;
+}
+
+/* denna måste fixas */
+.icon {
+    display: flex;
+    align-items: flex-end;
 }
 
 .task {
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
 }
