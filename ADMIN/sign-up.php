@@ -33,6 +33,7 @@ function addUser($postInfo){
     //ID:et av den nya usern
     $newUser["id"] = $highestID + 1;
     $_SESSION["id"] = $newUser["id"];
+    $_SESSION["username"] = $newUser["username"];
     //lägg till user i db.json
     $data = json_decode(file_get_contents("../API/users.json"), true);
     array_push($data, $newUser);
