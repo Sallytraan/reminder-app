@@ -25,6 +25,7 @@ function toDo(){
 
     let ongoingWrapper = document.getElementById("ongoing");
     let ongoingArray = TASK_DATA["ongoing"];
+    let completedArray = TASK_DATA["finished"];
 
     ongoingArray.forEach(obj => {
         console.log(obj); // ska visa alla objekt i arrayen. Kollar för säkerhets skull.
@@ -32,17 +33,36 @@ function toDo(){
         // vi vill komma åt 'task' + 'date'
         let div = document.createElement("div");
         div.innerHTML = `
-        <div class="taskWrapper">
             <div class="taskBox">
-                <p class="task"> ${obj.task}</p>
-                <img class="icon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'>
-                <img class="icon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'>
-            </div>
-            <p class="date"> ${obj.date} </p>
-        </div>`;
+                <div class="taskText">
+                    <p class="task"> ${obj.task}</p>            
+                    <p class="date"> ${obj.date} </p>
+                </div>
+                
+                <div class="taskButtons">
+                    <img class="editIcon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'>
+                    <img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'>
+                    <img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'>
+                </div>
+            </div>`;
 
         ongoingWrapper.append(div);
     });
+
+    // går igenom arrayen och checkar om id är samma som usern i task-arrayen --> deletea innehållet?? Hur gör man det genom JS, kolla 'DELETE', borde finnas.
+    
+    // radera object från ongoing-arrayen. Vet inte hur man ska göra lol....
+    let removeButton = document.querySelector(".removeIcon");
+    removeButton.addEventListener("click", event => {
+        let click = event.target.parentElement.parentElement;
+        console.log(click);
+        /* ongoingArray.forEach(obj => {
+            if (ID === obj.user) {
+                console.log(obj);
+            }
+        }) */
+    })
+
 
     // gör att navven ändrar färg.
     navList.classList.add("selectedNav");

@@ -35,52 +35,86 @@ form {
 /* cirklarna */
 #importantCircles {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: row;
 }
 
-.circle {
+#circle1, #circle2, #circle3 {
     height: 45px;
     width: 45px;
     border-radius: 50%;
 
-    margin: 5px 25px 5px 25px;
+    margin: 15px;
 }
 
-.circle:first-child { background-color: #FFA19B;}
-.circle:nth-child(2) { background-color: #FFD79B;}
-.circle:last-child { background-color: #9BFFB7;}
+#circle1 { background-color: #FFA19B;}
+#circle2 { background-color: #FFD79B;}
+#circle3 { background-color: #9BFFB7;}
 
 /* individuella tasks */
 
+#toDoWrapper h3 {
+    margin-bottom: 10px;
+}
+
 /* måste fixa taskboxen i js för att man ska kunna ändra färg beroende på vilken knapp som trycks. */
-.taskWrapper {
+/* .taskWrapper {
     display: flex;
     flex-direction: column;
 
     height: 50px;
-    background-color: #FFA19B;
+    background-color: rgb(233, 252, 255);
+    border: black 1.5px solid;
+    border-radius: 8px;
+    margin-bottom: 5px;
+} */
+
+.taskBox {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    height: 50px;
+    background-color: rgb(233, 252, 255);
+    border: black 1.5px solid;
     border-radius: 8px;
     margin-bottom: 5px;
 }
 
-.taskBox {
-    display: flex;
-    align-items: center;
+.taskText {
+    margin: 10px;
+}
+
+.taskText > p {
+    margin: 0;
 }
 
 .date {
     font-size: 10px;
-    margin: 0px 10px 0px 10px;
 }
 
-/* denna måste fixas */
-.icon {
+.taskButtons {
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    margin: 10px;
 }
 
+.taskButtons > img {
+    margin: 0px 4px;
+}
+
+.taskButtons > img:last-child {
+    margin-right: 0px;
+}
+
+#addTask {
+    margin-top: 10px;
+}
+
+#addTask img{
+    height: 28px;
+}
+
+/* 
 .task {
     margin: 10px 10px 0px 10px;
-}
+} */

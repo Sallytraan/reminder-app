@@ -87,12 +87,15 @@ if (isset($_SESSION["id"])) {
                             <p>What's the level of importance?</p>
                         </div>
                         <div id="importantCircles">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div>
+                            <div id="circle1"></div>
+                            <div id="circle2"></div>
+                            <div id="circle3"></div>
                         </div>
                     </div>
-                    <button id="undo-button">
+                    <?php 
+                        // kanske ta bort button nedan. se vad som är bäst.  
+                    ?>
+                    <button id="undo-button"> 
                     <a href="../index.php"><img src="../ICONS_BLACK/remove-icon.svg"></a>
                     </button>
                     <button id="add-button">
@@ -101,4 +104,6 @@ if (isset($_SESSION["id"])) {
 
                 </form>
             </main>
+    </body>
+</html> 
         
