@@ -1,16 +1,12 @@
 "use strict";
 contractSite();
-document.querySelector('.contractButton').addEventListener("mousedown", function(){
-    setTimeout(() => {
-        document.querySelector(".removeTextH1").style.display="none";
-        document.querySelector(".removeTextP1").style.display="none";
-        document.querySelector(".removeTextP2").style.display="none";
-        document.querySelector("#contractWrapper").style.padding="0px";
-        document.querySelector("#contractWrapper").style.margin="0px";
-    }, 1000);
+document.querySelector('.contractButton').addEventListener("click", function(){
 
-    changeContract;
+
+
 });
+
+console.log(changeTheContract);
 
 function contractSite(){
     //Hamna högst upp på sidan

@@ -97,5 +97,68 @@
         "color-scheme": 0,
         "contract": false,
         "id": 11
+    },
+    {
+        "username": "Vera",
+        "email": "pranvera@gmail.com",
+        "password": "hejhejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": true,
+        "id": 12
+    },
+    {
+        "username": "sebbe",
+        "email": "sebbe@mau.se",
+        "password": "sebbe",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 13
+    },
+    {
+        "username": "verav",
+        "email": "verapran@hotmail.com1",
+        "password": "rerere",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 14
+    },
+    {
+        "username": "Anna",
+        "email": "anna@hotmail.com",
+        "password": "anna",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 15
+    },
+    {
+        "username": "annana",
+        "email": "anna@hotmail.com",
+        "password": "anna",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 16
+    },
+    {
+        "username": "hejhej",
+        "email": "hej@gmail.com",
+        "password": "hejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 17
+    },
+    {
+        "username": "hejhej",
+        "email": "hej@gmail.com",
+        "password": "hejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 18
     }
 ]

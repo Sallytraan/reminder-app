@@ -31,6 +31,7 @@ session_start();
         // testar om jag kan överföra JSON till js.
         $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
 
+
         //echo $user;
 
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
@@ -53,6 +54,7 @@ session_start();
                 const ID = $id 
                 const USER = $userName
                 const TASK_DATA = $JSONTaskData
+                const changeTheContract = $changeTheContract
             </script>
             ";
                 //echo "<script>  </script>";

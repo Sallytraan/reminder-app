@@ -43,10 +43,14 @@ if (isset($_POST["email"], $_POST["password"])) {
 <?php
 require_once "../INCLUDES/header.php";
 ?>
-<div id="signUpWrapper">
+<div id="signInWrapper">
+ <div id="signInCircleOne"></div>
+ <div id="signInCircleTwo"></div>
+ <div id="signInCircleThree"></div>
+    <div class="signUpSignInWhiteWrapper">
   <form method="POST" action="sign-in.php">
-  <div class="signUpForm">
-    <h1>Let's get you logged in!</h1>
+  <div class="signInForm">
+    <h1 id="signInTitle">Welcome</h1>
     <?php 
         // Om inloggning misslyckas.  
         if (isset($_GET["error"])) {
@@ -66,8 +70,11 @@ require_once "../INCLUDES/header.php";
     <input type="text" name="email" placeholder="Email" class="iconEmail inputIcon">
     <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
     <button class="signUpSignInButton">Sign in</button>
-    <p> Don't have an account? 
-    <br> <a href="sign-up.php"> Create an account </a></p>
+     <div id="signUpSignInOption">
+      <p> Don't have an account? 
+      <br> <a href="sign-up.php"> Create an account </a></p>
+     </div>
+    </div>
  </div>
  </form>
 </div>
