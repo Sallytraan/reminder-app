@@ -16,8 +16,10 @@ session_start();
         <link rel="stylesheet" href="../CSS/welcome.css">
         <link rel="stylesheet" href="../CSS/profile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="/reminder_logotyp.svg">
     </head>
     <body>
         <header>
@@ -34,9 +36,7 @@ session_start();
         // var_dump($_SESSION); // för att kolla vad som finns i den.
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
-            
             $id = $_SESSION["id"];
-            
 
             foreach ($data as $key => $value) {
                 if ($id == $value["id"]) {

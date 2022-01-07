@@ -30,7 +30,7 @@ function addUser($postInfo){
         }
     }
 
-    //ID:et av den nya usern
+    //ID:et av den nya usern + användarnamn.
     $newUser["id"] = $highestID + 1;
     $_SESSION["id"] = $newUser["id"];
     $_SESSION["username"] = $newUser["username"];

@@ -115,5 +115,14 @@
         "color-scheme": 0,
         "contract": false,
         "id": 13
+    },
+    {
+        "username": "lolo",
+        "email": "lolo@gmail.com",
+        "password": "hejlolo",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 14
     }
 ]

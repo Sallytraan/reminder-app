@@ -34,6 +34,34 @@
             "priority": 2,
             "task": "do homework",
             "date": "January 5, 2022"
+        },
+        {
+            "id": 6,
+            "user": 1,
+            "priority": 2,
+            "task": "prepare for presentation",
+            "date": "January 6, 2022"
+        },
+        {
+            "id": 7,
+            "user": 1,
+            "priority": 2,
+            "task": "say hi to people",
+            "date": "January 6, 2022"
+        },
+        {
+            "id": 8,
+            "user": 2,
+            "priority": 2,
+            "task": "hello",
+            "date": "January 7, 2022"
+        },
+        {
+            "id": 9,
+            "user": 1,
+            "priority": 2,
+            "task": "break down",
+            "date": "January 7, 2022"
         }
     ],
     "finished": [
