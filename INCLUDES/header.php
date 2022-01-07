@@ -25,18 +25,18 @@ session_start();
         // variabler
         $data = json_decode(file_get_contents("API/users.json"), true);
         $taskData = json_decode(file_get_contents("API/list.json"), true);
-        $id = $_SESSION["id"];
         $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
-
+        $id = $_SESSION["id"];
+        
         // testar om jag kan överföra JSON till js.
         $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
 
-
-        //echo $user;
-
+        // var_dump($_SESSION); // för att kolla vad som finns i den.
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
+            
             $id = $_SESSION["id"];
+            
 
             foreach ($data as $key => $value) {
                 if ($id == $value["id"]) {
@@ -54,7 +54,6 @@ session_start();
                 const ID = $id 
                 const USER = $userName
                 const TASK_DATA = $JSONTaskData
-                const changeTheContract = $changeTheContract
             </script>
             ";
                 //echo "<script>  </script>";
@@ -68,6 +67,3 @@ session_start();
         ?>
         </header>
         <main id="wrapper">
-
-
-
