@@ -13,12 +13,12 @@ navList.addEventListener("click", () => {
 });
     
 navFocus.addEventListener("click", () => {
-    wrapper.style.opacity = 0;
+
 
     //Fade In
     setTimeout(function(){
         theTimer();
-        wrapper.style.opacity = 1;
+
     }, transitionDuration);
 });
     

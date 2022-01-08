@@ -37,18 +37,67 @@ nav > div {
     height: 50px;
 
     background-color: #F5F5F5;
-    border-top: 1px solid black;
+    border-top: 1px solid grey;
 }
 
-nav > div > img {
-    height: 25px;
+
+
+#navList {
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.selectedNav {
+.navListBlack {
+    background-image: url(../ICONS_BLACK/list-icon.svg);
+}
+
+.navListSelected {
+    background-image: url(../ICONS_WHITE/list-white.svg);
     background-color: grey;
-    transition: 1s;
 }
 
-.selectedNav > img {
-    color: white;
+
+
+#navFocus {
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+.navFocusBlack {
+    background-image: url(../ICONS_BLACK/timer-icon.svg);
+}
+
+.navFocusSelected {
+    background-image: url(../ICONS_WHITE/timer-white.svg);
+    background-color: grey;
+}
+
+
+
+#navProfile {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navProfileBlack {
+    background-image: url(../ICONS_BLACK/profile-icon.svg);
+}
+
+.navProfileSelected {
+    background-image: url(../ICONS_WHITE/user-white.svg);
+    background-color: grey;
+}
+
+
+
+#logotyp {
+    font-size: 28px;
+    color: black;
+    font-family: 'Yeseva One', cursive;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0px;
+    background-color: white;
+    z-index: 100;
+}
+

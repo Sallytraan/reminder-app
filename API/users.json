@@ -97,32 +97,5 @@
         "color-scheme": 0,
         "contract": false,
         "id": 11
-    },
-    {
-        "username": "sara",
-        "email": "sara@gmail.com",
-        "password": "jag\u00e4rsara",
-        "pictures": "welcome.img",
-        "color-scheme": 0,
-        "contract": false,
-        "id": 12
-    },
-    {
-        "username": "Erik",
-        "email": "erik@mau.se",
-        "password": "erikerik",
-        "pictures": "welcome.img",
-        "color-scheme": 0,
-        "contract": false,
-        "id": 13
-    },
-    {
-        "username": "lolo",
-        "email": "lolo@gmail.com",
-        "password": "hejlolo",
-        "pictures": "welcome.img",
-        "color-scheme": 0,
-        "contract": false,
-        "id": 14
     }
 ]

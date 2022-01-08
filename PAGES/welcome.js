@@ -16,11 +16,23 @@ function welcomePage(){
 
   wrapper.innerHTML = `
   <div id="wrapperSignInSignUp">
-  <div id="welcomeTitle">Welcome to Reminder!</div>
-  <div id="welcomeContainer">
+  
+   <div id="welcomeCircleOne"></div>
+
+   <div id="welcomeCircleTwo"></div>
+
+   <div id="welcomeCircleThree"></div>
+
+   <div id="welcomeWhiteOneWrapper">
+
+     <h1 class="welcomeTitle">Welcome!</h1>
+
+   <div id="welcomeContainer">
      <button><a href="../ADMIN/sign-in.php">Sign in</a></button>
      <button id="createAccount">Create an account</button>
-  </div>
+   </div>
+
+   </div>
   </div>
   `;
 }

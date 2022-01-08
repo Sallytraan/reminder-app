@@ -1,6 +1,7 @@
     </main>
         <footer>
             <?php 
+
             if (isset($_SESSION["id"])) {
                 $id = $_SESSION["id"];
 
@@ -10,15 +11,11 @@
                         if ($value["contract"]) {
                             echo "
                             <nav>
-                                <div id='navList'>
-                                    <img src='../ICONS_BLACK/list-icon.svg' alt='list'>
-                                </div>
-                                <div id='navFocus'>
-                                    <img src='../ICONS_BLACK/timer-icon.svg' alt='timer'>
-                                </div>
-                                <div id='navProfile'>
-                                    <img src='../ICONS_BLACK/profile-icon.svg' alt='profile'>
-                                </div>
+                                <div id='navList' class='navListBlack'></div>
+
+                                <div id='navFocus' class='navFocusBlack'></div>
+
+                                <div id='navProfile' class='navProfileBlack'></div>
                             </nav>
                             ";                    
                         }                          
@@ -45,7 +42,9 @@
                     // om kontrakt ej påskrivet --> visa kontraktet
                     if (!$value["contract"]){
                         echo '<script src="../PAGES/contract.js"></script>';
-                    } else { // annars skickas till to-do sidan
+
+                    } 
+                    else { // annars skickas till to-do sidan
                         echo '<script src="../PAGES/to-do.js"></script>'; 
                     }
                 }
@@ -58,8 +57,10 @@
 
     <script src="PAGES/welcomeText.js"></script>
     <script src="PAGES/app-info.js"></script>
+  
 
     <script src="PAGES/focus.js"></script>
     <script src="PAGES/profile.js"></script>
+    <script src="PAGES/welcomeSignUp.js"></script>
 </body>
 </html> 

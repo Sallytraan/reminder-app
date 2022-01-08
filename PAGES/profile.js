@@ -4,13 +4,23 @@ function theProfile(){
     //Hamna högst upp på sidan
     scroll(0,0)  
   
+    navList.classList.remove("navListSelected");
+    navList.classList.add("navListBlack");
+    
+    navFocus.classList.remove("navFocusSelected");
+    navFocus.classList.add("navFocusBlack");
+
+    navProfile.classList.add("navProfileSelected");
+    navProfile.classList.remove("navProfileBlack");
+    
     //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = "";
   
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
         <div id="profileImage"></div>
-        <div><input type="text"></div>
+        <button id="uploadProfileImage">howdy</button>
+        <div><span id="userNameChange">${USER}'s profil</span></div>
         <div id="colorModes">
 
           <div class="colorContainers">
@@ -32,7 +42,17 @@ function theProfile(){
         <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
     </div>
     `;
-    navList.classList.remove("selectedNav");
-    navFocus.classList.remove("selectedNav");
-    navProfile.classList.add("selectedNav");
+
+    document.getElementById('uploadProfileImage').addEventListener("click", () => {
+      wrapper.style.opacity = 0;
+  
+      //Fade In
+      setTimeout(function(){
+        imageChange();
+          wrapper.style.opacity = 1;
+      }, transitionDuration);
+  });
+      
+
 }
+

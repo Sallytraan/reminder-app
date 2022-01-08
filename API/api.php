@@ -51,15 +51,17 @@ function saveJson($filename, $data) {
 /*
 $changeTheContract = function(){
 
-    $json = file_get_contents("../API/users.json");
-    $data = json_decode($json, true);
+    $id = $_SESSION["id"];
+    $data = json_decode(file_get_contents("API/users.json"), true);
     $allUsers = $data;
 
-    foreach ($companies as $index => $company) {
+    foreach ($allUsers as $key => $value) {
         if ($allUsers["id"] == $_SESSION["id"]) {
             $found = true;
             if ($found = true){
                 $allUsers["contract"] = true;
+                header("Location:/index.php");
+                exit();
             }
         }
     }
