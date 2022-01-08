@@ -62,6 +62,13 @@
             "priority": 2,
             "task": "break down",
             "date": "January 7, 2022"
+        },
+        {
+            "id": 10,
+            "user": 1,
+            "priority": 2,
+            "task": "cry a lot",
+            "date": "January 8, 2022"
         }
     ],
     "finished": [

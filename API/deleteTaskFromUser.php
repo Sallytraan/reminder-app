@@ -1,5 +1,6 @@
 <?php
 require_once "../API/api.php";
+require_once "../functions.php";
 
 // ska kunna radera en task
 function deleteTask($taskID) {

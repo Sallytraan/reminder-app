@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../API/api.php";
+require_once "../functions.php";
 
 $data = loadJson("../API/list.json");
 $userTasks = $data["ongoing"];

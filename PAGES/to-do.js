@@ -76,7 +76,7 @@ function toDo(){
                         
                         <div class="taskButtons">
                             <a href="/PAGES/create-task.php?id=${obj.id}"><img class="editIcon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'></a>
-                            <a href="/ADMIN/delete.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
+                            <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
                             <img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'>
                         </div>
                     </div>`;
