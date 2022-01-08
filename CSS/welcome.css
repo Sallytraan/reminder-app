@@ -225,8 +225,7 @@
     width: 150px;
 
     background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
-    border: 2px solid white;
-    transition: 1s;
+    border: none;
 }
 
 #continueToSignUp > a {
@@ -375,7 +374,7 @@
 }
 
 .error {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #signUpSignInOption {

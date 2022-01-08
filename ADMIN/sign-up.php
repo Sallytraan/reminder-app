@@ -58,6 +58,9 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
     } elseif ($password !== $passwordConfirm){
         header("Location: /ADMIN/sign-up.php?error=3");
         exit();
+    } elseif (strlen($password) < 3){
+        header("Location: /ADMIN/sign-up.php?error=4");
+        exit();
     }
     
     else {
@@ -82,13 +85,13 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
             $error = $_GET["error"];
 
             if ($error == 1) {
-                echo "<p class='error'> You forgot to fill in everything.</p>";
+                echo "<p class='error'> You forgot to fill in everything!</p>";
             } elseif ($error == 2) {
                 echo '<p class="error"> You have to write an email with a @ </p>';
             } elseif ($error == 3) {
                 echo "<p class='error'> The password does not match </p>";
             } elseif ($error == 4) {
-                echo "<p class='error'> hehehe. </p>";
+                echo "<p class='error'> Your password must be more than 3 letters long </p>";
             }
         } 
     ?>
