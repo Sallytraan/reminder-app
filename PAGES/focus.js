@@ -17,7 +17,7 @@ function theTimer(){
     stroke-dasharray="484" stroke-dashoffset="" />
     </svg>
     <svg  class = "clock__time-visualizer clock__time-visualizer-background" width="160" height="160" viewBox="0 0 160 160">
-    <circle cx="80" cy="80" r="77" fill="none" stroke="#542541" stroke-width="1" 
+    <circle cx="80" cy="80" r="77" fill="none" stroke="#fff" stroke-width="1" 
      />
     </svg>
     <div class = "clock"> 

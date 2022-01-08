@@ -140,7 +140,7 @@
         "password": "anna",
         "pictures": "welcome.img",
         "color-scheme": 0,
-        "contract": false,
+        "contract": true,
         "id": 16
     },
     {
@@ -169,5 +169,50 @@
         "color-scheme": 0,
         "contract": false,
         "id": 19
+    },
+    {
+        "username": "Joe",
+        "email": "Joeman@hotmail.com",
+        "password": "joejoe",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": true,
+        "id": 20
+    },
+    {
+        "username": "anna",
+        "email": "anna",
+        "password": "anna",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 21
+    },
+    {
+        "username": "jennie",
+        "email": "jennie@gmail.com",
+        "password": "jennie",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 22
+    },
+    {
+        "username": "jageny",
+        "email": "jageny@gmai.com",
+        "password": "jageny",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 23
+    },
+    {
+        "username": "AnnaLisa",
+        "email": "anna@hotmail.com",
+        "password": "anna123",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": false,
+        "id": 24
     }
 ]

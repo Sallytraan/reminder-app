@@ -16,8 +16,7 @@
     top:52%;
     left:50%;
     transform:translate(-50%,-50%);
-    background: rgb(152,61,60);
-    background: linear-gradient(45deg, rgba(152,61,60,1) 0%, rgba(86,32,105,1)  100%);
+    background: linear-gradient(45deg, rgb(193, 215, 240) 0%, rgb(212, 250, 232)  100%);
     overflow:hidden;
     margin: 0;
 }
@@ -25,8 +24,8 @@
 .clock{
     width:260px;
     height:260px;
-    background: rgb(152,61,60);
-    background: linear-gradient(45deg, rgba(152,61,60,1) 0%, rgba(86,32,105,1) 100%);
+    background: rgb(150, 215, 231);
+    background: linear-gradient(45deg, rgb(167, 226, 218) 0%, rgb(194, 229, 194) 100%);
     border-radius:50%;
     position:absolute;
     top:100px;
@@ -42,7 +41,7 @@
 
 .clock__background {
     background: rgb(197,124,96);
-    background: linear-gradient(45deg, rgba(197,124,96,1) 0%,                   rgba(121,69,157,1) 100%);
+    background: linear-gradient(45deg, rgb(150, 197, 216) 0%,                   rgb(199, 238, 219) 100%);
     box-shadow: 0px 0px 25px rgba(0,0,0,0.3);
     top:90px;
     width:280px;
@@ -58,7 +57,7 @@
 }
 
 .clock__background--break {
-    background: linear-gradient(45deg, rgba(63,66,130,1) 0%, rgba(51,215,218,1) 100%);
+    background: linear-gradient(45deg, rgb(163, 165, 219) 0%, rgba(51,215,218,1) 100%);
 }
 
 .clock__session-type {
@@ -104,8 +103,8 @@
 .control-container{
     width:280px;
     height:auto;
-    border-top:2px solid rgba(30,24,40,0.4);
-    border-bottom:2px solid rgba(30,24,40,0.4);
+    border-top:2px solid rgba(85, 49, 143, 0.4);
+    border-bottom:2px solid rgba(83, 52, 133, 0.4);
     position:absolute;
     top:405px;
     left:50%;
@@ -144,7 +143,7 @@
 
 .button-controls__button {
     /*fill:#33d4d8;*/
-    fill:#47143b;
+    fill:#a75293;
     width:30px;
     padding: 5px;
     transition: all .2s ease;

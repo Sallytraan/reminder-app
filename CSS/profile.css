@@ -3,9 +3,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     margin: 0;
     width: 100%;
+}
+
+#userNameChange {
+    text-align: center;
 }
 
 #profileImage {

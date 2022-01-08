@@ -22,19 +22,60 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
-$changeTheContract = function(){
+function changeTheContract(){
 
-    $json = file_get_contents("../API/users.json");
-    $data = json_decode($json, true);
+    if (isset($_SESSION["id"])) {
+
+    $id = $_SESSION["id"];
+    $data = json_decode(file_get_contents("API/users.json"), true);
     $allUsers = $data;
 
-    foreach ($companies as $index => $company) {
+    foreach ($allUsers as $key => $value) {
         if ($allUsers["id"] == $_SESSION["id"]) {
             $found = true;
             if ($found = true){
                 $allUsers["contract"] = true;
+                header("Location:/index.php");
+                exit();
             }
         }
     }
 }
+}  
+$changeTheContract = changeTheContract();
+
+
+
+function changeIt(){
+    $found = false;
+    $newContract = null;
+    $theUsers = loadJson("../API/users.json");
+
+    foreach ($theUser as $index => $user){
+        if($user["id"] == $_SESSION["id"]){
+            $found = true;
+
+            $user["contract"] = true;
+            $theUsers[$index] = $user;
+            $newContract = $user;
+
+            
+            break;
+        }
+    } 
+    saveJson("../API/users.json", $theUsers);
+    send($newContract);
+}
+
+function idk(){
+    $newUser["id"] = $highestID + 1;
+    $_SESSION["id"] = $newUser["id"];
+    $_SESSION["username"] = $newUser["username"];
+    //lägg till user i db.json
+    $data = json_decode(file_get_contents("../API/users.json"), true);
+    array_push($data, $newUser);
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+}
+
+
 ?>

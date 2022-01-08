@@ -1,12 +1,6 @@
 "use strict";
 contractSite();
-document.querySelector('.contractButton').addEventListener("click", function(){
 
-
-
-});
-
-console.log(changeTheContract);
 
 function contractSite(){
     //Hamna högst upp på sidan
@@ -17,9 +11,9 @@ function contractSite(){
   
     wrapper.innerHTML = `
     <div id="contractWrapper">
-    <h1 class="removeTextH1">The Contract</h1>
+    <h1 class="removeTextH1"><span class="contractTitleName"></span>'s Contract</h1>
     <p class="removeTextP1">
-    I, <span class="contractName"></span>, promise to make the most of tomorrow. 
+    I, <span class="contractTextName"></span>, promise to make the most of tomorrow. 
     I will always remember that I need to seize the moment. 
     It’s not the big things that will change my life, it’s the 
     small actions I take every day for a long period of time.
@@ -30,14 +24,48 @@ function contractSite(){
     Hint: tap and hold the fingerprint to commit. Precomitting to a goal (via contracts like these) has been shown to inspire action and reduce procrationation. 
     </p>
 
-    <button class="contractButton"><a href=""></a></button>
+
+    <div id="contractButton"></div>
+
     </div>
     `;
 
+    console.log(USER_DATA);
+
+    document.getElementById('contractButton').addEventListener('click', function() {
+  
+
+    for (var i = 0; i < USER_DATA.length; i++) {
+      if (USER_DATA[i].id == ID) {
+        USER_DATA[i]['username'] = 'Thomas';
+        console.log(USER_DATA[i]['username']);
+        console.log(USER_DATA[i]);
+        return;
+      }
+    }
+    
+
+
+    
+
+
+    console.log(USER_DATA);
+   
+    
+    }); 
+  
+   
+    
+
+
+
+
+
     // visar personen som ska skriva på kontraktet
-    document.querySelector('.contractName').textContent = USER;
-}
+    document.querySelector('.contractTitleName').textContent = USER;
+    document.querySelector('.contractTextName').textContent = USER;
 
 
+  }
 
 

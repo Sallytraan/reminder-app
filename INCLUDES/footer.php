@@ -1,6 +1,7 @@
     </main>
         <footer>
             <?php 
+
             if (isset($_SESSION["id"])) {
                 $id = $_SESSION["id"];
 
@@ -45,7 +46,9 @@
                     // om kontrakt ej påskrivet --> visa kontraktet
                     if (!$value["contract"]){
                         echo '<script src="../PAGES/contract.js"></script>';
-                    } else { // annars skickas till to-do sidan
+
+                    } 
+                    else { // annars skickas till to-do sidan
                         echo '<script src="../PAGES/to-do.js"></script>'; 
                     }
                 }

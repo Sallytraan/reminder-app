@@ -10,7 +10,7 @@ function theProfile(){
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
         <div id="profileImage"></div>
-        <div><input type="text"></div>
+        <div><input type="text" id="userNameChange" placeholder="${USER}"></div>
         <div id="colorModes">
 
           <div class="colorContainers">
