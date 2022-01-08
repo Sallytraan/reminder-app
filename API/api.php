@@ -22,6 +22,20 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
+//Hittar det högsts id:et
+function theHighestId($array)
+{
+    $userID = 0;
+    foreach ($array as $obj) {
+        if ($obj["id"] > $userID) {
+            $userID = $obj["id"];
+        }
+    }
+    $userID = $userID + 1;
+    return $userID;
+}
+
+
 function changeTheContract(){
 
     if (isset($_SESSION["id"])) {
@@ -76,6 +90,9 @@ function idk(){
     array_push($data, $newUser);
     $json = json_encode($data, JSON_PRETTY_PRINT);
 }
+
+
+
 
 
 ?>

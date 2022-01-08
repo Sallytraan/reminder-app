@@ -19,7 +19,7 @@ function theProfile(){
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
         <div id="profileImage"></div>
-        <button id="uploadProfileImage"><a href="/PAGES/change-image.php">Change profile picture</a></button>
+        <button id="uploadProfileImage">howdy</button>
         <div><span id="userNameChange">${USER}'s profil</span></div>
         <div id="colorModes">
 
@@ -43,6 +43,16 @@ function theProfile(){
     </div>
     `;
 
+    document.getElementById('uploadProfileImage').addEventListener("click", () => {
+      wrapper.style.opacity = 0;
+  
+      //Fade In
+      setTimeout(function(){
+        imageChange();
+          wrapper.style.opacity = 1;
+      }, transitionDuration);
+  });
+      
 
 }
 
