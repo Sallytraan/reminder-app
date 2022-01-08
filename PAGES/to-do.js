@@ -5,6 +5,17 @@ function toDo(){
     //Hamna högst upp på sidan
     scroll(0,0)  
   
+    // Uppdaterar naven
+
+    navList.classList.add("navListSelected");
+    navList.classList.remove("navListBlack");
+
+    navFocus.classList.remove("navFocusSelected");
+    navFocus.classList.add("navFocusBlack");
+
+    navProfile.classList.remove("navProfileSelected");
+    navProfile.classList.add("navProfileBlack");
+
     //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = "";
 
@@ -61,13 +72,7 @@ function toDo(){
                 console.log(obj);
             }
         }) */
-    })
-
-
-    // gör att navven ändrar färg.
-    navList.classList.add("selectedNav");
-    navFocus.classList.remove("selectedNav");
-    navProfile.classList.remove("selectedNav");
+    });
 }
 
 // kollar om datat från JSON-filen kom. FUNGERADE HEHE.

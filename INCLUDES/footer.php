@@ -11,15 +11,11 @@
                         if ($value["contract"]) {
                             echo "
                             <nav>
-                                <div id='navList'>
-                                    <img src='../ICONS_BLACK/list-icon.svg' alt='list'>
-                                </div>
-                                <div id='navFocus'>
-                                    <img src='../ICONS_BLACK/timer-icon.svg' alt='timer'>
-                                </div>
-                                <div id='navProfile'>
-                                    <img src='../ICONS_BLACK/profile-icon.svg' alt='profile'>
-                                </div>
+                                <div id='navList' class='navListBlack'></div>
+
+                                <div id='navFocus' class='navFocusBlack'></div>
+
+                                <div id='navProfile' class='navProfileBlack'></div>
                             </nav>
                             ";                    
                         }                          

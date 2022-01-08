@@ -4,6 +4,15 @@ function theProfile(){
     //Hamna högst upp på sidan
     scroll(0,0)  
   
+    navList.classList.remove("navListSelected");
+    navList.classList.add("navListBlack");
+    
+    navFocus.classList.remove("navFocusSelected");
+    navFocus.classList.add("navFocusBlack");
+
+    navProfile.classList.add("navProfileSelected");
+    navProfile.classList.remove("navProfileBlack");
+    
     //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = "";
   
@@ -32,7 +41,6 @@ function theProfile(){
         <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
     </div>
     `;
-    navList.classList.remove("selectedNav");
-    navFocus.classList.remove("selectedNav");
-    navProfile.classList.add("selectedNav");
+
+
 }

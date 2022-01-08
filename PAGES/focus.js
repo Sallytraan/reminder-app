@@ -4,6 +4,15 @@ function theTimer(){
 
     //Hamna högst upp på sidan
     scroll(0,0)  
+
+    navFocus.classList.add("navFocusSelected");
+    navFocus.classList.remove("navFocusBlack");
+
+    navList.classList.remove("navListSelected");
+    navList.classList.add("navListBlack");
+
+    navProfile.classList.remove("navProfileSelected");
+    navProfile.classList.add("navProfileBlack");
   
     //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = "";
@@ -73,9 +82,6 @@ function theTimer(){
 
     </div>
     `;
-    navList.classList.remove("selectedNav");
-    navFocus.classList.add("selectedNav");
-    navProfile.classList.remove("selectedNav");
 
     function Pomodoroclock (elements){
         var startTime,
