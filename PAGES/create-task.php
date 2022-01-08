@@ -79,8 +79,8 @@ if (isset($_SESSION["id"])) {
 
         <main id="taskWrapper">
             <form method="POST" action="create-task.php">
-                <input type="text" name="task" id="taskInput" placeholder="What do you need to be reminded of?">               
-                <?php 
+                <input type="text" id="taskInput" name="task" placeholder="What do you need to be reminded of?">               
+                <?php
                 // Skriva felmeddelande angånde task-skrivandet här!!
                 if (isset($_GET["error"])) {
                     $error = $_GET["error"];

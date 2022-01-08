@@ -20,11 +20,12 @@ function toDo(){
         .then(json => taskData(json));
 
     function taskData(json) {
-        console.log(json);   
+        console.log(json.ongoing[1]);   
         
-        // kunna nå de två olika arrayerna i list.json
-        let ongoingArray = json["ongoing"];
-        let completedArray = json["finished"];
+        // kunna nå de två olika arrayerna i list.json. De tar inte med json när den uppdaterar. 'delete-knappen' funkar men inte denna sen... varför?
+        // är det för ongoing-json inte längre är en array? konstigt
+        let ongoingArray = json.ongoing;
+        let completedArray = json.finished;
 
         wrapper.innerHTML = `
             <div id="toDoWrapper">
@@ -53,7 +54,8 @@ function toDo(){
             if (obj.user == ID) {
                 // vi vill komma åt 'task' + 'date'
                 let div = document.createElement("div");
-    
+                
+                // TA BORT CREATE-TASK FÖR JAG LYCKAS INTE MED SKITET
                 div.innerHTML = `
                     <div class="taskBox">
                         <div class="taskText">
@@ -62,47 +64,16 @@ function toDo(){
                         </div>
                         
                         <div class="taskButtons">
-                            <img class="editIcon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'>
-                            <img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'>
+                            <a href="/PAGES/create-task.php?id=${obj.id}"><img class="editIcon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'></a>
+                            <a href="/ADMIN/delete.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
                             <img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'>
                         </div>
                     </div>`;
     
                 ongoingWrapper.append(div);            
             }
-
-            let removeButton = document.querySelector(".removeIcon");
-            console.log(removeButton);
-
-            removeButton.addEventListener("click", () => {
-                console.log(obj);
-            })
-
         });
-    }
-
-    // går igenom arrayen och checkar om id är samma som usern i task-arrayen --> deletea innehållet?? Hur gör man det genom JS, kolla 'DELETE', borde finnas.
-    
-    // radera object från ongoing-arrayen. Vet inte hur man ska göra lol....
-    let removeButton = document.querySelector(".removeIcon");
-    /* removeButton.addEventListener("click", () => {
-        // let click = document.querySelector(".editIcon").nextElementSibling;
-        let objText = document.querySelector(".task");
-        // console.log(objText.innerHTML);
-
-        ongoingArray.forEach(obj => {
-            if (objText.innerHTML == obj.task) {
-                console.log(obj.task);
-            }
-        })
-
-        //console.log(click);
-        /* ongoingArray.forEach(obj => {
-            if (ID === obj.user) {
-                console.log(obj);
-            }
-        }) 
-    }); */
+    } 
 
     // funktion som randomiserar mellan "max"-siffran.
     function getRandomInt(max) {
@@ -128,5 +99,5 @@ function toDo(){
         <p> ${randomQuote.author} </p>`;
 
         document.getElementById("toDoWrapper").prepend(quoteDiv);
-    });
+    }); 
 }

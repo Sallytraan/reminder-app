@@ -1,0 +1,63 @@
+{
+    "ongoing": [
+        {
+            "id": 1,
+            "user": 1,
+            "priority": 2,
+            "task": "wash clothes",
+            "date": "December 21, 2021"
+        },
+        {
+            "id": 2,
+            "user": 1,
+            "priority": 2,
+            "task": "read a book",
+            "date": "December 21, 2021"
+        },
+        {
+            "id": 3,
+            "user": 1,
+            "priority": 2,
+            "task": "buy food",
+            "date": "December 21, 2021"
+        },
+        {
+            "id": 4,
+            "user": 1,
+            "priority": 2,
+            "task": "eat with friend",
+            "date": "December 21, 2021"
+        },
+        {
+            "id": 5,
+            "user": 1,
+            "priority": 2,
+            "task": "do homework",
+            "date": "January 5, 2022"
+        },
+        {
+            "id": 6,
+            "user": 1,
+            "priority": 2,
+            "task": "prepare for presentation",
+            "date": "January 6, 2022"
+        },
+        {
+            "id": 7,
+            "user": 1,
+            "priority": 2,
+            "task": "say hi to people",
+            "date": "January 6, 2022"
+        },
+        {
+            "id": 8,
+            "user": 2,
+            "priority": 2,
+            "task": "hello",
+            "date": "January 7, 2022"
+        }
+    ],
+    "finished": [
+        []
+    ]
+}
