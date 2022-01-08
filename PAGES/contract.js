@@ -37,10 +37,26 @@ function contractSite(){
 
     for (var i = 0; i < USER_DATA.length; i++) {
       if (USER_DATA[i].id == ID) {
-        USER_DATA[i]['username'] = 'Thomas';
-        console.log(USER_DATA[i]['username']);
-        console.log(USER_DATA[i]);
-        return;
+
+
+
+        //CHANGE NAMETAG 
+//tar emot befintligt namn, samt det nya namnet.
+
+  const dataUser = {"contract": true};
+  const req = new Request("../API/server.php", {
+      method: "PATCH",
+      body: JSON.stringify(dataUser),
+      headers: {"Content-type": "application/json"}
+  });
+
+
+
+
+
+
+
+
       }
     }
     

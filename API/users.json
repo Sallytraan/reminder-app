@@ -214,5 +214,14 @@
         "color-scheme": 0,
         "contract": false,
         "id": 24
+    },
+    {
+        "username": "hejhej",
+        "email": "hej@gmail.com",
+        "password": "hejhej",
+        "pictures": "welcome.img",
+        "color-scheme": 0,
+        "contract": true,
+        "id": 25
     }
 ]

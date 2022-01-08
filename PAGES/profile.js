@@ -19,7 +19,8 @@ function theProfile(){
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
         <div id="profileImage"></div>
-        <div><input type="text" id="userNameChange" placeholder="${USER}"></div>
+        <button id="uploadProfileImage"><a href="/PAGES/change-image.php">Change profile picture</a></button>
+        <div><span id="userNameChange">${USER}'s profil</span></div>
         <div id="colorModes">
 
           <div class="colorContainers">
@@ -44,3 +45,4 @@ function theProfile(){
 
 
 }
+
