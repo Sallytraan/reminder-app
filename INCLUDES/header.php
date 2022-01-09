@@ -31,8 +31,6 @@ if (isset($_SESSION["id"])) {
         $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
         $id = $_SESSION["id"];
         
-
-        $changeContract = 'changeIt';
         
         // testar om jag kan överföra JSON till js.
         $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
@@ -66,7 +64,6 @@ if (isset($_SESSION["id"])) {
                 const USER = $userName
                 const TASK_DATA = $JSONTaskData
                 const USER_DATA = $JSONUserData
-                const theContract = $changeContract()
             </script>
             ";
                 //echo "<script>  </script>";

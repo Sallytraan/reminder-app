@@ -1,21 +1,18 @@
 <?php
 //error_reporting(-1);
 session_start();
-$userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+
+
+
+
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
 <?php 
     $theUser = $_SESSION["username"];
-    ?>
+?>
 
-
-<!-- </head> head stängs i header.php -->
-<body>
+<link rel="stylesheet" href="../CSS/welcome.css">
 
 
     <div id="contractWrapper">
@@ -31,7 +28,8 @@ $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
     <p id="contractHint" class="removeTextP2">
     Hint: tap and hold the fingerprint to commit. Precomitting to a goal (via contracts like these) has been shown to inspire action and reduce procrationation. 
     </p>
-<a href="../index.php">SIGN HERE</a>
-</body>
-</html>
 
+<a href="../index.php">SIGN HERE</a>
+
+
+</div>
