@@ -2,6 +2,7 @@
 ob_start();
 require_once "../INCLUDES/header.php";
 
+
 function allUsers(){
     $json = file_get_contents("../API/users.json");
     $data = json_decode($json, true);

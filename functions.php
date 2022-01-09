@@ -1,8 +1,6 @@
 <?php
 // skicka alla json-funktioner hit
 
-
-
 // Skicka ut JSON till en användare
 function send($data, $statusCode = 200) {
     header("Content-Type: application/json");
