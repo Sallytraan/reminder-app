@@ -18,7 +18,7 @@ session_start();
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
-        <link rel="icon" href="reminder_logotyp.svg">
+        <link rel="icon" href="INCLUDES/reminder_logotyp.svg">
     </head>
     <body>
         <header>

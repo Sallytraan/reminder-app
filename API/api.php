@@ -5,7 +5,7 @@ require_once "../functions.php";
 $method = $_SERVER["REQUEST_METHOD"];
 $contentType = $_SERVER["CONTENT_TYPE"];
 $userData = loadJson("users.json");
-$userTask = loadJson("list.json");
+$userOngoingTask = loadJson("ongoingList.json");
 
 if ($method === "OPTIONS") {
     // Tillåt alla (origins) och alla headers

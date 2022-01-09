@@ -1,10 +1,8 @@
 <?php
 session_start();
-require_once "../API/api.php";
 require_once "../functions.php";
 
-$data = loadJson("../API/list.json");
-$userTasks = $data["ongoing"];
+$data = loadJson("../API/ongoingList.json");
 
 // om inte id finns i session ska man åka tillbaka till index-sidan.
 if (!isset($_SESSION["id"])) {
@@ -32,7 +30,7 @@ if (isset($_SESSION["id"])) {
         }
 
         if (strlen($task) > 3) {
-            foreach ($userTasks as $tasks => $singleTask) {
+            foreach ($data as $tasks => $singleTask) {
                 if ($singleTask["id"] > $highestID) {
                     $highestID = $singleTask["id"];
                 }
@@ -48,8 +46,8 @@ if (isset($_SESSION["id"])) {
             ];
 
             // sparar ner det till list.json
-            array_push($data["ongoing"], $newTask);
-            saveJson("../API/list.json", $data);
+            array_push($data, $newTask);
+            saveJson("../API/ongoingList.json", $data);
 
             // gå tillbaka till list-sidan
             header("Location: ../index.php");
@@ -62,7 +60,7 @@ if (isset($_SESSION["id"])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta name="viewport" content="414, initial-scale=1.0">
         <title>Reminder</title>
         <link rel="stylesheet" href="../CSS/commonElements.css">
@@ -70,8 +68,11 @@ if (isset($_SESSION["id"])) {
         <link rel="stylesheet" href="../CSS/list.css">
         <link rel="stylesheet" href="../CSS/welcome.css">
         <link rel="stylesheet" href="../CSS/profile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="../INCLUDES/reminder_logotyp.svg">
     </head>
     <body>
         <header>
@@ -107,7 +108,7 @@ if (isset($_SESSION["id"])) {
                 </div>                    
                 <div id="addUndoButtons">
                     <a href="../index.php"><img id="undo-button" src="../ICONS_BLACK/remove-icon.svg"></a>
-                    <img id="add-button" src="../ICONS_BLACK/check-icon.svg">
+                    <button type="submit" id="submitTask" name="submitTask"><img id="add-button" src="../ICONS_BLACK/check-icon.svg"></button>
                 </div>
             </form>
         </main>

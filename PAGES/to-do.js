@@ -78,7 +78,7 @@ function toDo(){
                         
                         <div class="taskButtons">
                             <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
-                            <a href=""><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
+                            <a href="/API/moveTaskToFinished.php?id=${obj.id}"><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
                         </div>
                     </div>`;
     
@@ -94,11 +94,8 @@ function toDo(){
         taskCounter.innerHTML = completedArray.length;
         console.log(completedArray);
 
-        completedArray.forEach(obj => {
-            //console.log(obj); // ska visa alla objekt i arrayen. Kolla för säkerhets skull.
-            
+        completedArray.forEach(obj => {            
             if (obj.user == ID) {
-                // vi vill komma åt 'task' + 'date'
                 let div = document.createElement("div");
                 
                 div.innerHTML = `

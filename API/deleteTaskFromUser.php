@@ -1,5 +1,4 @@
 <?php
-//require_once "api.php";
 require_once "../functions.php";
 
 // ska kunna radera en task
