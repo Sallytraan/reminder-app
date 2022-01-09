@@ -50,13 +50,13 @@ function updateUser ($filename, $entry) {
     saveJson($filename, $data);
 }
 
-function idInfoSitter($id){
+function idInfoUser($id){
     $json = file_get_contents( __DIR__ . "/API/users.json");
     $data = json_decode($json, true);
     $allSitters = $data;
-    foreach($allSitters as $sitter){
-        if($sitter["id"] == $id){
-            return $sitter;
+    foreach($allUsers as $user){
+        if($user["id"] == $id){
+            return $user;
         }
     }
 }

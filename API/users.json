@@ -34,5 +34,31 @@
         "color-scheme": 0,
         "contract": true,
         "id": 4
+    },
+    {
+        "username": "hejhejhejhejhje",
+        "email": "hej@gmail.com",
+        "password": "hihihi",
+        "image": null,
+        "color-scheme": 0,
+        "contract": false,
+        "id": 5
+    },
+    {
+        "username": "hejhej",
+        "email": "hihi@",
+        "password": "hihi",
+        "image": null,
+        "color-scheme": 0,
+        "contract": false,
+        "id": 6
+    },
+    {
+        "username": "howdy",
+        "email": "erik@gmail.com",
+        "password": "1233",
+        "image": null,
+        "color-scheme": 0,
+        "id": 7
     }
 ]

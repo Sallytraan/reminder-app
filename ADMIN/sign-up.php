@@ -28,8 +28,7 @@ function addUser($postInfo){
         "email" => $postInfo["email"],
         "password" => $postInfo["password"],  
         "image" => $imageName,//spara unika namnet på bilden som sökväg
-        "color-scheme" => 0,
-        "contract" => false
+        "color-scheme" => 0
     ];
 
         //Kolla att de skickat med en bildfil och generera ett unikt 
@@ -109,7 +108,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
                 //Spara bilden med unikt namn i mappen "userImages"
                 move_uploaded_file($tempname, "../userImages/$imageName");
             //    addEntry( __DIR__ . "../API/users.json", $newEntry);
-            header("Location: /index.php");;
+            header("Location: contract.php");;
                 exit();
     }
 }
