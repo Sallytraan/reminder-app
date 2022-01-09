@@ -30,9 +30,9 @@
         "username": "howdy97",
         "email": "pranvera@gmail.com",
         "password": "9797",
-        "image": "harry-potter.svg",
+        "image": null,
         "color-scheme": 0,
-        "contract": true,
+        "contract": false,
         "id": 4
     }
 ]

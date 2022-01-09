@@ -52,7 +52,7 @@ function welcomeText(){
      </div>
      </div>
      </div>
-     <button id="continueToSignUp">Continue</button>
+     <button id="continueToSignUp"> <a href="../ADMIN/sign-up.php">Continue</a></button>
 
     </div>
 
@@ -63,14 +63,7 @@ function welcomeText(){
     `;
 
 
-    document.getElementById('continueToSignUp').addEventListener("click", () => {
 
-    
-        //Fade In
-        setTimeout(function(){
-          welcomeSignUp();
-        }, transitionDuration);
-    });
     
 }
 

@@ -1,110 +1,140 @@
 <?php
 session_start();
-require_once "functions.php";
-$rqstMethod = $_SERVER["REQUEST_METHOD"];
+error_reporting(-1);
+require_once "../functions.php";
 
-$data = file_get_contents("php://input");
-$rqstData = json_decode($data, true);
+// //samlar användardatan från formuläret in i $newEntry och använder 
+// //funktionen "addEntry" för att spara datan i json-filen
+if($_SERVER["REQUEST_METHOD"] == "POST" ){
+    $data = loadJSON( __DIR__ . "../API/users.json");
+    $file = $_FILES["dogImage"];
 
-if ($rqstMethod === "POST") {
+    //Kolla att de skickat med en bildfil och generera ett unikt 
+    //namn för bilden
+    if (isset($file) && $file["error"] != 4) {
+        $filename = $file["name"];
+        $tempname = $file["tmp_name"];
+        $uniqueFilename = sha1(time().$filename);
+        $size = $file["size"];
 
-    //skapar en NY användare
-    //input:
-    //{
-    //   "nameTag": "string",
-    //   "password": "string" 
-    //}
-    //output:
-    //{
-    //    "
-    //}
-
-    if (isset($_POST["nameTag"], $_POST["password"], $_FILES["image"])) {
-        $nameTag = $_POST["nameTag"];
-        $password = $_POST["password"];
-
-        //variabler för bild-filen
-        $profilePicture = $_FILES["image"];
-        $filename = $profilePicture["name"];
-        $tempname = $profilePicture["tmp_name"];
-        $size = $profilePicture["size"];
-        $error = $profilePicture["error"];
-
-        //nameTag är färre än 3 bokstäver
-        if (strlen($nameTag) <= 2) {
-            statusCode(468);
-        }
-        //lösenord är färre än 4 bokstäver
-        if (strlen($password) <= 3) {
-            statusCode(467);
-        }
-        //hantering för bild som användaren laddar upp
-        if ($error !== 0) {
-            statusCode(466);
-            exit();
-        }
-        // Filen får inte vara större än ca 500kb
-        if ($size > (0.5 * 1000 * 1000)) {
-            statusCode(465);
+        if ($size > 4 * 1000 * 1000) {
+            "<p class='feedbackMessage'> Filen får inte vara större än 4mb </p>";
             exit();
         }
 
-        // Hämta filinformation
+        //Hämta filinformation & kolla vilken filtyp det är
         $info = pathinfo($filename);
-        // Hämta ut filändelsen (och gör om till gemener)
-        $ext = strtolower($info["extension"]);
+        $extension = strtolower($info["extension"]);
+        $imageName = $uniqueFilename.'.'.$extension;
+    }
+    else {
+        $imageName = "";
+    }
+    
+    $newEntry = [ 
+        "id" => getMaxID($data, "id") + 1, 
+        "username" => $_POST["username"],
+        "email" => $_POST["email"],
+        "password" => $_POST["password"],
+        "image" => $imageName,//spara unika namnet på bilden som sökväg
+        "color-scheme" => 0,
+        "contract" => false
+    ];   
 
-        // Konvertera från int (siffra) till en sträng,
-        // så vi kan slå samman dom nedan.
-        $time = (string) time(); // Klockslaget i millisekunder
-        // Skapa ett unikt filnamn med TID + FILNAMN
-        $uniqueFilename = sha1("$time$filename");
-        //sökväg för mappen
-        $path = __DIR__ . '/api/profileImages/';
-
-        //Skickar bilden till vår mapp
-        move_uploaded_file($tempname, $path . "$uniqueFilename.$ext");
-        //när all info har kikats genom och kontrollerats, ska 
-        //det läggas till i databasen. 
-
-        //id till ny användare.
-        $allUsers = loadJson("api/user.json");
-        $highestID = theHighestId($allUsers);
-
-        // DB BACKUP
-        saveJson("api/userBackup.json", $allUsers);
-
-        //ny array med nycklar.
-        $newUser = [];
-        $newUser["id"] = $highestID;
-        $newUser["nameTag"] = $nameTag;
-        $newUser["password"] = $password;
-        $newUser["profilePicture"] = "$uniqueFilename.$ext";
-        $newUser["inventory"] = [];
-        $newUser["laikaFound"] = false;
-
-        $found = false;
-
-        //sparar i array, och sen i json-fil.
-        array_push($allUsers, $newUser);
-        saveJson("api/user.json", $allUsers);
-
-        foreach ($allUsers as $key => $user) {
-            if ($user["nameTag"] == $_POST["nameTag"] && $user["password"] == $_POST["password"]) {
-                $_SESSION["userID"] = $user["id"];
-                $_SESSION["nameTag"] = $user["nameTag"];
-                $_SESSION["isLoggedIn"] = true;
-                $found = true;
-            }
-        }
-        if (!$found) {
-            header("Location: index.html?id=463");
-        }
-        // $createdUser = true;
-        header("Location: index.php?createdUser=true");
-        exit();
-    } else {
-        header("Location: index.html?id=464");
+    if(is_null($newEntry) ){
+        header("Location: create.php?error=5");
         exit();
     }
+    
+    if (empty($newEntry["username"]) || empty($newEntry["email"]) || empty($newEntry["password"]) || empty($newEntry["passwordConfirm"])) {
+        header("Location: create.php?error=1");
+        exit();
+    }
+
+    if(empty($newEntry["dog"]["image"]) ){
+        header("Location: create.php?error=6");
+        exit();
+    }
+
+    if(strlen($newEntry["password"]) < 4) {
+        header("Location: create.php?error=2");
+        exit();
+    }
+
+    //Kopierar databasen till en backup-fil innan ändringen görs
+    copy("../API/users.json", "../API/users_backup.json");
+
+    //Spara bilden med unikt namn i mappen "userImages"
+    move_uploaded_file($tempname, __DIR__ . "../userImages/$imageName");
+    addEntry( __DIR__ . "../API/users.json", $newEntry);
+    header("Location: ../sign-in.php?createdAccount");
+    exit();
 }
+?> 
+
+<!-- </head> stängs i header.php -->
+
+    <div class="formWrapper">
+        <form class="createAccount" action="sign-up-2.php" method="POST" enctype="multipart/form-data">
+            <div class="welcomemessage"> 
+            <?php // Kontrollera om "error" finns i vår URL
+            if (isset($_GET["success"])) {
+                echo '<div class="feedbackMessage"> <p> Användare skapad! Nu kan du </p> <a id="messageCreate" href="../sign-in.php">logga in</a> </p> </div>';
+            } elseif (isset($_GET["error"])) {
+                $error = $_GET["error"];
+
+                // Felmeddelande
+                if ($error == 1) {
+                    echo '<p class="errorCreate">Alla fält måste vara ifyllda, testa igen.</p>';
+                } elseif ($error == 2) {
+                    echo '<p class="errorCreate">Lösenordet måste vara minst 4 tecken</p>';
+                } elseif ($error == 3) {
+                    echo '<p class="errorCreate"> Filen får inte vara större än 4mb</p>';
+                } elseif ($error == 4) {
+                    echo '<p class="errorCreate">E-postadressen används redan</p>';
+                } elseif ($error == 6) {
+                    echo '<p class="errorCreate">Ingen bild laddades upp, försök igen.</p>';
+                } elseif ($error == 5) {
+                    echo '<p class="errorCreate">Något gick fel, försök igen</p>';
+                } 
+            } else {
+                echo '<h2> Welcome </h2> <p> Vänligen fyll i fälten nedan. </p>';
+            } 
+            ?> 
+            </div> 
+            <div id="dogowner"> 
+                <h2 class="areasText"> Uppgiter om mig: </h2>
+                <input type="text" name="username" class="createDetails" placeholder="Username" class="iconUserName inputIcon"><br>
+                <input type="email" name="email" class="createDetails" class="iconEmail inputIcon" placeholder="Email."><br>
+                <input type="password" name="password" class="createDetails" class="iconPassword inputIcon" placeholder="Password"><br>
+                <input type="password" name="passwordConfirm" class="iconPassword inputIcon" placeholder="Confirm password"><br>
+
+            </div> 
+            
+
+            </div> 
+            <div id="dogPicDiv"> 
+            <img id="output_image" src="../Images/dogavatar.jpeg"/>
+                <h2> Ladda upp en profilbild </h2> 
+                <input type="file" name="dogImage" accept="image/*" onchange="preview_image(event)">
+            </div>                 
+            <button class="createButton" type="submit">Create account</button>
+        </form>
+    </div>
+
+
+    <script> 
+    document.querySelector(".backToHomeCreate").addEventListener("click", function() {
+        window.location.href = "../index.php";
+    });
+
+    function preview_image(event) {
+        var reader = new FileReader();
+
+        reader.onload = function(){
+            var output = document.getElementById('output_image');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    </script>

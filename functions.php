@@ -24,6 +24,43 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
+
+// Letar igenom api:n och kollar vilket det högsta 
+// ID:et är, används sedan när man skapar konto
+function getMaxID($data, $id){
+    if( count($data) < 1 ) {
+        return 0;
+    }
+    $column = array_column($data, $id);
+    $maxID = max($column);
+    return $maxID;
+}
+
+// Lägger till en ny hundägare eller hundvakt med data från formuläret
+function addEntry ($filename, $entry) {
+    $data = loadJSON($filename);
+    array_push($data, $entry);
+    saveJson($filename, $data);
+}
+
+//Uppdatera user
+function updateUser ($filename, $entry) {
+    $data = loadJSON($filename);
+    array_push($data, $entry);
+    saveJson($filename, $data);
+}
+
+function idInfoSitter($id){
+    $json = file_get_contents( __DIR__ . "/API/users.json");
+    $data = json_decode($json, true);
+    $allSitters = $data;
+    foreach($allSitters as $sitter){
+        if($sitter["id"] == $id){
+            return $sitter;
+        }
+    }
+}
+
 /*
 $changeTheContract = function(){
 
