@@ -39,16 +39,11 @@ if (isset($_SESSION["id"])) {
 
         $JSONUserData = json_encode($data, JSON_PRETTY_PRINT);
 }
-
-
-        
         // var_dump($_SESSION); // för att kolla vad som finns i den.
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
-            
             $id = $_SESSION["id"];
-            
-
+        
             foreach ($data as $key => $value) {
                 if ($id == $value["id"]) {
                     // göra if-sats för bara inloggning har tillgång till anv.

@@ -43,6 +43,9 @@ function toDo(){
         </div>
 
         <div id="progressBar">
+            <div class="progress">
+                <div class="progress-done">75%</div>
+            </div>
             <p class="compTaskCount"></p>
             <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
         </div>
@@ -65,33 +68,30 @@ function toDo(){
             if (obj.user == ID) {
                 // vi vill komma åt 'task' + 'date'
                 let div = document.createElement("div");
+                div.classList.add("taskBox");
                 
                 div.innerHTML = `
-                    <div class="taskBox">
-                        <div class="taskText">
-                            <p class="task"> ${obj.task}</p>            
-                            <p class="date"> ${obj.date} </p>
-                        </div>
+                    <div class="taskText">
+                        <p class="task"> ${obj.task}</p>            
+                        <p class="date"> ${obj.date} </p>
+                    </div>
                         
-                        <div class="taskButtons">
-                            <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
-                            <a href="/API/moveTaskToFinished.php?id=${obj.id}"><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
-                        </div>
+                    <div class="taskButtons">
+                        <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
+                        <a href="/API/moveTaskToFinished.php?id=${obj.id}"><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
                     </div>`;
+
+                // vilken färg boxarna ska ha beroende på prioritering.
+                if (obj.priority === 0) {
+                    div.style.backgroundColor = "#FFA19B";
+                } else if (obj.priority === 1) {
+                    div.style.backgroundColor = "#FFD79B";
+                } else {                        
+                    div.style.backgroundColor = "#9BFFB7";
+                } 
     
                 ongoingWrapper.append(div);   
             }
-
-            let taskBox = document.querySelector(".taskBox");
-
-                if (obj.priority === 0) {
-                    taskBox.style.backgroundColor = "#FFA19B";
-                } else if (obj.priority === 1) {
-                    taskBox.style.backgroundColor = "#FFD79B";
-                } else {
-                    taskBox.style.backgroundColor = "#9BFFB7";
-                }
-
         });
     } 
 
@@ -105,18 +105,35 @@ function toDo(){
         completedArray.forEach(obj => {            
             if (obj.user == ID) {
                 let div = document.createElement("div");
+                div.classList.add("completedTaskBox");
                 
                 div.innerHTML = `
-                    <div class="completedTaskBox">
-                        <div class="taskText">
-                            <p class="task"> ${obj.task}</p>            
-                            <p class="date"> ${obj.date} </p>
-                        </div>
+                    <div class="taskText">
+                        <p class="task"> ${obj.task}</p>            
+                        <p class="date"> ${obj.date} </p>
                     </div>`;
+
+                if (obj.priority === 0) {
+                    div.style.backgroundColor = "#FFA19B";
+                } else if (obj.priority === 1) {
+                    div.style.backgroundColor = "#FFD79B";
+                } else {                        
+                    div.style.backgroundColor = "#9BFFB7";
+                }        
     
                 completedWrapper.append(div);            
             }
         });
+
+        // tömma completed array:en på måndag klockan 8
+        /* var today = new Date();
+        var day = today.getDay();
+        var time = today.getHours();
+        if (day === 9 && time === 22) {
+            completedArray = [];
+        }
+        //console.log(date);
+        console.log(time); */
     }
 
     // funktion som randomiserar mellan "max"-siffran.

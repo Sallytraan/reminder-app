@@ -16,7 +16,7 @@
     {
         "id": 3,
         "user": 1,
-        "priority": 2,
+        "priority": 0,
         "task": "buy food",
         "date": "December 21, 2021"
     },
@@ -53,13 +53,6 @@
         "user": 2,
         "priority": 2,
         "task": "hello",
-        "date": "January 7, 2022"
-    },
-    {
-        "id": 9,
-        "user": 1,
-        "priority": 2,
-        "task": "break down",
         "date": "January 7, 2022"
     }
 ]
