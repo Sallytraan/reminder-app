@@ -35,7 +35,15 @@ function toDo(){
 
     wrapper.innerHTML = `
     <div id="toDoWrapper">
-        <h3>To Do</h3>
+        <div id="toDoBox">
+            <h3>To Do</h3>
+            <div id="sortButtons">
+                <p>sort by:</p>
+                <p id="date">date</p>
+                <p id="priority">priority</p>
+                <p id="aToZ">a › z</p>
+            </div>
+        </div>
         <div id="ongoing">
         </div>
         <div id='addTask'>
@@ -62,36 +70,74 @@ function toDo(){
         let ongoingArray = json;
         let ongoingWrapper = document.getElementById("ongoing");
 
+        showList(ongoingArray);
+        document.getElementById("date").classList.add("chosen");
         // ska göra ongoing-array men med for-loop
+        function showList(array) {
+            document.querySelector("#ongoing").innerHTML="";
+            
+            array.forEach(obj => {
+                if (obj.user == ID) {
+                    // vi vill komma åt 'task' + 'date'
+                    let div = document.createElement("div");
+                    div.classList.add("taskBox");
+                    
+                    div.innerHTML = `
+                        <div class="taskText">
+                            <p class="task"> ${obj.task}</p>            
+                            <p class="date"> ${obj.date} </p>
+                        </div>
+                            
+                        <div class="taskButtons">
+                            <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
+                            <a href="/API/moveTaskToFinished.php?id=${obj.id}"><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
+                        </div>`;
 
-        ongoingArray.forEach(obj => {
-            if (obj.user == ID) {
-                // vi vill komma åt 'task' + 'date'
-                let div = document.createElement("div");
-                div.classList.add("taskBox");
+                    // vilken färg boxarna ska ha beroende på prioritering.
+                    if (obj.priority === 0) {
+                        div.style.backgroundColor = "#FFA19B";
+                    } else if (obj.priority === 1) {
+                        div.style.backgroundColor = "#FFD79B";
+                    } else {                        
+                        div.style.backgroundColor = "#9BFFB7";
+                    } 
+        
+                    ongoingWrapper.append(div);   
+                }
+            });
+        }
+
+        // visar den med högst prioritet längst upp.
+        document.getElementById("priority").addEventListener("click", () => {
+            let priorityList = ongoingArray.sort((n1, n2) => n1.priority < n2.priority ? -1 : 1)
+            
+            document.getElementById("date").classList.remove("chosen");
+            document.getElementById("aToZ").classList.remove("chosen");
+            document.getElementById("priority").classList.add("chosen");
+
+            showList(priorityList);
+        });
+
+        // visar listan i bokstavsordning.
+        document.getElementById("aToZ").addEventListener("click", () => {
+            let alphabetList = ongoingArray.sort((n1, n2) => n1.task < n2.task ? -1 : 1)
+
+            document.getElementById("date").classList.remove("chosen");
+            document.getElementById("priority").classList.remove("chosen");
+            document.getElementById("aToZ").classList.add("chosen");
+            
+            showList(alphabetList);
+        });
+
+        // visar listan i bokstavsordning.
+        document.getElementById("date").addEventListener("click", () => {
+            let dateList = ongoingArray.sort((n1, n2) => n1.date < n2.date ? -1 : 1)
                 
-                div.innerHTML = `
-                    <div class="taskText">
-                        <p class="task"> ${obj.task}</p>            
-                        <p class="date"> ${obj.date} </p>
-                    </div>
-                        
-                    <div class="taskButtons">
-                        <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
-                        <a href="/API/moveTaskToFinished.php?id=${obj.id}"><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
-                    </div>`;
-
-                // vilken färg boxarna ska ha beroende på prioritering.
-                if (obj.priority === 0) {
-                    div.style.backgroundColor = "#FFA19B";
-                } else if (obj.priority === 1) {
-                    div.style.backgroundColor = "#FFD79B";
-                } else {                        
-                    div.style.backgroundColor = "#9BFFB7";
-                } 
-    
-                ongoingWrapper.append(div);   
-            }
+            document.getElementById("aToZ").classList.remove("chosen");
+            document.getElementById("priority").classList.remove("chosen");
+            document.getElementById("date").classList.add("chosen");
+                    
+            showList(dateList);
         });
     } 
 
