@@ -14,44 +14,53 @@ if (isset($_SESSION["id"])) {
     $sessionID = $_SESSION["id"];
 
     if (isset($_POST["task"])) {
-        // variabler
         $task = $_POST["task"];
-        $highestID = 0;
-        $today = date("F j, Y"); // variabel för dagens datum.
 
         if (empty($task)) {
             header("Location: /PAGES/create-task.php?error=1");
             exit();
         }
-        
-        if (strlen($task) < 3) {
-            header("Location: /PAGES/create-task.php?error=2");
-            exit();
-        }
 
-        if (strlen($task) > 3) {
-            foreach ($data as $tasks => $singleTask) {
-                if ($singleTask["id"] > $highestID) {
-                    $highestID = $singleTask["id"];
-                }
+        if (isset($_POST["colour"])) {
+            // variabler
+            $colour = $_POST["colour"];
+            $highestID = 0;
+            $today = date("F j, Y"); // variabel för dagens datum.
+
+            if (empty($colour)) {
+                header("Location: /PAGES/create-task.php?error=3");
+                exit();
+            }
+            
+            if (strlen($task) < 3) {
+                header("Location: /PAGES/create-task.php?error=2");
+                exit();
             }
 
-            // skapar ny task till arrayen.
-            $newTask = [
-                "id" => $highestID + 1,
-                "user" => $sessionID,
-                "priority" => 2, // DENNA MÅSTE FIXAS, har inte gjort en array med färger osv. än.
-                "task" => $task,
-                "date" => $today
-            ];
+            if (strlen($task) > 3) {
+                foreach ($data as $tasks => $singleTask) {
+                    if ($singleTask["id"] > $highestID) {
+                        $highestID = $singleTask["id"];
+                    }
+                }
 
-            // sparar ner det till list.json
-            array_push($data, $newTask);
-            saveJson("../API/ongoingList.json", $data);
+                // skapar ny task till arrayen.
+                $newTask = [
+                    "id" => $highestID + 1,
+                    "user" => $sessionID,
+                    "priority" => intval($colour), // DENNA MÅSTE FIXAS, har inte gjort en array med färger osv. än.
+                    "task" => $task,
+                    "date" => $today
+                ];
 
-            // gå tillbaka till list-sidan
-            header("Location: ../index.php");
-            exit();
+                // sparar ner det till list.json
+                array_push($data, $newTask);
+                saveJson("../API/ongoingList.json", $data);
+
+                // gå tillbaka till list-sidan
+                header("Location: ../index.php");
+                exit();
+            }
         }
     }
 }
@@ -99,6 +108,14 @@ if (isset($_SESSION["id"])) {
                 <div>
                     <div id="taskText">
                         <p>What's the level of importance?</p>
+                    </div>
+                    <div id="checkbox">
+                        <input type="radio" name="colour" class="checkbox" value="0">
+                        <label for="0">0</label>
+                        <input type="radio" name="colour" class="checkbox" value="1">
+                        <label for="1">1</label>
+                        <input type="radio" name="colour" class="checkbox" value="2">
+                        <label for="2">2</label>
                     </div>
                     <div id="importantCircles">
                         <div id="circle1"></div>

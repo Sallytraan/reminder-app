@@ -62,13 +62,10 @@ function toDo(){
         // ska göra ongoing-array men med for-loop
 
         ongoingArray.forEach(obj => {
-            //console.log(obj); // ska visa alla objekt i arrayen. Kolla för säkerhets skull.
-            
             if (obj.user == ID) {
                 // vi vill komma åt 'task' + 'date'
                 let div = document.createElement("div");
                 
-                // TA BORT CREATE-TASK FÖR JAG LYCKAS INTE MED SKITET
                 div.innerHTML = `
                     <div class="taskBox">
                         <div class="taskText">
@@ -82,8 +79,19 @@ function toDo(){
                         </div>
                     </div>`;
     
-                ongoingWrapper.append(div);            
+                ongoingWrapper.append(div);   
             }
+
+            let taskBox = document.querySelector(".taskBox");
+
+                if (obj.priority === 0) {
+                    taskBox.style.backgroundColor = "#FFA19B";
+                } else if (obj.priority === 1) {
+                    taskBox.style.backgroundColor = "#FFD79B";
+                } else {
+                    taskBox.style.backgroundColor = "#9BFFB7";
+                }
+
         });
     } 
 
@@ -99,7 +107,7 @@ function toDo(){
                 let div = document.createElement("div");
                 
                 div.innerHTML = `
-                    <div class="taskBox">
+                    <div class="completedTaskBox">
                         <div class="taskText">
                             <p class="task"> ${obj.task}</p>            
                             <p class="date"> ${obj.date} </p>
@@ -131,7 +139,7 @@ function toDo(){
 
         quoteDiv.innerHTML = `
         <p> “${randomQuote.text}”</p>
-        <p> ______</p>
+        <p>______</p>
         <p> ${randomQuote.author} </p>`;
 
         document.getElementById("toDoWrapper").prepend(quoteDiv);

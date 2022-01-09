@@ -15,6 +15,10 @@ body {
 }
 
 /* till navven */
+footer {
+    position: sticky;
+    bottom: 0;
+}
 nav {
     z-index: 100;
     display: flex;
@@ -24,8 +28,8 @@ nav {
     height: 50px;
     width: 100vw;
 
-    position:absolute;
-    bottom: 0px;
+    /* position: absolute;
+    bottom: 0px; */
 }
 
 nav > div {
