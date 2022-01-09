@@ -4,6 +4,8 @@ require_once "../functions.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 $contentType = $_SERVER["CONTENT_TYPE"];
+$userData = loadJson("users.json");
+$userTask = loadJson("list.json");
 
 if ($method === "OPTIONS") {
     // Tillåt alla (origins) och alla headers
@@ -34,8 +36,12 @@ if ($method === "GET") {
     exit();
 }
 */
-/*
+
+
 if ($method === "POST") {
+    if ($contentType == "application/json") {
+
+    }
     // skapar variabler
     $id = $requestData["id"];
     $userName = $requestData["username"];
@@ -52,9 +58,14 @@ if ($method === "POST") {
                 400
             );
         }
+
         send(
             ["message" => "Bad request. There is one or more keys missing."],
             400
+        );
+    } else {
+        send(
+            ["message" => "great."]
         );
     }
 
@@ -69,5 +80,5 @@ if ($method === "POST") {
 if ($method === "DELETE") {
 
 } 
-*/
+
 ?>

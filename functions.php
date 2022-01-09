@@ -22,6 +22,16 @@ function saveJson($filename, $data) {
     file_put_contents($filename, $json);
 }
 
+// hämtar alla ongoing tasks i DB.
+function getOngoingTasks(){
+    $json = file_get_contents("ongoingList.json"); 
+    $data = json_decode($json, true);
+
+    $ongoingTaskData = $data;
+
+    return $ongoingTaskData;
+}
+
 /*
 $changeTheContract = function(){
 

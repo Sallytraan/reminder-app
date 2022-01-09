@@ -5,9 +5,17 @@ toDo();
 function toDo(){
     //Hamna högst upp på sidan
     scroll(0,0)  
+
+    // hämtar API:n (listan med tasks)
+    fetch("/API/ongoingList.json")
+      .then(response => response.json())
+      .then(json => taskData(json));
+
+    fetch ("/API/finishedList.json")
+        .then(response => response.json())
+        .then(json => finishedTaskData(json));
   
     // Uppdaterar naven
-
     navList.classList.add("navListSelected");
     navList.classList.remove("navListBlack");
 
@@ -24,40 +32,34 @@ function toDo(){
     navList.classList.add("selectedNav");
     navFocus.classList.remove("selectedNav");
     navProfile.classList.remove("selectedNav");
-    
-    // hämtar API:n (listan med tasks)
-    fetch("/API/list.json")
-        .then(response => response.json())
-        .then(json => taskData(json));
 
+    wrapper.innerHTML = `
+    <div id="toDoWrapper">
+        <h3>To Do</h3>
+        <div id="ongoing">
+        </div>
+        <div id='addTask'>
+            <a href="/PAGES/create-task.php"><img src='/ICONS_BLACK/add-icon.svg' alt='list'></a>
+        </div>
+
+        <div id="progressBar">
+            <p class="compTaskCount"></p>
+            <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
+        </div>
+        <div id="completed">
+            <h3>Completed</h3>
+        </div>
+    </div>
+    `;
+
+    // gör att man kan se innehållet från json.
     function taskData(json) {
-        console.log(json.ongoing[1]);   
+        console.log(json); // radera
         
-        // kunna nå de två olika arrayerna i list.json. De tar inte med json när den uppdaterar. 'delete-knappen' funkar men inte denna sen... varför?
-        // är det för ongoing-json inte längre är en array? konstigt
-        let ongoingArray = json.ongoing;
-        let completedArray = json.finished;
-
-        wrapper.innerHTML = `
-            <div id="toDoWrapper">
-                <h3>To Do</h3>
-                <div id="ongoing">
-                </div>
-                <div id='addTask'>
-                    <a href="/PAGES/create-task.php"><img src='/ICONS_BLACK/add-icon.svg' alt='list'></a>
-                </div>
-
-                <div id="progressBar">
-                    <p> ${completedArray.length - 1}</p>
-                    <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
-                </div>
-                <div id="completed">
-                    <h3>Completed</h3>
-                </div>
-            </div>
-            `;
-
+        let ongoingArray = json;
         let ongoingWrapper = document.getElementById("ongoing");
+
+        // ska göra ongoing-array men med for-loop
 
         ongoingArray.forEach(obj => {
             //console.log(obj); // ska visa alla objekt i arrayen. Kolla för säkerhets skull.
@@ -75,9 +77,8 @@ function toDo(){
                         </div>
                         
                         <div class="taskButtons">
-                            <a href="/PAGES/create-task.php?id=${obj.id}"><img class="editIcon" src='../ICONS_BLACK/pencil-icon.svg' alt='edit'></a>
                             <a href="/API/deleteTaskFromUser.php?id=${obj.id}"><img class="removeIcon" src='../ICONS_BLACK/remove-icon.svg' alt='remove'></a>
-                            <img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'>
+                            <a href=""><img class="clearIcon" src='/ICONS_BLACK/check-icon.svg' alt='checkmark'></a>
                         </div>
                     </div>`;
     
@@ -85,6 +86,33 @@ function toDo(){
             }
         });
     } 
+
+    function finishedTaskData(json) {
+        let completedArray = json;
+        let completedWrapper = document.getElementById("completed");
+        let taskCounter = document.querySelector(".compTaskCount");
+        taskCounter.innerHTML = completedArray.length;
+        console.log(completedArray);
+
+        completedArray.forEach(obj => {
+            //console.log(obj); // ska visa alla objekt i arrayen. Kolla för säkerhets skull.
+            
+            if (obj.user == ID) {
+                // vi vill komma åt 'task' + 'date'
+                let div = document.createElement("div");
+                
+                div.innerHTML = `
+                    <div class="taskBox">
+                        <div class="taskText">
+                            <p class="task"> ${obj.task}</p>            
+                            <p class="date"> ${obj.date} </p>
+                        </div>
+                    </div>`;
+    
+                completedWrapper.append(div);            
+            }
+        });
+    }
 
     // funktion som randomiserar mellan "max"-siffran.
     function getRandomInt(max) {
