@@ -1,6 +1,6 @@
 "use strict";
 
-function theProfile(){
+function profileUpdate(){
     //Hamna högst upp på sidan
     scroll(0,0)  
   
@@ -42,18 +42,12 @@ function theProfile(){
           </div>
         </div>
 
-        <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
-
     </div>
     `;
 
-
-    // <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
-
     //document.getElementById("userImage").src = USER_IMAGE;
           document.querySelector(".changeSettingsButton").addEventListener("click", function() {
-        //window.location.href = "../PAGES/update.php";
-        profileUpdate();
+        window.location.href = "../PAGES/update.php";
     });
   
     fetch("../API/users.json")
@@ -71,7 +65,23 @@ function theProfile(){
             <img id="profileImage" src="userImages/${obj.image}">
             `;
             
+
+                //CHANGE NAMETAG 
+//tar emot befintligt namn, samt det nya namnet.
+function requestChangeUserName(nameTag, newNameTag){
+    nameTag = obj.username;
+    const data = {"username": nameTag, "username": newNameTag};
+    const req = new Request("../API/api.php", {
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {"Content-type": "application/json"}
+    });
+    fetch(req).then(response => getStatusCode(response));
+}
+
+requestChangeUserName(obj.username, "Anna");
              }
+
       });
     }
     

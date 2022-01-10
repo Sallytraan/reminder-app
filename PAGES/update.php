@@ -6,61 +6,21 @@ require_once "../functions.php";
 
 $loggedInID = $_SESSION["id"];
 $UserName = $_SESSION["username"];
-$UserEmail = $_SESSION["email"];
-$UserPassword = $_SESSION["password"];
-$UserImage = $_SESSION["image"]
 
 ?>
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST" ){
-    $data = loadJson("../API/list.json");
+    $data = loadJson("../API/users.json");
 
-    $imageUrl = $sitterImage;
-    $file = $_FILES["newImageToUpload"];
 
-    if (isset($file) && $file["error"] != 4) {
-        $file = $_FILES["newImageToUpload"];
-        $filename = $file["name"];
-        $tempname = $file["tmp_name"];
-        $uniqueFilename = sha1(time().$filename);
-        $size = $file["size"];
-
-        if ($size > 4 * 1000 * 1000) {
-            header("Location: update.php?error=1");
-            exit();
-        }
-
-        //Hämta filinformation & kolla vilken filtyp det är
-        $info = pathinfo($filename);
-        $extension = strtolower($info["extension"]);
-        //Spara bilden med unikt namn i mappen "userImages"
-        move_uploaded_file($tempname, __DIR__ . "/../userImages/$uniqueFilename.$extension");
-        $imageUrl = $uniqueFilename.'.'.$extension;
-    }
-
-    if (!array_key_exists("areas", $_POST) || !array_key_exists("days", $_POST)) {
-        header("Location: update.php?error=2");
-        exit();
-    }
 
     $updateProfile = [
-        "id_sitter" => $loggedInID,
-        "first_name" => $_POST["firstName"],
-        "last_name" => $_POST["lastName"],
-        "email" => $_POST["email"],
-        "password" => $_POST["password"],
-        "image" => $imageUrl //spara unika namnet på bilden som sökväg
+        "id" => $loggedInID,
+        "username" => $_POST["username"]
     ]; 
 
-    for ($i=0; $i < count($data); $i++) { 
-        $currData = $data[$i];
-        $currUser = $currData["id_sitter"];
-        if($loggedInID === $currUser){
-            $data[$i] = $updateProfile;
-        }
-    }
 
-    if (empty($updateProfile["first_name"]) || empty($updateProfile["last_name"]) || empty($updateProfile["email"]) || empty($updateProfile["password"]) || empty($updateProfile["location"]) || empty($updateProfile["cost"]) || empty($updateProfile["days"]) || empty($updateProfile["areas"])|| empty($updateProfile["extraInfo"])) {
+    if (empty($updateProfile["first_name"])) {
         header("Location: update.php?error=2");
         exit();
     }
@@ -102,20 +62,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
     <div class="form">
         <form class="update-account" action="update.php" method="POST" enctype="multipart/form-data">
             <div id="dogsitter-form"> 
-                <p>Förnamn</p><input class="updateFields" type="text" name="userName" placeholder="<?php echo $UserName ?>" value ="<?php echo $UserName ?>"><br>
-                <p>Email</p><input type="email" class="updateFields" name="email" placeholder="<?php echo $UserEmail ?>" value="<?php echo $UserEmail ?>"><br>
-                <p>Lösenord</p><input type="text" class="updateFields" name="password" placeholder="Skriv Nytt Lösenord" value="<?php echo $UserPassword ?>" minlength="4" required><br>
+                <p>Förnamn</p><input class="updateFields" type="text" name="username" placeholder="<?php echo $UserName ?>" value ="<?php echo $UserName ?>"><br>
                 
                   
             </div>
 
-
-
-            <div class="uploadImageUpdate"> 
-                <h2 class="h2-update"> Ladda upp en ny profilbild </h2> 
-                <input type="file" name="newImageToUpload" id="fileToUpload">
-            </div> 
-            <div class="update-button-wrapper">
             <button type="submit" class="update-button">Spara</button>
             </div>
         </form>

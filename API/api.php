@@ -25,4 +25,32 @@ if ($method === "POST") {
 if ($method === "DELETE") {
 
 }
+
+    //Behöver nytt användarnamn
+    if ($rqstMethod === "PATCH") {
+        if (isset($rqstData["username"], $_SESSION["username"])) {
+            $users = loadJson("api/user.json");
+            $newNameTag = $rqstData["username"];
+            $foundUser = false;
+
+            // DB BACKUP
+            saveJson("api/users_backup.json", $users);
+
+
+            foreach ($users as $key => $user) {
+                if ($_SESSION["username"] == $user["username"]) {
+                    $foundUser = true;
+                    $users[$key]["username"] = $newNameTag;
+                }
+            }
+            if ($foundUser) {
+                saveJson("api/users.json", $users);
+                statusCode(212);
+            } else {
+                statusCode(462);
+            }
+            ///DELETE INVENTORY ITEM
+        } 
+    }
+
 ?>

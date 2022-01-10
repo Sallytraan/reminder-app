@@ -42,7 +42,13 @@ session_start();
     Hint: tap and hold the fingerprint to commit. Precomitting to a goal (via contracts like these) has been shown to inspire action and reduce procrationation. 
     </p>
 
-<a href="../index.php">SIGN HERE</a>
+<div id="signTheContract"></div>
 
+<script>
+document.querySelector("#signTheContract").addEventListener("click", function() {
+window.location.href = "../index.php";);
+
+});
+</script>
 
 </div>
