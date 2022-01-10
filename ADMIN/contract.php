@@ -45,8 +45,29 @@ session_start();
 <div id="signTheContract"></div>
 
 <script>
-document.querySelector("#signTheContract").addEventListener("click", function() {
-window.location.href = "../index.php";);
+
+let contract = document.querySelector("#signTheContract");
+
+
+contract.addEventListener("mousedown", function() {
+
+    contract.style.height="200px";
+    contract.style.width="200px";
+    contract.style.marginTop="0px";
+
+    contract.style.backgroundRepeat="no-repeat";
+    contract.style.backgroundPosition="center";
+
+    setTimeout(function(){
+
+        contract.style.backgroundImage="url(../IntroIcons/happyFace.svg)";
+    }, 1200);
+
+    //Fade In
+    setTimeout(function(){
+        window.location.href = "../index.php";
+        contract.style.backgroundImage="url(../IntroIcons/happyFace.svg)";
+    }, 1600);
 
 });
 </script>
