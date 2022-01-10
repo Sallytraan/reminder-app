@@ -56,8 +56,8 @@ function toDo(){
             <p class="compTaskCount"></p>
             <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
         </div>
+        <h3>Completed</h3>
         <div id="completed">
-            <h3>Completed</h3>
         </div>
     </div>
     `;

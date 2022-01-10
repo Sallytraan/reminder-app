@@ -23,23 +23,28 @@ session_start();
     <body>
         <header>
         <?php
-
-if (isset($_SESSION["id"])) {
-        // variabler
-        $data = json_decode(file_get_contents("API/users.json"), true);
-        $taskData = json_decode(file_get_contents("API/list.json"), true);
-        $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
-        $id = $_SESSION["id"];
         
+        $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
+        // så tiden är samma som i Sverige.
+        date_default_timezone_set('Europe/Stockholm');
+        if (date("H") == 06 && date("i") == 00 && date("s") == 00 && date("l") == "Monday") {
+            // rensar array:en klockan 6 på måndagar.
+            $completedTask = [];
 
-        $changeContract = 'changeIt';
-        
-        // testar om jag kan överföra JSON till js.
-        $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
+            // sen spara det tillbaks.
+            $json = json_encode($completedTask, JSON_PRETTY_PRINT);
+            file_put_contents("API/finishedList.json", $json);
+        }
 
-        $JSONUserData = json_encode($data, JSON_PRETTY_PRINT);
-}
-        // var_dump($_SESSION); // för att kolla vad som finns i den.
+        if (isset($_SESSION["id"])) {
+            // variabler
+            $data = json_decode(file_get_contents("API/users.json"), true);
+            $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+            $id = $_SESSION["id"];
+                
+            $changeContract = 'changeIt';
+        }
+
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
             $id = $_SESSION["id"];
@@ -59,8 +64,6 @@ if (isset($_SESSION["id"])) {
             <script> 
                 const ID = $id 
                 const USER = $userName
-                const TASK_DATA = $JSONTaskData
-                const USER_DATA = $JSONUserData
                 const theContract = $changeContract()
             </script>
             ";
@@ -72,9 +75,6 @@ if (isset($_SESSION["id"])) {
                 //echo "<script> const ID = $id </script>";
                 //echo "<script> const USER_NAME = $userName </script>";
         }
-
-
-
         ?>
         </header>
         <main id="wrapper">

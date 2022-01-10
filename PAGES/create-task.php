@@ -26,11 +26,6 @@ if (isset($_SESSION["id"])) {
             $colour = $_POST["colour"];
             $highestID = 0;
             $today = date("F j, Y"); // variabel för dagens datum.
-
-            if (empty($colour)) {
-                header("Location: /PAGES/create-task.php?error=3");
-                exit();
-            }
             
             if (strlen($task) < 3) {
                 header("Location: /PAGES/create-task.php?error=2");
@@ -48,7 +43,7 @@ if (isset($_SESSION["id"])) {
                 $newTask = [
                     "id" => $highestID + 1,
                     "user" => $sessionID,
-                    "priority" => intval($colour), // DENNA MÅSTE FIXAS, har inte gjort en array med färger osv. än.
+                    "priority" => intval($colour),
                     "task" => $task,
                     "date" => $today
                 ];
@@ -61,6 +56,9 @@ if (isset($_SESSION["id"])) {
                 header("Location: ../index.php");
                 exit();
             }
+        } else {
+            header("Location: /PAGES/create-task.php?error=3");
+            exit();
         }
     }
 }
@@ -102,6 +100,10 @@ if (isset($_SESSION["id"])) {
 
                     if ($error == 2) {
                         echo "<p class='errorTask'> You have to include at least three letters. </p>";
+                    }
+
+                    if ($error == 3) {
+                        echo "<p class='errorTask'> You have to include a priority colour. </p>";
                     }
                 }
                 ?>
