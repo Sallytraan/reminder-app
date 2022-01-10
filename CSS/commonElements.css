@@ -1,6 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 /* Logotypen */
 #logotyp {
@@ -20,7 +21,7 @@ footer {
     bottom: 0;
 }
 nav {
-    z-index: 100;
+    /* z-index: 100; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,11 +41,9 @@ nav > div {
     flex-grow: 1;
     height: 50px;
 
-    background-color: #F5F5F5;
+    background-color: #ead4ff;
     border-top: 1px solid grey;
 }
-
-
 
 #navList {
     background-repeat: no-repeat;
@@ -57,10 +56,9 @@ nav > div {
 
 .navListSelected {
     background-image: url(../ICONS_WHITE/list-white.svg);
-    background-color: grey;
+    background-color: rgb(154, 86, 218);
+    transition: background-color 2s;
 }
-
-
 
 #navFocus {
     background-repeat: no-repeat;
@@ -73,10 +71,9 @@ nav > div {
 
 .navFocusSelected {
     background-image: url(../ICONS_WHITE/timer-white.svg);
-    background-color: grey;
+    background-color: rgb(154, 86, 218);
+    transition: background-color 2s;
 }
-
-
 
 #navProfile {
     background-repeat: no-repeat;
@@ -89,7 +86,8 @@ nav > div {
 
 .navProfileSelected {
     background-image: url(../ICONS_WHITE/user-white.svg);
-    background-color: grey;
+    background-color: rgb(154, 86, 218);
+    transition: background-color 2s;
 }
 
 

@@ -4,6 +4,8 @@ require_once "../functions.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 $contentType = $_SERVER["CONTENT_TYPE"];
+
+// data från json
 $userData = loadJson("users.json");
 $userOngoingTask = loadJson("ongoingList.json");
 
@@ -27,8 +29,6 @@ header("Access-Control-Allow-Origin: *");
 // något som finns i datorn idk.
 $data = file_get_contents("php://input");
 $requestData = json_decode($data, true);
-
-
 /*
 if ($method === "GET") {
     header("Content-Type: application/json");
@@ -78,6 +78,7 @@ if ($method === "POST") {
 }
 
 if ($method === "DELETE") {
+
 
 } 
 

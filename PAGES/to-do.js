@@ -162,7 +162,8 @@ function toDo(){
         let completedArray = json;
         let completedWrapper = document.getElementById("completed");
         let taskCounter = document.querySelector(".compTaskCount");
-        taskCounter.innerHTML = completedArray.length;
+        let taskCountArray = [];
+
         console.log(completedArray);
 
         completedArray.forEach(obj => {            
@@ -184,19 +185,12 @@ function toDo(){
                     div.style.backgroundColor = "#9BFFB7";
                 }        
     
-                completedWrapper.append(div);            
+                completedWrapper.append(div);
+                taskCountArray.push(obj.task);       
             }
         });
 
-        // tömma completed array:en på måndag klockan 8
-        /* var today = new Date();
-        var day = today.getDay();
-        var time = today.getHours();
-        if (day === 9 && time === 22) {
-            completedArray = [];
-        }
-        //console.log(date);
-        console.log(time); */
+        taskCounter.innerHTML = taskCountArray.length;
     }
 
     // funktion som randomiserar mellan "max"-siffran.

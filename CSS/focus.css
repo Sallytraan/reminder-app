@@ -1,12 +1,9 @@
 #theTimerWrapper {
     display: flex;
-
-
     margin: 0;
     width: 100%;
-
-
     padding-top: 20px;
+    min-height: 100vh;
 }
 
    .container{

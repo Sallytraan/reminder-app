@@ -15,7 +15,9 @@ function deleteTask($taskID) {
 
     if ($found) {
         array_splice($tasks, $index, 1);
-        saveJson("../API/ongoingList.json", $tasks);
+
+        $file = "ongoingList.json";
+        $newfile = "ongoingList_backup.json";
     };
 
     header("Location: ../index.php");
@@ -28,4 +30,20 @@ if (isset($_GET["id"])) {
 
     deleteTask($deleteTaskID);
 }
+
+/*
+        copy($file, $newfile);
+        saveJson("../API/ongoingList.json", $tasks);
+
+        if (!copy($file, $newfile)) {
+            send(
+                ["message" => "Failed to copy $file"],
+                404
+            );
+        } else {
+            send(
+                ["message" => "Successfully copied $file!"]
+            );
+        }
+*/
 ?>

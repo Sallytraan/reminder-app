@@ -41,11 +41,6 @@ if (isset($_POST["email"], $_POST["password"])) {
                         exit();
                     }
                 }
-
-                if ($email !== $user["email"] || $password !== $user["password"]) {
-                    header("Location: ../ADMIN/sign-in.php?error=4");
-                    exit();
-                }
             }
         }
     }
