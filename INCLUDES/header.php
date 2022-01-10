@@ -18,11 +18,23 @@ session_start();
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
-        <link rel="icon" href="/reminder_logotyp.svg">
+        <link rel="icon" href="INCLUDES/reminder_logotyp.svg">
     </head>
     <body>
         <header>
         <?php
+         
+         $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
+         // så tiden är samma som i Sverige.
+         date_default_timezone_set('Europe/Stockholm');
+         if (date("H") == 06 && date("i") == 00 && date("s") == 00 && date("l") == "Monday") {
+             // rensar array:en klockan 6 på måndagar.
+             $completedTask = [];
+ 
+             // sen spara det tillbaks.
+             $json = json_encode($completedTask, JSON_PRETTY_PRINT);
+             file_put_contents("API/finishedList.json", $json);
+         }
 
 if (isset($_SESSION["id"])) {
         // variabler
@@ -32,22 +44,19 @@ if (isset($_SESSION["id"])) {
         $userEmail = json_encode($_SESSION["email"], JSON_PRETTY_PRINT);
         $userImage = $_SESSION["image"];
         $id = $_SESSION["id"];
-        
-        
-        // testar om jag kan överföra JSON till js.
-        $JSONTaskData = json_encode($taskData, JSON_PRETTY_PRINT);
 
-        $JSONUserData = json_encode($data, JSON_PRETTY_PRINT);
-}
+        if (isset($_SESSION["id"])) {
+            // variabler
+            $data = json_decode(file_get_contents("API/users.json"), true);
+            $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+            $id = $_SESSION["id"];
+                
+            $changeContract = 'changeIt';
+        }
 
-
-        
-        // var_dump($_SESSION); // för att kolla vad som finns i den.
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
-            
             $id = $_SESSION["id"];
-
                         echo "
                         <p id='logotyp'> Reminder </p>";                
 
@@ -71,9 +80,6 @@ if (isset($_SESSION["id"])) {
                 //echo "<script> const ID = $id </script>";
                 //echo "<script> const USER_NAME = $userName </script>";
         }
-
-
-
         ?>
         </header>
         <main id="wrapper">

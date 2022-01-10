@@ -4,7 +4,7 @@ ob_start();
 require_once "../INCLUDES/header.php";
 
 
-if($_SERVER["REQUEST_METHOD"] == "POST" ){
+if ($_SERVER["REQUEST_METHOD"] == "POST" ){
 
 $file = $_FILES["image"];
 $json = file_get_contents("../API/users.json");

@@ -1,44 +1,49 @@
 <?php
-require_once "../API/api.php";
 require_once "../functions.php";
 
 // ska kunna radera en task
 function deleteTask($taskID) {
-    $tasks = loadJson("../API/list.json");
-    $ongoingTasks = $tasks["ongoing"];
+    $tasks = loadJson("../API/ongoingList.json");
     $found = false;
 
-    foreach ($ongoingTasks as $taskObj => $key) {
+    foreach ($tasks as $taskObj => $key) {
         if ($taskID == $key["id"]) {
             $found = true;
-            array_splice($ongoingTasks, $taskObj, 1);
             $index = $taskObj;
         }
-    }
+    };
 
     if ($found) {
-        // unset funkar, men ändrar i JSON så att javascript inte kan skriva ut det i hemsidan (kan inte fetcha det heller...)
-        unset($tasks["ongoing"][$index]);
-        saveJson("../API/list.json", $tasks);
+        array_splice($tasks, $index, 1);
 
-        //array_splice($tasks["ongoing"], $index);
-        //var_dump($tasks["ongoing"][$index]);
-    }
+        $file = "ongoingList.json";
+        $newfile = "ongoingList_backup.json";
+    };
 
     header("Location: ../index.php");
     exit();
 }
 
-// kollar om ID:et finns i webbläsaren.
+// kollar om ID:et finns i webbläsaren och radera den task vars id det är.
 if (isset($_GET["id"])) {
     $deleteTaskID = $_GET["id"];
 
     deleteTask($deleteTaskID);
 }
 
-// om användarens ID inte finns med i session ska man inte kunna radera "tasks".
-/* if(!isset($_SESSION["id"])) {
-    header("Location: ../ADMIN/sign-in.php");
-    exit();
-} */
+/*
+        copy($file, $newfile);
+        saveJson("../API/ongoingList.json", $tasks);
+
+        if (!copy($file, $newfile)) {
+            send(
+                ["message" => "Failed to copy $file"],
+                404
+            );
+        } else {
+            send(
+                ["message" => "Successfully copied $file!"]
+            );
+        }
+*/
 ?>
