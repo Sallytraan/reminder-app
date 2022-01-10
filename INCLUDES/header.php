@@ -36,7 +36,7 @@ session_start();
              file_put_contents("API/finishedList.json", $json);
          }
 
-if (isset($_SESSION["id"])) {
+        if (isset($_SESSION["id"])) {
         // variabler
         $data = json_decode(file_get_contents("API/users.json"), true);
         $taskData = json_decode(file_get_contents("API/list.json"), true);
@@ -44,16 +44,7 @@ if (isset($_SESSION["id"])) {
         $userEmail = json_encode($_SESSION["email"], JSON_PRETTY_PRINT);
         $userImage = $_SESSION["image"];
         $id = $_SESSION["id"];
-
-        if (isset($_SESSION["id"])) {
-            // variabler
-            $data = json_decode(file_get_contents("API/users.json"), true);
-            $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
-            $id = $_SESSION["id"];
-                
-            $changeContract = 'changeIt';
         }
-
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
             $id = $_SESSION["id"];
