@@ -121,19 +121,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
                 } elseif ($error == 2) {
                     echo "<h2 class='popUpText'>All the fields need to be filled in. Try again.</h2>"; 
                 } else {
-                    echo "<h2 id='titleUpdate'>Change your information</h2>";
+                    echo "<h2 id='titleUpdate'>Change your information.</h2>";
                 }
             }
             
             if (isset($_GET["saved"])) {
-                echo "<h2 id='popUpText'>Information saved!</h2>";
+                echo "<h2 id='alonePopUp'>Information saved!</h2>";
             }
             ?>
-            
+        <div id="theProfileWrapper">    
             <form class="changeUserInfo" action="update.php" method="POST" enctype="multipart/form-data">
                 <div class="uploadImageUpdate"> 
-                    <input type="file" name="newFile" id="uploadFile">
                     <h3 class="imageTitle"> Change profile picture</h3> 
+                    <input type="file" name="newFile" id="uploadFile">
                 </div> 
                 <div>
                     <input class="changeField" type="text" name="username" placeholder="Username" value ="<?php echo $currentUsername ?>">
@@ -142,6 +142,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
                     <input class="changeField" type="text" name="email" placeholder="Email" value ="<?php echo $currentEmail ?>">
                 </div>
 
-                <button type="submit" class="submitUpdate">Save</button>
-                <button type="submit" class="submitUpdate"><a href="../index.php">back</a></button>
+                <div class="buttonBox">
+                    <button type="submit" class="submitUpdate">Save</button>
+                    <button type="submit" class="submitUpdate"><a href="../index.php">back</a></button>
+                </div>
             </form>
+        </div>
