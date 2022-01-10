@@ -23,44 +23,39 @@ session_start();
     <body>
         <header>
         <?php
-         
-         $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
-         // så tiden är samma som i Sverige.
-         date_default_timezone_set('Europe/Stockholm');
-         if (date("H") == 06 && date("i") == 00 && date("s") == 00 && date("l") == "Monday") {
-             // rensar array:en klockan 6 på måndagar.
-             $completedTask = [];
- 
-             // sen spara det tillbaks.
-             $json = json_encode($completedTask, JSON_PRETTY_PRINT);
-             file_put_contents("API/finishedList.json", $json);
-         }
+        $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
+        // så tiden är samma som i Sverige.
+        date_default_timezone_set('Europe/Stockholm');
+        if (date("H") == 06 && date("i") == 00 && date("s") == 00 && date("l") == "Monday") {
+            // rensar array:en klockan 6 på måndagar.
+            $completedTask = [];
+
+            // sen spara det tillbaks.
+            $json = json_encode($completedTask, JSON_PRETTY_PRINT);
+            file_put_contents("API/finishedList.json", $json);
+        }
 
         if (isset($_SESSION["id"])) {
-        // variabler
-        $data = json_decode(file_get_contents("API/users.json"), true);
-        $taskData = json_decode(file_get_contents("API/list.json"), true);
-        $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
-        $userEmail = json_encode($_SESSION["email"], JSON_PRETTY_PRINT);
-        $userImage = $_SESSION["image"];
-        $id = $_SESSION["id"];
+            // variabler
+            $data = json_decode(file_get_contents("API/users.json"), true);
+            $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+            $id = $_SESSION["id"];
+                
+            $changeContract = 'changeIt';
         }
+
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
         if (isset($_SESSION["id"])) {
             $id = $_SESSION["id"];
-                        echo "
-                        <p id='logotyp'> Reminder </p>";                
-
+            echo "
+            <p id='logotyp'> Reminder </p>"; 
 
             // det vi vill överföra till js och använda
             echo "
             <script> 
                 const ID = $id 
                 const USER = $userName
-                const TASK_DATA = $JSONTaskData
-    
-                const USER_DATA = $JSONUserData
-                
+                const theContract = $changeContract()
             </script>
             ";
                 //echo "<script>  </script>";

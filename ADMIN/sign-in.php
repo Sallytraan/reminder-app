@@ -32,16 +32,21 @@ if (isset($_POST["email"], $_POST["password"])) {
             //loopar igenom användarna för att se om det finns en användare med den email + lösenord.
             foreach ($userData as $user) {
                 if ($user["email"] == $email && $user["password"] == $password) {
-                    if (isset($user["id"])) {
-                        $_SESSION["id"] = $user["id"]; // vilket id som är inloggad.
-                        $_SESSION["loggedIn"] = true; //inloggad anv.
-
-                        // vart användaren ska skickas om lyckad inloggning.
-                        header("Location: ../index.php");
-                        exit();
-                    }
+                    $foundUser = $user;
                 }
             }
+
+            if ($foundUser !== null) {
+                $_SESSION["username"] = $foundUser["username"];
+                $_SESSION["email"] = $foundUser["email"];
+                $_SESSION["id"] = $foundUser["id"];
+                
+
+                // vart användaren ska skickas om lyckad inloggning.
+                header("Location: ../index.php");
+                exit();
+            }
+
         }
     }
 }
