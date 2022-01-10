@@ -51,9 +51,9 @@ function theProfile(){
     // <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
 
     //document.getElementById("userImage").src = USER_IMAGE;
-          document.querySelector(".changeSettingsButton").addEventListener("click", function() {
+        document.querySelector(".changeSettingsButton").addEventListener("click", function() {
         window.location.href = "../PAGES/update.php";
-        //profileUpdate();
+        /*profileUpdate();*/
     });
   
     fetch("../API/users.json")
