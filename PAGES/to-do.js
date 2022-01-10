@@ -38,7 +38,6 @@ function toDo(){
         <div id="toDoBox">
             <h3>To Do</h3>
             <div id="sortButtons">
-                <p>sort by:</p>
                 <p id="date">date</p>
                 <p id="priority">priority</p>
                 <p id="aToZ">a › z</p>
@@ -114,8 +113,14 @@ function toDo(){
             document.getElementById("date").classList.remove("chosen");
             document.getElementById("aToZ").classList.remove("chosen");
             document.getElementById("priority").classList.add("chosen");
+            
+            document.getElementById("ongoing").style.opacity = 0;
 
-            showList(priorityList);
+            // fade in
+            setTimeout(() =>{
+                showList(priorityList);
+                document.getElementById("ongoing").style.opacity = 1;
+            }, 800);
         });
 
         // visar listan i bokstavsordning.
@@ -126,7 +131,13 @@ function toDo(){
             document.getElementById("priority").classList.remove("chosen");
             document.getElementById("aToZ").classList.add("chosen");
             
-            showList(alphabetList);
+            document.getElementById("ongoing").style.opacity = 0;
+
+            // fade in
+            setTimeout(() =>{
+                showList(alphabetList);
+                document.getElementById("ongoing").style.opacity = 1;
+            }, 800);
         });
 
         // visar listan i bokstavsordning.
@@ -136,8 +147,14 @@ function toDo(){
             document.getElementById("aToZ").classList.remove("chosen");
             document.getElementById("priority").classList.remove("chosen");
             document.getElementById("date").classList.add("chosen");
-                    
-            showList(dateList);
+
+            document.getElementById("ongoing").style.opacity = 0;
+
+            // fade in
+            setTimeout(() =>{
+                showList(dateList);
+                document.getElementById("ongoing").style.opacity = 1;
+            }, 800);
         });
     } 
 

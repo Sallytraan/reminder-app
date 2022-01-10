@@ -182,6 +182,7 @@ form {
 #ongoing, #completed {
     max-height: 350px;
     overflow-x: scroll;
+    transition: 1s;
 }
 
 /* Quotes */
@@ -241,4 +242,5 @@ form {
 #sortButtons > .chosen {
     font-weight: 500;
     font-size: 15px;
+    transition: .7s;
 }
