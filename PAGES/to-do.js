@@ -60,9 +60,7 @@ function toDo(){
     `;
 
     // gör att man kan se innehållet från json.
-    function taskData(json) {
-        console.log(json); // radera
-        
+    function taskData(json) {       
         let ongoingArray = json;
         let ongoingWrapper = document.getElementById("ongoing");
 
@@ -160,8 +158,6 @@ function toDo(){
         let completedWrapper = document.getElementById("completed");
         let taskCounter = document.querySelector(".compTaskCount");
         let taskCountArray = [];
-
-        console.log(completedArray);
 
         completedArray.forEach(obj => {            
             if (obj.user == ID) {

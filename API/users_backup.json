@@ -30,5 +30,13 @@
         "color-scheme": 0,
         "id": 4,
         "image": "844052c21d95b4b0e44032eaaad7491aa3ff6ec6."
+    },
+    {
+        "username": "jakob",
+        "email": "jakob@gmail.com",
+        "password": "jag\u00e4rb\u00e4st",
+        "color-scheme": 0,
+        "id": 5,
+        "image": "ec1ff39e220907e895ca9579b7c678027bfddcd6.svg"
     }
 ]
