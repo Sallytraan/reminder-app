@@ -10,6 +10,55 @@
     overflow-y: scroll;
 }
 
+
+
+#profileCircleOne {
+    background-image: url(../IntroIcons/blob-haikei1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 350px;
+
+    position: fixed;
+    bottom: -50px;
+    left: -250px;
+    z-index: -2;
+
+}
+
+#profileCircleTwo {
+    background-image: url(../IntroIcons/blob-haikei6.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 550px;
+    width: 550px;
+
+    position: fixed;
+    bottom: 0px;
+    left: 200px;
+    z-index: -1;
+    transform: rotate(120deg);
+}
+
+
+#profileCircleThree {
+    background-image: url(../IntroIcons/blob-haikei3.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 450px;
+
+    position: fixed;
+    bottom: 150px;
+    right: 150px;
+    z-index: -2;
+    transform: rotate(45deg);
+    
+}
+
 #userNameChange {
     text-align: center;
 }
@@ -23,42 +72,26 @@
     margin-top: 10px;
 }
 
-.colorContainers {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.changeSettingsButton {
+    border-radius: 10px;
+    margin-top: 50px;
 
-    margin: 0px 20px;
-}
+    height: 50px;
+    width: 225px;
 
-.colorContainers > p {
-    text-align: center;
+    background-color: black;
+    border: 1px solid black;
+    transition: 1s;
+
+    color: white;
+    font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-}
 
-#colorModes {
-    display: flex;
-    flex-direction: row;
-    margin-top: 40px;
-}
-
-.colorCircles {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-}
-
-.colorCircles:hover {
-    border: 2px solid grey;
-    box-sizing: border-box;
-    cursor: pointer;
 }
 
 #signOutButton {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 5px;
 
     height: 50px;
     width: 225px;
@@ -68,13 +101,8 @@
     transition: 1s;
 }
 
-#signOutButton:hover {
-    cursor: pointer;
-    background-color: white;
-}
-
-#signOutButton:hover > a {
-    color: black;
+#userNameChange, #userNameText {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #signOutButton > a {
@@ -82,25 +110,4 @@
     color: white;
     font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.darkMode {
-    background-color: black;
-    box-sizing: border-box;
-}
-
-.lightMode {
-    background-color: white;
-    border: 2px solid grey;
-    box-sizing: border-box;
-}
-
-.pinkMode {
-    background-color: #FFC7D1;
-    box-sizing: border-box;
-}
-
-.selectedColor {
-    border: 2px solid grey;
-    box-sizing: border-box;
 }

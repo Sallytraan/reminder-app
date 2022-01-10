@@ -9,7 +9,7 @@
     font-weight: 600;
 }
 
-   .container{
+.container{
     width: 100%;
     height:715px;
     position:absolute;
@@ -19,7 +19,6 @@
     overflow:hidden;
     margin: 0;
 }
-
 .clock{
     width:260px;
     height:260px;
@@ -147,10 +146,6 @@
     transition: all .2s ease;
 }
 
-.button-controls__button:hover {
-    fill:#fff;
-}
-
 .start-reset{
     width:100%;
     height:110px;
@@ -175,6 +170,7 @@
 .start-reset__button-text {
     fill:rgb(39, 39, 39);
     font-family: "Montserrat";
+    font-size: 140px;
 }
 
 @keyframes BackgroundGradient {

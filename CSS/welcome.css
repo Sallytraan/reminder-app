@@ -247,6 +247,48 @@
     padding: 50px;
 }
 
+#contractCircleOne {
+    background-image: url(../IntroIcons/blob-haikei11.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 230px;
+    width: 300px;
+
+    position: fixed;
+    bottom: 240px;
+    right: 80px;
+}
+
+#contractCircleTwo {
+    background-image: url(../IntroIcons/blob-haikei12.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+
+    position: fixed;
+    top: -30px;
+    right: -50px;
+}
+
+#contractCircleThree {
+    background-image: url(../IntroIcons/blob-haikei12.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    width: 300px;
+
+
+    transform: rotate(180deg);
+
+    position: fixed;
+    bottom: -50px;
+    left: 100px;
+}
+
 #contractHint {
     font-size: 12px;
 }
@@ -262,6 +304,7 @@
     z-index: 10;
     margin-top: 100px;
 }
+
 
 /*
 
@@ -319,6 +362,13 @@
     background-position-y: center;
     background-position-x: 2px;
     padding-left: 30px;
+}
+
+#signUpImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .iconEmail {
@@ -492,6 +542,7 @@
 
 
   #output_image {
-      height: 150px;
-      width: 150px;
+      height: 125px;
+      width: 125px;
+      border-radius: 50%;
   }

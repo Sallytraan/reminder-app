@@ -20,30 +20,16 @@ function theProfile(){
     
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
-        <div id="profileImage"> </div>
-        <div><span id="userNameChange"></span><span>'s profil</span></div>
-        <button class="changeSettingsButton"> Change settings </button>
 
-        <div id="colorModes"> 
+    <div id="profileCircleOne"></div>
+    <div id="profileCircleTwo"></div>
+    <div id="profileCircleThree"></div>
 
-          <div class="colorContainers">
-            <p> Dark <br>Mode</p>
-            <div class="darkMode colorCircles"></div>
-          </div>
+      <div id="profileImage"> </div>
+      <div><span id="userNameChange"></span><span id="userNameText">'s profile</span></div>
+      <button class="changeSettingsButton"> Change settings </button>
 
-          <div class="colorContainers">
-            <p> Light <br>Mode</p>
-            <div class="lightMode colorCircles"></div>
-          </div>
-
-          <div class="colorContainers">
-            <p> Pink <br>Mode</p>
-            <div class="pinkMode colorCircles"></div>
-          </div>
-        </div>
-
-        <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
-
+      <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
     </div>
     `;
 

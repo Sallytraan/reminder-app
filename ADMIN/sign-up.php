@@ -1,9 +1,28 @@
 <?php
+//error_reporting(-1);
 session_start();
-ob_start();
-require_once "../INCLUDES/header.php";
+?>
 
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="414, initial-scale=1.0">
+        <title>Reminder</title>
+        <link rel="stylesheet" href="../CSS/commonElements.css">
+        <link rel="stylesheet" href="../CSS/focus.css">
+        <link rel="stylesheet" href="../CSS/list.css">
+        <link rel="stylesheet" href="../CSS/welcome.css">
+        <link rel="stylesheet" href="../CSS/profile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="INCLUDES/reminder_logotyp.svg">
+    </head>
+    <body>
+        <header>
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" ){
 
 $file = $_FILES["image"];
@@ -29,8 +48,7 @@ function addUser($postInfo){
     $newUser = [
         "username" => $postInfo["username"],
         "email" => $postInfo["email"],
-        "password" => $postInfo["password"],  
-        "color-scheme" => 0
+        "password" => $postInfo["password"]
     ];
 
     //Kolla att de skickat med en bildfil och generera ett unikt 
@@ -174,16 +192,16 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
       <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
       <input type="password" name="passwordConfirm" placeholder="Confirm password" class="iconPassword inputIcon">
 
-        <div> 
-            <img id="output_image" src="../userImages/harry-potter.svg"/>
+        <div id="signUpImage"> 
+            <img id="output_image" src="../IntroIcons/defaultUserImage.jpg"/>
                 <h2> Upload a profile picture </h2> 
-                <input type="file" name="image" accept="image/*" onchange="preview_image(event)">
+                <input type="file" name="image" accept="image/*" onchange="preview_image(event)" required>
         </div>                 
 
 
       <button class="signUpSignInButton">Create an account</button>
        <div id="signUpSignInOption">
-        <p>Already have an account? <br> <a href="../API/sign-in.php">Sign in</a></p>
+        <p>Already have an account? <br> <a href="sign-in.php">Sign in</a></p>
  </div>
  </div>
  </div>

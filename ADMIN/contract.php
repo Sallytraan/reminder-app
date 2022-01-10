@@ -28,7 +28,11 @@ session_start();
     </head>
 
 
-    <div id="contractWrapper">
+<div id="contractWrapper">
+    <div id="contractCircleOne"></div>
+    <div id="contractCircleTwo"></div>
+    <div id="contractCircleThree"></div>
+
     <h1 class="removeTextH1"><span class="contractTitleName"><?php echo $theUser;?></span>'s Contract</h1>
     <p class="removeTextP1">
     I, <span class="contractTextName"><?php echo $theUser;?></span>, promise to make the most of tomorrow. 

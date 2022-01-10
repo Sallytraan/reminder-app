@@ -19,7 +19,6 @@ function theTimer(){
   
     wrapper.innerHTML = `
     <div id="theTimerWrapper">
-
   <div class = "container">
     <svg  class = "clock__time-visualizer" width="160" height="160" viewBox="0 0 160 160">
     <circle id = "progress-bar" cx="80" cy="80" r="77" fill="none" stroke="#33d4d8" stroke-width="1" 
@@ -82,6 +81,8 @@ function theTimer(){
 
     </div>
     `;
+
+
 
     function Pomodoroclock (elements){
         var startTime,

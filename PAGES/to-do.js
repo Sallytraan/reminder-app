@@ -35,6 +35,8 @@ function toDo(){
 
     wrapper.innerHTML = `
     <div id="toDoWrapper">
+    <div id="toDoCircleOne"></div>
+    <div id="toDoCircleTwo"></div>
         <div id="toDoBox">
             <h3>To Do</h3>
             <div id="sortButtons">
