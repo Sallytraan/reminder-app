@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
         <div id="theProfileWrapper">    
             <form class="changeUserInfo" action="update.php" method="POST" enctype="multipart/form-data">
                 <div class="uploadImageUpdate"> 
-                    <h3 class="imageTitle"> Change profile picture</h3> 
+                    <h3 class="imageTitle"> Change profile picture</h3>
                     <input type="file" name="newFile" id="uploadFile">
                 </div> 
                 <div>
