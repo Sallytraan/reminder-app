@@ -210,22 +210,6 @@ margin: 0;
     margin-top: 20px;
 }
 
-.progress {
-    height: 15px;
-    width: 300px;
-    
-    background-color: grey;
-    border-radius: 20px;
-}
-
-.progress-done {
-    height: 100%;
-    width: 0;
-
-    background: linear-gradient(to left, rgb(208, 148, 226), rgb(186, 230, 245));
-    border-radius: 20px;
-}
-
 #progressBar > p {
     margin: 0;
 }

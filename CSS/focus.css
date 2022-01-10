@@ -4,16 +4,18 @@
     width: 100%;
     padding-top: 20px;
     min-height: 100vh;
+    overflow-y: scroll;
+    font-family: "Montserrat";
+    font-weight: 600;
 }
 
    .container{
-    width:355px;
+    width: 100%;
     height:715px;
     position:absolute;
     top:52%;
     left:50%;
     transform:translate(-50%,-50%);
-    background: linear-gradient(45deg, rgb(193, 215, 240) 0%, rgb(212, 250, 232)  100%);
     overflow:hidden;
     margin: 0;
 }
@@ -21,8 +23,7 @@
 .clock{
     width:260px;
     height:260px;
-    background: rgb(150, 215, 231);
-    background: linear-gradient(45deg, rgb(167, 226, 218) 0%, rgb(194, 229, 194) 100%);
+    background: linear-gradient(45deg, rgb(219, 167, 226) 0%, rgb(139, 131, 232) 100%);
     border-radius:50%;
     position:absolute;
     top:100px;
@@ -172,11 +173,9 @@
 }
 
 .start-reset__button-text {
-    fill:#fff;
+    fill:rgb(39, 39, 39);
+    font-family: "Montserrat";
 }
-
-
-
 
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}

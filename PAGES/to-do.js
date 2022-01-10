@@ -50,9 +50,6 @@ function toDo(){
         </div>
 
         <div id="progressBar">
-            <div class="progress">
-                <div class="progress-done">75%</div>
-            </div>
             <p class="compTaskCount"></p>
             <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
         </div>
