@@ -3,10 +3,18 @@ session_start();
 ob_start();
 require_once "../INCLUDES/header.php";
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST" ){
-    $file = $_FILES["dogImage"];
 
+$file = $_FILES["image"];
+$json = file_get_contents("../API/users.json");
+$data = json_decode($json, true);
 
+function loadJson($filename) {
+    $json = file_get_contents($filename);
+    return json_decode($json, true);
+}
+    
 function allUsers(){
     $json = file_get_contents("../API/users.json");
     $data = json_decode($json, true);
@@ -27,30 +35,45 @@ function addUser($postInfo){
         "username" => $postInfo["username"],
         "email" => $postInfo["email"],
         "password" => $postInfo["password"],  
-        "image" => $imageName,//spara unika namnet på bilden som sökväg
         "color-scheme" => 0
     ];
 
-        //Kolla att de skickat med en bildfil och generera ett unikt 
+    //Kolla att de skickat med en bildfil och generera ett unikt 
     //namn för bilden
-    if (isset($file)) {
-        $filename = $file["name"];
-        $tempname = $file["tmp_name"];
-        $uniqueFilename = sha1(time().$filename);
-        $size = $file["size"];
+    if (isset($_FILES["image"])) {
 
-        if ($size > 4 * 1000 * 1000) {
-            "<p class='feedbackMessage'> Filen får inte vara större än 4mb </p>";
+            //variabler för bild-filen
+            $profilePicture = $_FILES["image"];
+            $filename = $profilePicture["name"];
+            $tempname = $profilePicture["tmp_name"];
+            $size = $profilePicture["size"];
+            $error = $profilePicture["error"];
+
+
+        // Hämta filinformation
+        $info = pathinfo($filename);
+        // Hämta ut filändelsen (och gör om till gemener)
+        $ext = strtolower($info["extension"]);
+
+        // Konvertera från int (siffra) till en sträng,
+        // så vi kan slå samman dom nedan.
+        $time = (string) time(); // Klockslaget i millisekunder
+        // Skapa ett unikt filnamn med TID + FILNAMN
+        $uniqueFilename = sha1("$time$filename");
+        //Skickar bilden till vår mapp
+       move_uploaded_file($tempname, "../userImages/$uniqueFilename.$ext");
+
+        //när all info har kikats genom och kontrollerats, ska 
+        //det läggas till i databasen. 
+
+                    // Filen får inte vara större än ca 500kb
+        if ($size > (0.5 * 1000 * 1000)) {
+            statusCode(465);
             exit();
         }
-
-        //Hämta filinformation & kolla vilken filtyp det är
-        $info = pathinfo($filename);
-        $extension = strtolower($info["extension"]);
-        $imageName = $uniqueFilename.'.'.$extension;
     }
     else {
-        $imageName = "";
+        $newUser["image"] = "";
     }
 
     //foreachen räknar ut den nya userns id utifrån vilka som redan finns
@@ -63,13 +86,24 @@ function addUser($postInfo){
         }
     }
 
+    // Kollar om det finns en användare som redan har samma email
+    foreach($allUsers as $user){
+        if ($user["email"] == $postInfo["email"]){
+            header("Location: /ADMIN/sign-up.php?error=5");
+            exit();
+        }
+    }
 
 
     //ID:et av den nya usern + användarnamn.
     $newUser["id"] = $highestID + 1;
+    $newUser["image"] = "$uniqueFilename.$ext";
+
+
     $_SESSION["id"] = $newUser["id"];
     $_SESSION["username"] = $newUser["username"];
-    $_SESSION["image"] = $newUser["image"];
+   //  $_SESSION["image"] = $newUser["image"];
+    
     //lägg till user i users.json
     $data = json_decode(file_get_contents("../API/users.json"), true);
     array_push($data, $newUser);
@@ -100,14 +134,11 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
     }
     
     else {
+                        //Kopierar databasen till en backup-fil innan ändringen görs
+                        copy("../API/users.json", "../API/users_backup.json");
+
         addUser($_POST);
 
-                //Kopierar databasen till en backup-fil innan ändringen görs
-                copy("../API/users.json", "../API/users_backup.json");
-
-                //Spara bilden med unikt namn i mappen "userImages"
-                move_uploaded_file($tempname, "../userImages/$imageName");
-            //    addEntry( __DIR__ . "../API/users.json", $newEntry);
             header("Location: contract.php");;
                 exit();
     }
@@ -137,7 +168,9 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
                 echo "<p class='error'> The password does not match </p>";
             } elseif ($error == 4) {
                 echo "<p class='error'> Your password must be more than 3 letters long </p>";
-            }
+            } elseif ($error == 5) {
+                echo "<p class='error'> This email has already createn an account </p>";
+            } 
         } 
     ?>
 
@@ -146,30 +179,24 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
       <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
       <input type="password" name="passwordConfirm" placeholder="Confirm password" class="iconPassword inputIcon">
 
-      <div id="dogPicDiv"> 
+        <div id="dogPicDiv"> 
             <img id="output_image" src="../userImages/harry-potter.svg"/>
-                <h2> Ladda upp en profilbild </h2> 
-                <input type="file" name="dogImage" accept="image/*" onchange="preview_image(event)">
-            </div>                 
+                <h2> Upload a profile picture </h2> 
+                <input type="file" name="image" accept="image/*" onchange="preview_image(event)">
+        </div>                 
 
 
       <button class="signUpSignInButton">Create an account</button>
        <div id="signUpSignInOption">
-        <p>Already have an account? <br> <a href="../ADMIN/sign-in.php">Sign in</a></p>
+        <p>Already have an account? <br> <a href="../API/sign-in.php">Sign in</a></p>
+ </div>
+ </div>
+ </div>
 </div>
-    </div>
-</div>
-</div>
-    <?php
-//Error
-    if (isset($error)) { ?>
-        <p class="error">Write something!</p>
-    <?php } ?>
+
 </form>
 
 <script>
-
-
     function preview_image(event) {
         var reader = new FileReader();
 
@@ -179,4 +206,5 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
         }
         reader.readAsDataURL(event.target.files[0]);
     }
-    </script>
+</script>
+
