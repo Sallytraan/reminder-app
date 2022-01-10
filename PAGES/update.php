@@ -2,19 +2,18 @@
 session_start();
 error_reporting(-1);
 
+require_once "../functions.php";
 
-
-require_once  "../functions.php";
 $loggedInID = $_SESSION["id"];
-$sitterInfo = idInfoSitter($_SESSION["id"]);
-$sitterFirstName = $sitterInfo["username"];
-$sitterEmail = $sitterInfo["email"];
-$sitterPassword = $sitterInfo["password"];
-$sitterImage = $sitterInfo["image"];
+$UserName = $_SESSION["username"];
+$UserEmail = $_SESSION["email"];
+$UserPassword = $_SESSION["password"];
+$UserImage = $_SESSION["image"]
+
 ?>
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST" ){
-    $data = loadJSON(__DIR__ . "/../dogsitter/dogsitter.json");
+    $data = loadJson("../API/list.json");
 
     $imageUrl = $sitterImage;
     $file = $_FILES["newImageToUpload"];
@@ -67,10 +66,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
     }
 
     //Kopierar databasen till en backup-fil innan ändringen görs
-    copy("dogsitter.json", "dogsitter_backup.json");
+    copy("../API/users.json", "../API/users_backup.json");
+
 
     $json = json_encode($data, JSON_PRETTY_PRINT);
-    file_put_contents(__DIR__ . "/../dogsitter/dogsitter.json", $json);
+    file_put_contents("../API/users.json", $json);
 
     header("Location: update.php?error=3");
     exit();
@@ -102,10 +102,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
     <div class="form">
         <form class="update-account" action="update.php" method="POST" enctype="multipart/form-data">
             <div id="dogsitter-form"> 
-                <p>Förnamn</p><input class="updateFields" type="text" name="firstName" placeholder="<?php echo $sitterFirstName ?>" value ="<?php echo $sitterFirstName ?>"><br>
-                <p>Efternamn</p><input type="text" class="updateFields" name="lastName" placeholder="<?php echo $sitterLastName ?>" value="<?php echo $sitterLastName ?>"><br>
-                <p>Email</p><input type="email" class="updateFields" name="email" placeholder="<?php echo $sitterEmail ?>" value="<?php echo $sitterEmail ?>"><br>
-                <p>Lösenord</p><input type="text" class="updateFields" name="password" placeholder="Skriv Nytt Lösenord" value="<?php echo $sitterPassword ?>" minlength="4" required><br>
+                <p>Förnamn</p><input class="updateFields" type="text" name="userName" placeholder="<?php echo $UserName ?>" value ="<?php echo $UserName ?>"><br>
+                <p>Email</p><input type="email" class="updateFields" name="email" placeholder="<?php echo $UserEmail ?>" value="<?php echo $UserEmail ?>"><br>
+                <p>Lösenord</p><input type="text" class="updateFields" name="password" placeholder="Skriv Nytt Lösenord" value="<?php echo $UserPassword ?>" minlength="4" required><br>
                 
                   
             </div>

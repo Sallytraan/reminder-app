@@ -16,10 +16,12 @@ function theProfile(){
     //Töm nuvarande innehåll i wrapper
     wrapper.innerHTML = "";
   
+
+    
     wrapper.innerHTML = `
     <div id="theProfileWrapper">
         <div id="profileImage"> </div>
-        <div><span id="userNameChange">${USER}'s profil</span></div>
+        <div><span id="userNameChange"></span><span>'s profil</span></div>
         <button class="changeSettingsButton"> Change settings </button>
 
         <div id="colorModes"> 
@@ -45,12 +47,31 @@ function theProfile(){
     </div>
     `;
 
+    //document.getElementById("userImage").src = USER_IMAGE;
           document.querySelector(".changeSettingsButton").addEventListener("click", function() {
         window.location.href = "../PAGES/update.php";
     });
+  
+    fetch("../API/users.json")
+    .then(response => response.json())
+    .then(json => data(json));
 
-    
+    function data(json) {
+        console.log(json);
+
+        json.forEach(obj => {
+        
+          if (obj.id == ID){
+            document.querySelector("#userNameChange").innerHTML=obj.username;
+            document.querySelector("#profileImage").innerHTML= `
+            <img id="profileImage" src="userImages/${obj.image}">
+            `;
+            
+             }
+      });
+    }
     
 
 }
+
 

@@ -230,5 +230,21 @@
         "color-scheme": 0,
         "id": 29,
         "image": "caa8af871a52a987b7ece0bf3cb2c12e3f1d2332.jpg"
+    },
+    {
+        "username": "pranvera",
+        "email": "pradavera@gmail.com97",
+        "password": "pranvera",
+        "color-scheme": 0,
+        "id": 30,
+        "image": "52e001b475fe3c6bbe8b3e6f3b9dd6b89fa49791.jpg"
+    },
+    {
+        "username": "cutie",
+        "email": "cute@",
+        "password": "cute",
+        "color-scheme": 0,
+        "id": 31,
+        "image": "f84d29f6b098271309e257b7e5bc1581faa48304.jpg"
     }
 ]

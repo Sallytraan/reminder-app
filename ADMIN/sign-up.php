@@ -23,11 +23,6 @@ function allUsers(){
     return $allUsers;
 }
 
-function addEntry ($filename, $entry) {
-    $data = loadJSON($filename);
-    array_push($data, $entry);
-    saveJson($filename, $data);
-}
 
 function addUser($postInfo){
     //nycklar för den nya usern
@@ -94,7 +89,6 @@ function addUser($postInfo){
         }
     }
 
-
     //ID:et av den nya usern + användarnamn.
     $newUser["id"] = $highestID + 1;
     $newUser["image"] = "$uniqueFilename.$ext";
@@ -102,7 +96,8 @@ function addUser($postInfo){
 
     $_SESSION["id"] = $newUser["id"];
     $_SESSION["username"] = $newUser["username"];
-   //  $_SESSION["image"] = $newUser["image"];
+    $_SESSION["email"] = $newUser["email"];
+    $_SESSION["image"] = "$uniqueFilename.$ext";
     
     //lägg till user i users.json
     $data = json_decode(file_get_contents("../API/users.json"), true);
@@ -179,7 +174,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
       <input type="password" name="password" placeholder="Password" class="iconPassword inputIcon">
       <input type="password" name="passwordConfirm" placeholder="Confirm password" class="iconPassword inputIcon">
 
-        <div id="dogPicDiv"> 
+        <div> 
             <img id="output_image" src="../userImages/harry-potter.svg"/>
                 <h2> Upload a profile picture </h2> 
                 <input type="file" name="image" accept="image/*" onchange="preview_image(event)">

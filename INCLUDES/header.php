@@ -29,6 +29,8 @@ if (isset($_SESSION["id"])) {
         $data = json_decode(file_get_contents("API/users.json"), true);
         $taskData = json_decode(file_get_contents("API/list.json"), true);
         $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
+        $userEmail = json_encode($_SESSION["email"], JSON_PRETTY_PRINT);
+        $userImage = $_SESSION["image"];
         $id = $_SESSION["id"];
         
         
@@ -56,7 +58,9 @@ if (isset($_SESSION["id"])) {
                 const ID = $id 
                 const USER = $userName
                 const TASK_DATA = $JSONTaskData
+    
                 const USER_DATA = $JSONUserData
+                
             </script>
             ";
                 //echo "<script>  </script>";
