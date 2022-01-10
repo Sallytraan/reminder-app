@@ -52,8 +52,8 @@ function theProfile(){
 
     //document.getElementById("userImage").src = USER_IMAGE;
           document.querySelector(".changeSettingsButton").addEventListener("click", function() {
-        //window.location.href = "../PAGES/update.php";
-        profileUpdate();
+        window.location.href = "../PAGES/update.php";
+        //profileUpdate();
     });
   
     fetch("../API/users.json")
