@@ -12,15 +12,29 @@
         "username": "Olsson",
         "email": "jodew@hotmail.com",
         "password": "j123",
-        "image": "johnny.img",
+        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
         "color-scheme": 0
     },
     {
         "username": "Hej",
         "email": "hej@gmail.com",
         "password": "heej",
-        "image": "welcome.img",
-        "color-scheme": 0,
+        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
         "id": 3
+    },{
+        "id": 4,
+        "username": "Johgsgsen",
+        "email": "johndogsege@hotmail.com",
+        "password": "johnisgone",
+        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
+        "color-scheme": 0
+    },
+    {
+        "id": 5,
+        "username": "Olsgsegson",
+        "email": "jodegsegw@hotmail.com",
+        "password": "j123",
+        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
+        "color-scheme": 0
     }
 ]
