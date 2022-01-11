@@ -44,6 +44,5 @@
     <script src="PAGES/focus.js"></script>
     <script src="PAGES/profile.js"></script>
     <script src="PAGES/welcomeSignUp.js"></script>
-    <script src="PAGES/profileUpdate.js"></script>
 </body>
 </html> 

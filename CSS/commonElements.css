@@ -41,7 +41,7 @@ nav > div {
     flex-grow: 1;
     height: 50px;
 
-    background-color: #ead4ff;
+    background-color: white;
     border-top: 1px solid grey;
 }
 
@@ -56,7 +56,7 @@ nav > div {
 
 .navListSelected {
     background-image: url(../ICONS_WHITE/list-white.svg);
-    background-color: rgb(154, 86, 218);
+    background-color: black;
     transition: background-color 2s;
 }
 
@@ -71,7 +71,7 @@ nav > div {
 
 .navFocusSelected {
     background-image: url(../ICONS_WHITE/timer-white.svg);
-    background-color: rgb(154, 86, 218);
+    background-color: black;
     transition: background-color 2s;
 }
 
@@ -86,11 +86,9 @@ nav > div {
 
 .navProfileSelected {
     background-image: url(../ICONS_WHITE/user-white.svg);
-    background-color: rgb(154, 86, 218);
+    background-color: black;
     transition: background-color 2s;
 }
-
-
 
 #logotyp {
     font-size: 28px;
