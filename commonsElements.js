@@ -1,6 +1,6 @@
 "use strict";
 
-let transitionDuration = 350;
+let transitionDuration = 500;
 
 navList.addEventListener("click", () => {
     wrapper.style.opacity = 0;

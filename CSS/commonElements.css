@@ -15,6 +15,9 @@ body {
     z-index: 100;
 }
 
+#wrapper {
+    transition: 2s;
+}
 /* till navven */
 footer {
     position: sticky;
