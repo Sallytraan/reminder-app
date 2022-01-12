@@ -25,16 +25,17 @@ session_start();
         <?php
         $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
         // så tiden är samma som i Sverige.
-        date_default_timezone_set('Europe/Stockholm');
-        if (date("H") == 06 && date("i") == 00 && date("s") == 00 && date("l") == "Monday") {
-            // rensar array:en klockan 6 på måndagar.
-            $completedTask = [];
+        function clearArray() {
+            date_default_timezone_set('Europe/Stockholm');
+            if (date("H") == 15 && date("i") == 50 && date("s") == 00 && date("l") == "Monday") {
+                // rensar array:en klockan 6 på måndagar.
+                $completedTask = [];
 
-            // sen spara det tillbaks.
-            $json = json_encode($completedTask, JSON_PRETTY_PRINT);
-            file_put_contents("API/finishedList.json", $json);
+                // sen spara det tillbaks.
+                $json = json_encode($completedTask, JSON_PRETTY_PRINT);
+                file_put_contents("API/finishedList.json", $json);
+            }
         }
-
         if (isset($_SESSION["id"])) {
             // variabler
             $data = json_decode(file_get_contents("API/users.json"), true);
@@ -58,13 +59,6 @@ session_start();
                 const theContract = $changeContract()
             </script>
             ";
-                //echo "<script>  </script>";
-                //$sessionID = $_SESSION["id"];
-                // $contractChange = $changeTheContract;
-                
-                // echo "<script> const changeContract = $contractChange </script>";
-                //echo "<script> const ID = $id </script>";
-                //echo "<script> const USER_NAME = $userName </script>";
         }
         ?>
         </header>

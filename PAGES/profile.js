@@ -25,7 +25,7 @@ function theProfile(){
     <div id="profileCircleTwo"></div>
     <div id="profileCircleThree"></div>
 
-      <div id="profileImage"> </div>
+      <div id="profileBox"> </div>
       <div><span id="userNameChange"></span><span id="userNameText">'s profile</span></div>
       <button class="changeSettingsButton"> Change settings </button>
 
@@ -47,13 +47,11 @@ function theProfile(){
     .then(json => data(json));
 
     function data(json) {
-        console.log(json);
-
         json.forEach(obj => {
         
           if (obj.id == ID){
             document.querySelector("#userNameChange").innerHTML=obj.username;
-            document.querySelector("#profileImage").innerHTML= `
+            document.querySelector("#profileBox").innerHTML= `
             <img id="profileImage" src="userImages/${obj.image}">
             `;
             

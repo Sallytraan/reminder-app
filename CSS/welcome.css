@@ -518,7 +518,8 @@
 .signInForm > h1 {
     color: #915de0;
     font-size: 30px;
-    margin-top: -150px;
+    margin-top: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .signInForm > input {
@@ -529,20 +530,18 @@
     margin: 5px 0px;
 }
 
-
-
-
-
-
 .show{
     width: 200px;
     height: 200px;
+}
 
-  }
+#output_image {
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    border: 3px solid #915de0;
+}
 
-
-  #output_image {
-      height: 125px;
-      width: 125px;
-      border-radius: 50%;
-  }
+#signUpImage > p {
+    font-weight: bold;
+}

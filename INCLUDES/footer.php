@@ -33,6 +33,7 @@
 
         
         ?>
+
     <script src="globalVariables.js"></script>
     <script src="commonsElements.js"></script>
 

@@ -18,7 +18,7 @@ session_start();
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
-        <link rel="icon" href="INCLUDES/reminder_logotyp.svg">
+        <link rel="icon" href="../INCLUDES/reminder_logotyp.svg">
     </head>
     <body>
         <header>
@@ -166,6 +166,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
  <div class="signUpSignInWhiteWrapper">
  <form method="POST" action="sign-up.php" enctype="multipart/form-data">
     <div class="signInForm">
+        <img class="transLogo" src="../INCLUDES/reminder_logotyp_transparent.svg" alt="logo">
       <h1>Create an account</h1>
 
       <?php 
@@ -194,7 +195,7 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
 
         <div id="signUpImage"> 
             <img id="output_image" src="../IntroIcons/defaultUserImage.jpg"/>
-                <h2> Upload a profile picture </h2> 
+                <p> Upload a profile picture </p> 
                 <input type="file" name="image" accept="image/*" onchange="preview_image(event)" required>
         </div>                 
 
