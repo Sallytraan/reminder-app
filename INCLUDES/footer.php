@@ -38,7 +38,7 @@
 
 
     <script src="PAGES/welcomeText.js"></script>
-  
+
 
     <script src="PAGES/focus.js"></script>
     <script src="PAGES/profile.js"></script>
