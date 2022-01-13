@@ -131,6 +131,33 @@ if (isset($_SESSION["id"])) {
                 </div>
             </form>
         </main>
+        <script>
+            fetch("../API/users.json")
+                .then(response => response.json())
+                .then(json => userData(json));
+
+            function userData(json) {
+                let userArray = json;
+
+                userArray.forEach(obj => {
+                    if (obj["color-scheme"] == 1) {
+                        document.querySelector("body").style.backgroundColor = "var(--black)";
+                        document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
+                        document.querySelector("#logotyp").style.color = "var(--white)";
+
+                        // text
+                        document.querySelector("#taskText p").style.color = "var(--white)";
+
+                        // knappar
+                        document.querySelector("#addUndoButtons img").style.backgroundColor = "var(--white)";
+                        document.querySelector("#addUndoButtons img").style.borderRadius = "20px";
+
+                        document.querySelector("#submitTask img").style.backgroundColor = "var(--white)";
+                        document.querySelector("#submitTask img").style.borderRadius = "20px";
+                    };            
+                })
+            }
+        </script>
     </body>
 </html> 
         

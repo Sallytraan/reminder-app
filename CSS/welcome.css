@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: white;
+    background-color: var(--white);
     margin: 0;
     width: 100%;
 }
@@ -62,16 +62,16 @@
 
     z-index: 10;
     
-    background-image: linear-gradient(rgba(260, 260, 260, 0.1), white);
+    background-image: var(--whiteGradient);
    /* background-color: rgba(260, 260, 260, 0.9);*/
       
 }
 
 .welcomeTitle {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--roboto);
 
     font-weight: 300;
-    color: rgb(154, 86, 218);
+    color: var(--purple);
     position: relative;
     top: -150px;
     left: -100px;
@@ -95,32 +95,28 @@
     width: 170px;
 
 
-    background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
-    color: white;
+    background: var(--purpleGradient);
+    color: var(--white);
     margin-top: 20px;
 }
 
 
 #welcomeContainer > button > a {
     text-decoration: none;
-    color: white
+    color: var(--white);
 }
 
 #welcomeContainer > button:active {
-    background-color: white;
-    background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
+    background-color: var(--white);
+    background: var(--purpleGradient);
 }
 
 #welcomeContainer > button > a:active {
-    background-color: white;
-    background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
+    background-color: var(--white);
+    background: var(--purpleGradient);
 }
 
 /* WELCOME INTRO */ 
-
-
-
-
 #wrapperWelcomeIntro {
     display: flex;
     align-items: center;
@@ -131,7 +127,7 @@
 }
 
 #welcomeWhiteWrapper {
-    background-image: linear-gradient(rgba(260, 260, 260, 0.1), white);
+    background-image: var(--whiteGradient);
     height: 100vh;
     margin-top: 50px;
 
@@ -176,10 +172,10 @@
 }
 
 #welcomeTitleIntro {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--roboto);
     font-size: 30px;
     margin: 40px 0px 20px 0px;
-    color: #915de0;
+    color: var(--purple2);
 }
 
 #welcomeIconParent {
@@ -202,7 +198,7 @@
 }
 
 .introWrapper {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--roboto);
     width: 300px;
     padding-left: 10px;
 }
@@ -210,7 +206,7 @@
 .introWrapper > :first-child {
     font-size: 16px;
     margin-bottom: -10px;
-    color: #915de0;
+    color: var(--purple2);
 }
 
 .introWrapper > :last-child {
@@ -224,19 +220,16 @@
     height: 50px;
     width: 150px;
 
-    background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
+    background: var(--purpleGradient);
     border: none;
 }
 
 #continueToSignUp > a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
 }
 
-
 /* CONTRACT */ 
-
-
 #contractWrapper {
     display: flex;
     align-items: center;
@@ -323,7 +316,6 @@
 
 
 /* SIGN UP */ 
-
 #signUpCircleOne {
     background-image: url(../IntroIcons/blob-haikei5.svg);
     background-repeat: no-repeat;
@@ -403,7 +395,7 @@
 }
 
 .signUpForm > p > a {
-    color: black;
+    color: var(--black);
 }
 
 .signUpSignInButton {
@@ -414,14 +406,14 @@
     height: 40px;
     width: 170px;
 
-    background: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
-    color: white;
+    background: var(--purpleGradient);
+    color: var(--white);
     margin-top: 20px;
 }
 
 .signUpSignInButton:active {
-    background: white;
-    color: rgb(141, 100, 189);
+    background: var(--white);
+    color: var(--purple3);
     box-sizing: border-box;
 }
 
@@ -438,7 +430,7 @@
 }
 
 #signUpSignInOption> p > a {
-    color: #915de0;
+    color: var(--purple2);
     text-decoration: none;
 }
 
@@ -489,16 +481,17 @@
     align-items: center;
     justify-content: center;
     
-    background-image: linear-gradient(rgba(260, 260, 260, 0.1), white);
+    /* ska denna va background-image??? */
+    background-image: var(--whiteGradient);
     z-index: 20;
 }
 
 #signInTitle {
-    color: #915de0;
+    color: var(--purple2);
     font-size: 42px;
     margin-top: -20px;
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--roboto);
 }
 
 .transLogo {
@@ -516,10 +509,10 @@
 }
 
 .signInForm > h1 {
-    color: #915de0;
+    color: var(--purple2);
     font-size: 30px;
     margin-top: 0px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--roboto);
 }
 
 .signInForm > input {
@@ -539,7 +532,7 @@
     height: 125px;
     width: 125px;
     border-radius: 50%;
-    border: 3px solid #915de0;
+    border: 3px solid var(--purple2);
 }
 
 #signUpImage > p {

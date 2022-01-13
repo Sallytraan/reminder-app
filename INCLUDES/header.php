@@ -24,18 +24,22 @@ session_start();
         <header>
         <?php
         $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
+        
         // så tiden är samma som i Sverige.
+        clearArray();
         function clearArray() {
             date_default_timezone_set('Europe/Stockholm');
-            if (date("H") == 15 && date("i") == 50 && date("s") == 00 && date("l") == "Monday") {
+            if (date("H") == 21 && date("i") == 41 && date("l") == "Wednesday") {
                 // rensar array:en klockan 6 på måndagar.
                 $completedTask = [];
 
                 // sen spara det tillbaks.
+                copy("API/finishedList.json", "API/finishedList_backup.json");
                 $json = json_encode($completedTask, JSON_PRETTY_PRINT);
                 file_put_contents("API/finishedList.json", $json);
             }
         }
+
         if (isset($_SESSION["id"])) {
             // variabler
             $data = json_decode(file_get_contents("API/users.json"), true);

@@ -11,9 +11,13 @@ function toDo(){
       .then(response => response.json())
       .then(json => taskData(json));
 
-    fetch ("/API/finishedList.json")
+    fetch("/API/finishedList.json")
         .then(response => response.json())
         .then(json => finishedTaskData(json));
+
+    fetch("/API/users.json")
+        .then(response => response.json())
+        .then(json => userData(json));
   
     // Uppdaterar naven
     navList.classList.add("navListSelected");
@@ -35,8 +39,8 @@ function toDo(){
 
     wrapper.innerHTML = `
     <div id="toDoWrapper">
-    <div id="toDoCircleOne"></div>
-    <div id="toDoCircleTwo"></div>
+        <div id="toDoCircleOne"></div>
+        <div id="toDoCircleTwo"></div>
         <div id="toDoBox">
             <h3>To Do</h3>
             <div id="sortButtons">
@@ -48,12 +52,12 @@ function toDo(){
         <div id="ongoing">
         </div>
         <div id='addTask'>
-            <a href="/PAGES/create-task.php"><img src='/ICONS_BLACK/add-icon.svg' alt='list'></a>
+            <a class="addIcon" href="/PAGES/create-task.php"><img src='/ICONS_BLACK/add-icon.svg' alt='list'></a>
         </div>
 
         <div id="progressBar">
             <p class="compTaskCount"></p>
-            <p><img src="../ICONS_BLACK/trophy-icon.svg"></p>
+            <p><img class="trophyIcon" src="../ICONS_BLACK/trophy-icon.svg"></p>
         </div>
         <h3>Completed</h3>
         <div id="completed">
@@ -186,6 +190,37 @@ function toDo(){
         });
 
         taskCounter.innerHTML = taskCountArray.length;
+    }
+
+    // fixar färgschemat.
+    function userData(json) {
+        let userArray = json;
+
+        userArray.forEach(obj => {
+            if (obj.id == ID) {
+                if (obj["color-scheme"] == 1) {
+                    document.querySelector("#toDoWrapper").style.backgroundColor = "var(--black)";
+                    document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
+
+                    // måste ta de enskilt :((
+                    document.querySelector("#logotyp").style.color = "var(--white)";
+
+                    document.querySelector("#toDoBox > h3").style.color = "var(--white)";
+                    document.querySelector("#toDoWrapper > h3").style.color = "var(--white)";
+
+                    document.querySelector("#date").style.color = "var(--white)";
+                    document.querySelector("#priority").style.color = "var(--white)";
+                    document.querySelector("#aToZ").style.color = "var(--white)";
+
+                    // icons
+                    document.querySelector("#addTask img").style.backgroundColor = "var(--white)";
+                    document.querySelector("#addTask img").style.borderRadius = "20px";
+                    document.querySelector(".compTaskCount").style.color = "var(--white)";
+                    document.querySelector("#progressBar img").style.backgroundColor = "var(--white)";
+                    document.querySelector("#progressBar img").style.borderRadius = "20px";
+                };
+            }
+        })
     }
 
     // funktion som randomiserar mellan "max"-siffran.

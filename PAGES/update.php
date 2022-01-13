@@ -10,9 +10,8 @@ if (!isset($_SESSION["id"])) {
 
 $data = loadJson("../API/users.json");
 $loggedInID = $_SESSION["id"];
-//$currentUsername = $_SESSION["username"];
-//$currentEmail = $_SESSION["email"];
 
+// funktion för att hämta en id:s hela objekt.
 function getUser($id) {
     $allUsers = loadJson("../API/users.json");
     foreach ($allUsers as $user) {
@@ -22,15 +21,15 @@ function getUser($id) {
     }
 }
 
+// variabel.
 $userInfo = getUser($loggedInID);
-// testar -> echo $userInfo["username"];
 $currentUsername = $userInfo["username"];
 $currentEmail = $userInfo["email"];
 $currentProfile = $userInfo["image"];
 $thePassword = $userInfo["password"];
-$color = $userInfo["color-scheme"];
+// $color = $userInfo["color-scheme"];
 
-if($_SERVER["REQUEST_METHOD"] == "POST" ){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $userData = loadJson("../API/users.json");
     $imageInfo = $currentProfile;
     $file = $_FILES["newFile"];
@@ -62,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
         "email" => $_POST["email"],
         "password" => $thePassword,
         "image" => $imageInfo,
-        "color-scheme" => $color
+        "color-scheme" => intval($_POST["mode"]) // ändrar färgschemat
     ]; 
 
     for ($i = 0; $i < count($userData); $i++) { 
@@ -81,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
     //Kopierar databasen till en backup-fil innan ändringen görs
     copy("../API/users.json", "../API/users_backup.json");
     saveJson("../API/users.json", $userData);
-
+    
     header("Location: update.php?saved");
     exit();
 }
@@ -109,6 +108,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
             if (isset($_SESSION["id"])) {
                 $id = $_SESSION["id"];
                 echo " <p id='logotyp'> Reminder </p>";
+
+                /* echo "
+                <script> 
+                    const ID = $id 
+                    const USER = $userName
+                </script>
+                "; */
             }
             ?> 
             <?php 
@@ -142,9 +148,51 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
                     <input class="changeField" type="text" name="email" placeholder="Email" value ="<?php echo $currentEmail ?>">
                 </div>
 
+                <div id="colorMode">
+                    <input type="radio" name="mode" class="colorScheme" value="0">
+                    <label for="0">0</label>
+                    <p id="light"> Light Mode </p>
+                    <input type="radio" name="mode" class="colorScheme" value="1">
+                    <label for="1">1</label>
+                    <p id="dark"> Dark Mode </p>
+                </div>
+
                 <div class="buttonBox">
                     <button type="submit" class="submitUpdate">Save</button>
                     <button type="submit" class="submitUpdate"><a href="../index.php">back</a></button>
                 </div>
             </form>
         </div>
+        <script>
+            fetch("../API/users.json")
+                .then(response => response.json())
+                .then(json => userData(json));
+
+            function userData(json) {
+                let userArray = json;
+
+                userArray.forEach(obj => {
+                    if (obj["color-scheme"] == 1) {
+                        document.querySelector("body").style.backgroundColor = "var(--black)";
+                        document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
+                        document.querySelector("#logotyp").style.color = "var(--white)";
+
+                        // texter
+                        document.querySelector(".imageTitle").style.color = "var(--white)";
+                        document.querySelector("#dark").style.color = "var(--white)";
+                        document.querySelector("#light").style.color = "var(--white)";
+                        document.querySelector("#uploadFile").style.color = "var(--white)"; 
+
+                        // knappar
+                        document.querySelector(".buttonBox > button:first-child").style.color = "var(--black)";
+                        document.querySelector(".buttonBox > button:first-child").style.backgroundColor = "var(--white)";
+                        document.querySelector(".submitUpdate a").style.color = "var(--black)";
+                        document.querySelector(".buttonBox > button:last-child").style.backgroundColor = "var(--white)";
+                    };            
+                })
+            }
+            
+        </script>
+</body>
+</html> 
+        

@@ -1,7 +1,7 @@
 "use strict";
 
 function theProfile(){
-    //Hamna högst upp på sidan
+  //Hamna högst upp på sidan
     scroll(0,0)  
   
     navList.classList.remove("navListSelected");
@@ -48,14 +48,27 @@ function theProfile(){
 
     function data(json) {
         json.forEach(obj => {
-        
           if (obj.id == ID){
             document.querySelector("#userNameChange").innerHTML=obj.username;
             document.querySelector("#profileBox").innerHTML= `
             <img id="profileImage" src="userImages/${obj.image}">
             `;
-            
-             }
+
+            if (obj["color-scheme"] == 1) {
+              document.querySelector("#theProfileWrapper").style.backgroundColor = "var(--black)";
+
+              // buttons
+              document.querySelector(".changeSettingsButton").style.backgroundColor = "var(--white)";
+              document.querySelector(".changeSettingsButton").style.color = "var(--black)";
+              document.querySelector("#signOutButton").style.backgroundColor = "var(--white)";
+              document.querySelector("#signOutButton > a").style.color = "var(--black)";
+              
+              // image utseendet + namnet
+              document.querySelector("#profileImage").style.border = "3px solid var(--white)";
+              document.querySelector("#userNameChange").style.color = "var(--white)";
+              document.querySelector("#userNameText").style.color = "var(--white)";
+            };
+          }
       });
     }
     

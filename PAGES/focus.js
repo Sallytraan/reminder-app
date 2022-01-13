@@ -232,10 +232,8 @@ function theTimer(){
           if(isRunning){
           this.reset();
           }
-        }
-        
-        
-      };
+        }    
+    };
       
         
       var clock = new Pomodoroclock({
@@ -274,9 +272,6 @@ function theTimer(){
       var DOMSessLength = document.getElementById("session-length");
       var DOMBreakLength = document.getElementById("break-length");
       
-      
-      
-      
       // session length button events
         
       document.getElementById("add-session-length").addEventListener("click",function(){
@@ -314,11 +309,28 @@ function theTimer(){
        document.querySelector(".clock__background").classList.remove("clock__background--rotate");
       });
       
-      
       //document.getElementById("DOMClock").innerHTML = clock.update();
-      
+      fetch("../API/users.json")
+    .then(response => response.json())
+    .then(json => data(json));
 
-    
-// POMODORO
+    function data(json) {
+        json.forEach(obj => {
+          if (obj.id == ID){
+            if (obj["color-scheme"] == 1) {
+              document.querySelector("#theTimerWrapper").style.backgroundColor = "var(--black)";
 
+              // buttons
+              document.querySelector(".start-reset__button-text").style.fill = "var(--white)";
+              document.querySelector(".control-container").style.background = "var(--purpleGradient2)";
+              document.querySelector(".control-container").style.borderRadius = "15px";
+              document.querySelector(".control-container").style.border = "15px";
+              document.querySelector("#reset > .start-reset__button-text").style.fill = "var(--white)";
+              
+              // image utseendet + namnet
+
+            };
+          }
+      });
+    }
 }
