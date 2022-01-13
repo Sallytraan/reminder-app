@@ -1,24 +1,26 @@
 "use strict";
 
-let transitionDuration = 500;
+let transitionDuration = 350;
 
 navList.addEventListener("click", () => {
+    //Fade out
     wrapper.style.opacity = 0;
 
     //Fade In
     setTimeout(function(){
         toDo();
-        wrapper.style.opacity = 1;
+      wrapper.style.opacity = 1;
     }, transitionDuration);
 });
     
 navFocus.addEventListener("click", () => {
-
+    //Fade out
+    wrapper.style.opacity = 0;
 
     //Fade In
     setTimeout(function(){
         theTimer();
-
+        wrapper.style.opacity = 1;
     }, transitionDuration);
 });
     

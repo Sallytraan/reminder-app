@@ -2,14 +2,14 @@
     {
         "id": 1,
         "username": "John",
-        "email": "johndoehotmailcom",
+        "email": "johndoe@hotmail.com",
         "password": "johnisgone",
         "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
         "color-scheme": 0
     },
     {
         "id": 2,
-        "username": "Alhe",
+        "username": "Olsson",
         "email": "jodew@hotmail.com",
         "password": "j123",
         "image": "johnny.img",
@@ -24,19 +24,17 @@
         "id": 3
     },
     {
-        "username": "hejhej",
-        "email": "hejjijo@gmail.com2121",
-        "password": "pop",
-        "color-scheme": 0,
+        "username": "Anna",
+        "email": "anna@hotmail.com",
+        "password": "1231",
         "id": 4,
-        "image": "844052c21d95b4b0e44032eaaad7491aa3ff6ec6."
+        "image": "0f06c6582d2efff07bf74d08bc4e29350accdb61.svg"
     },
     {
-        "username": "jakob",
-        "email": "jakob@gmail.com",
-        "password": "jag\u00e4rb\u00e4st",
-        "color-scheme": 0,
+        "username": "hejhej",
+        "email": "annalisa@gmail.com",
+        "password": "1231",
         "id": 5,
-        "image": "ec1ff39e220907e895ca9579b7c678027bfddcd6.svg"
+        "image": "c3fcbade867dcf42c6a59011c1dee418dc27d664.svg"
     }
 ]
