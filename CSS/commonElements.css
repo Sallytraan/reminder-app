@@ -39,6 +39,13 @@ body {
     z-index: 100;
 }
 
+#wrapper {
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
 /* till navven */
 footer {
     position: sticky;
@@ -66,7 +73,7 @@ nav > div {
     height: 50px;
 
     background-color: var(--white);
-    border-top: 1px solid grey;
+    border-top: 1px solid black;
 }
 
 #navList {

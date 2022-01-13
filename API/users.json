@@ -22,5 +22,26 @@
         "image": "welcome.img",
         "color-scheme": 0,
         "id": 3
+    },
+    {
+        "username": "Anna",
+        "email": "anna@hotmail.com",
+        "password": "1231",
+        "id": 4,
+        "image": "0f06c6582d2efff07bf74d08bc4e29350accdb61.svg"
+    },
+    {
+        "username": "hejhej",
+        "email": "annalisa@gmail.com",
+        "password": "1231",
+        "id": 5,
+        "image": "c3fcbade867dcf42c6a59011c1dee418dc27d664.svg"
+    },
+    {
+        "username": "Annalisa",
+        "email": "anna@hotmail.com99",
+        "password": "1231",
+        "id": 6,
+        "image": "5aa3f9fa20659162324f5a4038f2d585f54f001d.svg"
     }
 ]

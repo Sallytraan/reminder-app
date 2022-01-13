@@ -230,6 +230,149 @@
 }
 
 /* CONTRACT */ 
+
+.contractTextP1 {
+    z-index: 10;
+    margin-top: 50;
+}
+
+.contractTextH1 {
+    z-index: 10;
+}
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -500px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -300px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -800px;
+    }
+    100% {
+        margin-left: 150%;
+    }
+}
+
+/* ANIMATIONS */
+
+.x1 {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+	
+	-webkit-transform: scale(0.65);
+	-moz-transform: scale(0.65);
+    transform: scale(0.65);
+    
+    position: absolute;
+    bottom: 100;
+}
+
+.x2 {
+	-webkit-animation: animateCloud 20s linear infinite;
+	-moz-animation: animateCloud 20s linear infinite;
+	animation: animateCloud 20s linear infinite;
+	
+	-webkit-transform: scale(0.3);
+	-moz-transform: scale(0.3);
+	transform: scale(0.3);
+}
+
+.x3 {
+	-webkit-animation: animateCloud 30s linear infinite;
+	-moz-animation: animateCloud 30s linear infinite;
+	animation: animateCloud 30s linear infinite;
+	
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+.x4 {
+	-webkit-animation: animateCloud 18s linear infinite;
+	-moz-animation: animateCloud 18s linear infinite;
+	animation: animateCloud 18s linear infinite;
+	
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+    transform: scale(0.4);
+    
+    position: absolute;
+    top: 400;
+}
+
+.x5 {
+	-webkit-animation: animateCloud 25s linear infinite;
+	-moz-animation: animateCloud 25s linear infinite;
+	animation: animateCloud 15s linear infinite;
+	
+	-webkit-transform: scale(0.55);
+	-moz-transform: scale(0.55);
+    transform: scale(0.55);
+    
+    z-index: 20;
+    bottom: 200;
+}
+
+/* OBJECTS */
+
+.cloud {
+	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	border-radius: 100px;
+	
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+	height: 120px;
+    width: 350px;
+    
+    position: absolute;
+}
+
+.cloud:after, .cloud:before {
+    background: #fff;
+	content: '';
+	position: absolute;
+	z-indeX: -1;
+}
+
+.cloud:after {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+
+	height: 100px;
+	left: 50px;
+	top: -50px;
+	width: 100px;
+}
+
+.cloud:before {
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
+
+	width: 180px;
+	height: 180px;
+	right: 50px;
+	top: -90px;
+}
+
 #contractWrapper {
     display: flex;
     align-items: center;
@@ -238,6 +381,8 @@
     margin: 0;
     background-color: #A8E7F6;
     padding: 50px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #contractCircleOne {
@@ -283,19 +428,29 @@
 }
 
 #contractHint {
-    font-size: 12px;
+    font-size: 10px;
+    z-index: 10;
+    margin-top: 100px;
 }
 
 
 #signTheContract {
-    height: 100px;
-    width: 100px;
+    height: 140px;
+    width: 140px;
     border-radius: 50%;
-    background-color: rgb(241, 241, 134);
-    border: 5px solid rgb(238, 238, 114);
+
+
+
+    background:orange;
+    box-shadow: 0 0 10px orange,
+                  0 0 60px orange,
+                  0 0 200px yellow,
+                  inset 0 0 80px yellow;
+
+
     transition: 2s;
     z-index: 10;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 

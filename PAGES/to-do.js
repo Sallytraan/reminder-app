@@ -4,6 +4,9 @@ toDo();
 
 function toDo(){
     //Hamna högst upp på sidan
+
+
+ 
     scroll(0,0)  
 
     // hämtar API:n (listan med tasks)
