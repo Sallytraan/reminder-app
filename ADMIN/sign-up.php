@@ -48,7 +48,8 @@ function addUser($postInfo){
     $newUser = [
         "username" => $postInfo["username"],
         "email" => $postInfo["email"],
-        "password" => $postInfo["password"]
+        "password" => $postInfo["password"],
+        "color-scheme" => 0
     ];
 
     //Kolla att de skickat med en bildfil och generera ett unikt 

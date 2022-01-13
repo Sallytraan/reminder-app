@@ -174,6 +174,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 userArray.forEach(obj => {
                     if (obj["color-scheme"] == 1) {
                         document.querySelector("body").style.backgroundColor = "var(--black)";
+                        document.querySelecotr("#wrapper").style.backgroundColor = "var(--black)";
                         document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
                         document.querySelector("#logotyp").style.color = "var(--white)";
 

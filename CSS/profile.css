@@ -80,7 +80,6 @@
 
     background-color: var(--black);
     border: 1px solid var(--black);
-    transition: 1s;
 
     color: var(--white);
     font-weight: bold;
@@ -96,7 +95,6 @@
 
     background-color: var(--black);
     border: 1px solid var(--black);
-    transition: 1s;
 }
 
 #userNameChange, #userNameText {
