@@ -74,26 +74,87 @@ function theTimer(){
     </div>
   </div>
 
+  <div id="infoAboutPomodoro">
+   <div id="infoPomodoroOne">
+   <h3>What is Pomodoro Technique?</h3>
+   <p>The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student. </p>
+   </div>
 
-<audio id = "audio"> 
-  <source src = "http://renatovisuals.github.io/personal/Google_Event.mp3" type = "audio/mpeg">
-</audio>
+
+  <div id="infoPomodoroTwo">
+  <h3>How to use the Pomodoro Timer? </h3>
+  <p>
+  1. Add tasks to work on today <br>
+  2. Set estimate pomodoros <span id="pomodoroiInfo">(1 = 25min of work) for each tasks</span> <br>
+  3. Select a task to work on <br>
+  4. Start timer and focus on the task for 25 minutes <br>
+  5. Take a break for 5 minutes when the alarm ring  <br>
+  6. Iterate 3-5 until you finish the tasks <br>
+  </p>
+  </div>
+
+  <div id="infoPomodoroThree">
+  <h3>Features</h3>
+  <p>-Color transition to switch moods between work time and rest time</p>
+  <p>-Customizable timer intervals to suit your preference</p>
+
+  </div>
+
+
+  </div>
 
     </div>
     `;
+  let topBtn = document.createElement('div');
+    topBtn.classList.add('topBtnBlack');
+    topBtn.setAttribute("id", "topBtn");
+    document.querySelector("#theTimerWrapper").append(topBtn);
+ 
+    topBtn.style.opacity = "1";
+    topBtn.style.cursor = "default";
+    
+
+    
+    topBtn.addEventListener('click', () => {
+
+    
+        window.scrollTo({
+          top: 1000,
+          behavior: "smooth"
+        });
+   
+    });
 
 
 
-    function Pomodoroclock (elements){
-        var startTime,
-            sessionLength = 25,
-            breakLength = 5,
-            breakInitiated = false,
-            activeSessionDuration,
-            isRunning = false,
-            that = this,
-            remainingTime;
-            this.elements = elements;
+    let bottomBtn = document.createElement('div');
+    bottomBtn.classList.add('bottomBtnBlack');
+    bottomBtn.setAttribute("id", "bottomBtn");
+    document.querySelector("#theTimerWrapper").append(bottomBtn);
+ 
+    bottomBtn.style.opacity = "1";
+    bottomBtn.style.cursor = "default";
+    
+
+    
+    bottomBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+// POMODORO
+function Pomodoroclock (elements){
+    var startTime,
+      sessionLength = 25,
+      breakLength = 5,
+      breakInitiated = false,
+      activeSessionDuration,
+      isRunning = false,
+      that = this,
+      remainingTime;
+      this.elements = elements;
         
         //updates current time and calls delta function to calcualte time passed. 
         function update(){
@@ -326,6 +387,12 @@ function theTimer(){
               document.querySelector(".control-container").style.borderRadius = "15px";
               document.querySelector(".control-container").style.border = "15px";
               document.querySelector("#reset > .start-reset__button-text").style.fill = "var(--white)";
+              document.querySelector("#infoAboutPomodoro").style.color = "var(--white)";
+              document.querySelector("#topBtn").classList.add("topBtnWhite");
+              document.querySelector("#topBtn").classList.remove("topBtnBlack");
+              document.querySelector("#bottomBtn").classList.add("bottomBtnWhite");
+              document.querySelector("#bottomBtn").classList.remove("bottomBtnBlack");
+  
               
               // image utseendet + namnet
 
