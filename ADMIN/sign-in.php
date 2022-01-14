@@ -12,17 +12,17 @@ if (isset($_POST["email"], $_POST["password"])) {
 
 
     if (empty($email) && empty($password)) {
-        header("Location: /ADMIN/sign-in.php?error=1");
+        header("Location: /todo/ADMIN/sign-in.php?error=1");
         exit();
     }
 
     if (empty($email)) {
-        header("Location: /ADMIN/sign-in.php?error=2");
+        header("Location: /todo/ADMIN/sign-in.php?error=2");
         exit();
     }
 
     if (empty($email) && empty($password)) {
-        header("Location: /ADMIN/sign-in.php?error=3");
+        header("Location: /todo/ADMIN/sign-in.php?error=3");
         exit();
     }
 
@@ -58,11 +58,11 @@ if (isset($_POST["email"], $_POST["password"])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="414, initial-scale=1.0">
         <title>Reminder</title>
-        <link rel="stylesheet" href="../CSS/commonElements.css">
-        <link rel="stylesheet" href="../CSS/focus.css">
-        <link rel="stylesheet" href="../CSS/list.css">
-        <link rel="stylesheet" href="../CSS/welcome.css">
-        <link rel="stylesheet" href="../CSS/profile.css">
+        <link rel="stylesheet" href="../todo/CSS/commonElements.css">
+        <link rel="stylesheet" href="../todo/CSS/focus.css">
+        <link rel="stylesheet" href="../todo/CSS/list.css">
+        <link rel="stylesheet" href="../todo/CSS/welcome.css">
+        <link rel="stylesheet" href="../todo/CSS/profile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">

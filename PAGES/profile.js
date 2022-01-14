@@ -29,7 +29,7 @@ function theProfile(){
       <div><span id="userNameChange"></span><span id="userNameText">'s profile</span></div>
       <button class="changeSettingsButton"> Change settings </button>
 
-      <button id="signOutButton"><a href="../ADMIN/sign-out.php">Sign out</a></button>
+      <button id="signOutButton"><a href="../todo/ADMIN/sign-out.php">Sign out</a></button>
     </div>
     `;
 

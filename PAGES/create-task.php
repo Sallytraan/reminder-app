@@ -18,7 +18,7 @@ if (isset($_SESSION["id"])) {
         $task = $_POST["task"];
 
         if (empty($task)) {
-            header("Location: /PAGES/create-task.php?error=1");
+            header("Location: /todo/PAGES/create-task.php?error=1");
             exit();
         };
 
@@ -29,7 +29,7 @@ if (isset($_SESSION["id"])) {
             $today = date("F j, Y"); // variabel för dagens datum.
             
             if (strlen($task) < 3) {
-                header("Location: /PAGES/create-task.php?error=2");
+                header("Location: /todo/PAGES/create-task.php?error=2");
                 exit();
             }
 
@@ -58,7 +58,7 @@ if (isset($_SESSION["id"])) {
                 exit();
             }
         } else {
-            header("Location: /PAGES/create-task.php?error=3");
+            header("Location: /todo/PAGES/create-task.php?error=3");
             exit();
         }
     }

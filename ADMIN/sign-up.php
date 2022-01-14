@@ -134,16 +134,16 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
 
     //Om inputsen är tomma skapas inte en ny user och ett error visas
     if ($username == "" || $email == "" || $password == "") {
-        header("Location: /ADMIN/sign-up.php?error=1");
+        header("Location: /todo/ADMIN/sign-up.php?error=1");
         exit();
     } elseif (!strpos($email, "@")){
-        header("Location: /ADMIN/sign-up.php?error=2");
+        header("Location: /todo/ADMIN/sign-up.php?error=2");
         exit();
     } elseif ($password !== $passwordConfirm){
-        header("Location: /ADMIN/sign-up.php?error=3");
+        header("Location: /todo/ADMIN/sign-up.php?error=3");
         exit();
     } elseif (strlen($password) < 3){
-        header("Location: /ADMIN/sign-up.php?error=4");
+        header("Location: /todo/ADMIN/sign-up.php?error=4");
         exit();
     }
     

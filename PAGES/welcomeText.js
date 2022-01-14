@@ -43,8 +43,17 @@ function welcomeText(){
      <p>Keep track on how many tasks you've completed throughout the week!</p>
      </div>
      </div>
+
+     <div class="welcomePage wp4"> 
+     <div><img class="showMoreImg iconBlack" src="ICONS_BLACK/custom-icon.svg"></div> 
+     <div class="introWrapper">
+     <p>Custom themes</p>
+     <p>Choose the theme you like and start your wonderful day</p>
      </div>
-     <button id="continueToSignUp"> <a href="../ADMIN/sign-up.php">Continue</a></button>
+     </div>
+     
+     </div>
+     <button id="continueToSignUp"> <a href="../todo/ADMIN/sign-up.php">Continue</a></button>
 
     </div>
 

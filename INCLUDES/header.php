@@ -8,11 +8,11 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="414, initial-scale=1.0">
         <title>Reminder</title>
-        <link rel="stylesheet" href="../CSS/commonElements.css">
-        <link rel="stylesheet" href="../CSS/focus.css">
-        <link rel="stylesheet" href="../CSS/list.css">
-        <link rel="stylesheet" href="../CSS/welcome.css">
-        <link rel="stylesheet" href="../CSS/profile.css">
+        <link rel="stylesheet" href="../todo/CSS/commonElements.css">
+        <link rel="stylesheet" href="../todo/CSS/focus.css">
+        <link rel="stylesheet" href="../todo/CSS/list.css">
+        <link rel="stylesheet" href="../todo/CSS/welcome.css">
+        <link rel="stylesheet" href="../todo/CSS/profile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@ session_start();
     <body>
         <header>
         <?php
-        $completedTask = json_decode(file_get_contents(__DIR__ . "/API/finishedList.json"), true);
+        $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
         
         // så tiden är samma som i Sverige.
         clearArray();
@@ -41,7 +41,7 @@ session_start();
 
         if (isset($_SESSION["id"])) {
             // variabler
-            $data = json_decode(file_get_contents(__DIR__ . "/API/users.json"), true);
+            $data = json_decode(file_get_contents("API/users.json"), true);
             $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
             $id = $_SESSION["id"];
                 

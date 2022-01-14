@@ -28,7 +28,7 @@ function welcomePage(){
      <h1 class="welcomeTitle">Welcome!</h1>
 
    <div id="welcomeContainer">
-     <button><a href="../ADMIN/sign-in.php">Sign in</a></button>
+     <button><a href="../todo/ADMIN/sign-in.php">Sign in</a></button>
      <button id="createAccount">Create an account</button>
    </div>
 
