@@ -13,7 +13,7 @@
         "email": "jodew@hotmail.com",
         "password": "j123",
         "image": "johnny.img",
-        "color-scheme": 0
+        "color-scheme": 1
     },
     {
         "username": "Hej",
@@ -44,5 +44,13 @@
         "password": "1231",
         "image": "5aa3f9fa20659162324f5a4038f2d585f54f001d.svg",
         "color-scheme": 1
+    },
+    {
+        "username": "Kebab",
+        "email": "falafel@gmail.com",
+        "password": "gott123",
+        "color-scheme": 0,
+        "id": 7,
+        "image": "682aafcba3ff521217920e111984680762159c6b.jpg"
     }
 ]
