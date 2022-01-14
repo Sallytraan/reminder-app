@@ -27,7 +27,6 @@ $currentUsername = $userInfo["username"];
 $currentEmail = $userInfo["email"];
 $currentProfile = $userInfo["image"];
 $thePassword = $userInfo["password"];
-// $color = $userInfo["color-scheme"];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $userData = loadJson("../API/users.json");
@@ -108,16 +107,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if (isset($_SESSION["id"])) {
                 $id = $_SESSION["id"];
                 echo " <p id='logotyp'> Reminder </p>";
-
-                /* echo "
-                <script> 
-                    const ID = $id 
-                    const USER = $userName
-                </script>
-                "; */
             }
-            ?> 
-            <?php 
+
             if (isset($_GET["error"])) {
                 $error = $_GET["error"];
 
@@ -163,36 +154,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
             </form>
         </div>
-        <script>
-            fetch("../API/users.json")
-                .then(response => response.json())
-                .then(json => userData(json));
-
-            function userData(json) {
-                let userArray = json;
-
-                userArray.forEach(obj => {
-                    if (obj["color-scheme"] == 1) {
-                        document.querySelector("body").style.backgroundColor = "var(--black)";
-                        document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
-                        document.querySelector("#logotyp").style.color = "var(--white)";
-
-                        // texter
-                        document.querySelector(".imageTitle").style.color = "var(--white)";
-                        document.querySelector("#dark").style.color = "var(--white)";
-                        document.querySelector("#light").style.color = "var(--white)";
-                        document.querySelector("#uploadFile").style.color = "var(--white)"; 
-
-                        // knappar
-                        document.querySelector(".buttonBox > button:first-child").style.color = "var(--black)";
-                        document.querySelector(".buttonBox > button:first-child").style.backgroundColor = "var(--white)";
-                        document.querySelector(".submitUpdate a").style.color = "var(--black)";
-                        document.querySelector(".buttonBox > button:last-child").style.backgroundColor = "var(--white)";
-                    };            
-                })
-            }
-            
-        </script>
 </body>
 </html> 
         

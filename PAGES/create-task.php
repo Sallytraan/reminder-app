@@ -12,6 +12,7 @@ if (!isset($_SESSION["id"])) {
 
 if (isset($_SESSION["id"])) {
     $sessionID = $_SESSION["id"];
+    //echo $sessionID;
 
     if (isset($_POST["task"])) {
         $task = $_POST["task"];
@@ -19,7 +20,7 @@ if (isset($_SESSION["id"])) {
         if (empty($task)) {
             header("Location: /PAGES/create-task.php?error=1");
             exit();
-        }
+        };
 
         if (isset($_POST["colour"])) {
             // variabler
@@ -32,7 +33,7 @@ if (isset($_SESSION["id"])) {
                 exit();
             }
 
-            if (strlen($task) > 3) {
+            if (strlen($task) >= 3) {
                 foreach ($data as $tasks => $singleTask) {
                     if ($singleTask["id"] > $highestID) {
                         $highestID = $singleTask["id"];
@@ -83,9 +84,13 @@ if (isset($_SESSION["id"])) {
     </head>
     <body>
         <header>
-            <p id='logotyp'> Reminder </p>
+        <?php
+            if (isset($_SESSION["id"])) {
+                $id = $_SESSION["id"];
+                echo "<p id='logotyp'> Reminder </p>";
+            }
+            ?>
         </header>
-
         <main id="taskWrapper">
             <form method="POST" action="create-task.php">
                 <input type="text" id="taskInput" name="task" placeholder="What do you need to be reminded of?">               
@@ -109,7 +114,7 @@ if (isset($_SESSION["id"])) {
                 ?>
                 <div>
                     <div id="taskText">
-                        <p>What's the level of importance?</p>
+                        <p>What's the level of importance? </p>
                     </div>
                     <div id="checkbox">
                         <input type="radio" name="colour" class="checkbox" value="0">
@@ -131,33 +136,6 @@ if (isset($_SESSION["id"])) {
                 </div>
             </form>
         </main>
-        <script>
-            fetch("../API/users.json")
-                .then(response => response.json())
-                .then(json => userData(json));
-
-            function userData(json) {
-                let userArray = json;
-
-                userArray.forEach(obj => {
-                    if (obj["color-scheme"] == 1) {
-                        document.querySelector("body").style.backgroundColor = "var(--black)";
-                        document.querySelector("#logotyp").style.backgroundColor = "var(--black)";
-                        document.querySelector("#logotyp").style.color = "var(--white)";
-
-                        // text
-                        document.querySelector("#taskText p").style.color = "var(--white)";
-
-                        // knappar
-                        document.querySelector("#addUndoButtons img").style.backgroundColor = "var(--white)";
-                        document.querySelector("#addUndoButtons img").style.borderRadius = "20px";
-
-                        document.querySelector("#submitTask img").style.backgroundColor = "var(--white)";
-                        document.querySelector("#submitTask img").style.borderRadius = "20px";
-                    };            
-                })
-            }
-        </script>
     </body>
 </html> 
         
