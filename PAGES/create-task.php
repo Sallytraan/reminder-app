@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once "../functions.php";
+require_once __DIR__ . "../functions.php";
 
-$data = loadJson("../API/ongoingList.json");
+$data = loadJson(__DIR__ . "../API/ongoingList.json");
 
 // om inte id finns i session ska man åka tillbaka till index-sidan.
 if (!isset($_SESSION["id"])) {
@@ -51,7 +51,7 @@ if (isset($_SESSION["id"])) {
 
                 // sparar ner det till list.json
                 array_push($data, $newTask);
-                saveJson("../API/ongoingList.json", $data);
+                saveJson(__DIR__ . "../API/ongoingList.json", $data);
 
                 // gå tillbaka till list-sidan
                 header("Location: ../index.php");

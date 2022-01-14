@@ -1,7 +1,7 @@
 <?php
 session_start();
 //require_once "../API/api.php";
-require_once "../functions.php";
+require_once __DIR__ . "../functions.php";
 
 $userData = loadJson("../API/users.json"); // ska hämta användarens info.
 

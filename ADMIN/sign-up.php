@@ -26,7 +26,7 @@ ob_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST" ){
 
 $file = $_FILES["image"];
-$json = file_get_contents("../API/users.json");
+$json = file_get_contents(__DIR__ . "../API/users.json");
 $data = json_decode($json, true);
 
 function loadJson($filename) {
@@ -35,7 +35,7 @@ function loadJson($filename) {
 }
     
 function allUsers(){
-    $json = file_get_contents("../API/users.json");
+    $json = file_get_contents(__DIR__ . "../API/users.json");
     $data = json_decode($json, true);
     $allUsers = $data;
 
@@ -75,7 +75,7 @@ function addUser($postInfo){
         // Skapa ett unikt filnamn med TID + FILNAMN
         $uniqueFilename = sha1("$time$filename");
         //Skickar bilden till vår mapp
-       move_uploaded_file($tempname, "../userImages/$uniqueFilename.$ext");
+       move_uploaded_file($tempname, __DIR__ . "../userImages/$uniqueFilename.$ext");
 
         //när all info har kikats genom och kontrollerats, ska 
         //det läggas till i databasen. 
@@ -119,10 +119,10 @@ function addUser($postInfo){
     $_SESSION["image"] = "$uniqueFilename.$ext";
     
     //lägg till user i users.json
-    $data = json_decode(file_get_contents("../API/users.json"), true);
+    $data = json_decode(file_get_contents(__DIR__ . "../API/users.json"), true);
     array_push($data, $newUser);
     $json = json_encode($data, JSON_PRETTY_PRINT);
-    file_put_contents("../API/users.json", $json);
+    file_put_contents(__DIR__ . "../API/users.json", $json);
 }
 
 //Kollar vad som är skrivet i våra inputs och skapar variabler med dess info
@@ -148,13 +148,13 @@ if (isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["passw
     }
     
     else {
-                        //Kopierar databasen till en backup-fil innan ändringen görs
-                        copy("../API/users.json", "../API/users_backup.json");
+        //Kopierar databasen till en backup-fil innan ändringen görs
+        copy(__DIR__ . "../API/users.json", "../API/users_backup.json");
 
         addUser($_POST);
 
-            header("Location: contract.php");;
-                exit();
+        header("Location: contract.php");;
+        exit();
     }
 }
 }

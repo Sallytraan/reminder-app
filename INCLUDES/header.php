@@ -22,7 +22,7 @@ session_start();
     <body>
         <header>
         <?php
-        $completedTask = json_decode(file_get_contents("API/finishedList.json"), true);
+        $completedTask = json_decode(file_get_contents(__DIR__ . "API/finishedList.json"), true);
         
         // så tiden är samma som i Sverige.
         clearArray();
@@ -41,7 +41,7 @@ session_start();
 
         if (isset($_SESSION["id"])) {
             // variabler
-            $data = json_decode(file_get_contents("API/users.json"), true);
+            $data = json_decode(file_get_contents(__DIR__ . "API/users.json"), true);
             $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
             $id = $_SESSION["id"];
                 

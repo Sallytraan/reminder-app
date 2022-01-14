@@ -16,7 +16,7 @@
         </footer>
         <?php
         // variabler
-        $data = json_decode(file_get_contents("API/users.json"), true);
+        $data = json_decode(file_get_contents(__DIR__ . "API/users.json"), true);
         $sessionID = $_SESSION["id"];
 
         // kollar om användaren har skrivit på ett kontrakt eller inte.
