@@ -31,13 +31,10 @@
     <script src="globalVariables.js"></script>
     <script src="commonsElements.js"></script>
 
-
     <script src="PAGES/welcomeText.js"></script>
     <script src="PAGES/app-info.js"></script>
-  
 
     <script src="PAGES/focus.js"></script>
     <script src="PAGES/profile.js"></script>
-    <script src="PAGES/welcomeSignUp.js"></script>
 </body>
 </html> 
