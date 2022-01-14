@@ -1,5 +1,4 @@
 <?php
-//error_reporting(-1);
 session_start();
 ?>
 
@@ -29,8 +28,8 @@ session_start();
         clearArray();
         function clearArray() {
             date_default_timezone_set('Europe/Stockholm');
-            if (date("H") == 21 && date("i") == 41 && date("l") == "Wednesday") {
-                // rensar array:en klockan 6 på måndagar.
+            if (date("H") == 8 && date("i") == 00 && date("l") == "Monday") {
+                // rensar array:en klockan 8 på måndagar.
                 $completedTask = [];
 
                 // sen spara det tillbaks.
