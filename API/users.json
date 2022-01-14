@@ -5,7 +5,7 @@
         "email": "johndoe@hotmail.com",
         "password": "johnisgone",
         "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
-        "color-scheme": 0
+        "color-scheme": 1
     },
     {
         "id": 2,
@@ -20,21 +20,39 @@
         "email": "hej@gmail.com",
         "password": "heej",
         "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
-        "id": 3
-    },{
-        "id": 4,
-        "username": "Johgsgsen",
-        "email": "johndogsege@hotmail.com",
-        "password": "johnisgone",
-        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
+        "id": 3,
         "color-scheme": 0
     },
     {
-        "id": 5,
-        "username": "Olsgsegson",
-        "email": "jodegsegw@hotmail.com",
-        "password": "j123",
-        "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
+        "username": "Anna",
+        "email": "anna@hotmail.com",
+        "password": "1231",
+        "id": 4,
+        "image": "0f06c6582d2efff07bf74d08bc4e29350accdb61.svg",
         "color-scheme": 0
+    },
+    {
+        "username": "hejhej",
+        "email": "annalisa@gmail.com",
+        "password": "1231",
+        "id": 5,
+        "image": "c3fcbade867dcf42c6a59011c1dee418dc27d664.svg",
+        "color-scheme": 0
+    },
+    {
+        "id": 6,
+        "username": "Annalis",
+        "email": "anna@hotmail.com99",
+        "password": "1231",
+        "image": "5aa3f9fa20659162324f5a4038f2d585f54f001d.svg",
+        "color-scheme": 1
+    },
+    {
+        "username": "Kebab",
+        "email": "falafel@gmail.com",
+        "password": "gott123",
+        "color-scheme": 0,
+        "id": 7,
+        "image": "682aafcba3ff521217920e111984680762159c6b.jpg"
     }
 ]

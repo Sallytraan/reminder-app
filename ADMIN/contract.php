@@ -1,10 +1,6 @@
 <?php
 //error_reporting(-1);
 session_start();
-
-
-
-
 ?>
 
 
@@ -29,25 +25,44 @@ session_start();
 
 
 <div id="contractWrapper">
-    <div id="contractCircleOne"></div>
-    <div id="contractCircleTwo"></div>
-    <div id="contractCircleThree"></div>
 
-    <h1 class="removeTextH1"><span class="contractTitleName"><?php echo $theUser;?></span>'s Contract</h1>
-    <p class="removeTextP1">
+    
+    <h1 class="contractTextH1"><span class="contractTitleName"><?php echo $theUser;?></span>'s Contract</h1>
+    
+    <div class="x2">
+        <div class="cloud"></div>
+    </div>
+
+    <p class="contractTextP1">
+
     I, <span class="contractTextName"><?php echo $theUser;?></span>, promise to make the most of tomorrow. 
-    I will always remember that I need to seize the moment. 
+    I will remember that the secret of getting ahead is getting started.
     It’s not the big things that will change my life, it’s the 
     small actions I take every day for a long period of time.
     </p>
+
+    <div class="x3">
+        <div class="cloud"></div>
+    </div>
+
+    <div class="x4">
+        <div class="cloud"></div>
+    </div>
 
 
     <p id="contractHint" class="removeTextP2">
     Hint: tap and hold the fingerprint to commit. Precomitting to a goal (via contracts like these) has been shown to inspire action and reduce procrationation. 
     </p>
 
-<div id="signTheContract"></div>
+    <div id="signTheContract"></div>
+    <div class="x5">
+        <div class="cloud"></div>
+    </div>
 
+    <div class="x1">
+        <div class="cloud"></div>
+    </div>
+</div>
 <script>
 
 let contract = document.querySelector("#signTheContract");
@@ -55,22 +70,18 @@ let contract = document.querySelector("#signTheContract");
 
 contract.addEventListener("mousedown", function() {
 
-    contract.style.height="200px";
-    contract.style.width="200px";
+    contract.style.height="240px";
+    contract.style.width="240px";
     contract.style.marginTop="0px";
 
     contract.style.backgroundRepeat="no-repeat";
     contract.style.backgroundPosition="center";
 
-    setTimeout(function(){
-
-        contract.style.backgroundImage="url(../IntroIcons/happyFace.svg)";
-    }, 1200);
 
     //Fade In
     setTimeout(function(){
         window.location.href = "../index.php";
-        contract.style.backgroundImage="url(../IntroIcons/happyFace.svg)";
+        
     }, 1600);
 
 });

@@ -12,6 +12,7 @@ if (!isset($_SESSION["id"])) {
 
 if (isset($_SESSION["id"])) {
     $sessionID = $_SESSION["id"];
+    //echo $sessionID;
 
     if (isset($_POST["task"])) {
         $task = $_POST["task"];
@@ -19,7 +20,7 @@ if (isset($_SESSION["id"])) {
         if (empty($task)) {
             header("Location: /PAGES/create-task.php?error=1");
             exit();
-        }
+        };
 
         if (isset($_POST["colour"])) {
             // variabler
@@ -32,7 +33,7 @@ if (isset($_SESSION["id"])) {
                 exit();
             }
 
-            if (strlen($task) > 3) {
+            if (strlen($task) >= 3) {
                 foreach ($data as $tasks => $singleTask) {
                     if ($singleTask["id"] > $highestID) {
                         $highestID = $singleTask["id"];
@@ -83,9 +84,13 @@ if (isset($_SESSION["id"])) {
     </head>
     <body>
         <header>
-            <p id='logotyp'> Reminder </p>
+        <?php
+            if (isset($_SESSION["id"])) {
+                $id = $_SESSION["id"];
+                echo "<p id='logotyp'> Reminder </p>";
+            }
+            ?>
         </header>
-
         <main id="taskWrapper">
             <form method="POST" action="create-task.php">
                 <input type="text" id="taskInput" name="task" placeholder="What do you need to be reminded of?">               
@@ -109,7 +114,7 @@ if (isset($_SESSION["id"])) {
                 ?>
                 <div>
                     <div id="taskText">
-                        <p>What's the level of importance?</p>
+                        <p>What's the level of importance? </p>
                     </div>
                     <div id="checkbox">
                         <input type="radio" name="colour" class="checkbox" value="0">

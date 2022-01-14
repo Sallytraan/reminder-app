@@ -1,3 +1,27 @@
+:root {
+    /* färger */
+    --black: rgb(22, 22, 22);
+    --white: white; 
+    --purple: rgb(154, 86, 218);
+    --purple2: #915de0;
+    --purple3: rgb(141, 100, 189);
+    --lightGrey: rgb(175, 175, 175);
+
+    --prioCol1: #FFA19B;
+    --prioCol2: #FFD79B;
+    --prioCol3: #9BFFB7;
+
+    /* Gradient */
+    --purpleGradient: linear-gradient(45deg, rgb(141, 109, 255) 0%, rgb(141, 100, 189) 100%);
+    --purpleGradient2: linear-gradient(45deg, rgb(219, 167, 226) 0%, rgb(139, 131, 232) 100%);
+    --whiteGradient: linear-gradient(rgba(260, 260, 260, 0.1), white); 
+
+    /* Fonts */
+    --roboto: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --montserrat: "Montserrat";
+
+}
+
 body {
     margin: 0;
     scrollbar-width: none; /* for Firefox */
@@ -13,8 +37,21 @@ body {
     padding: 20px 0px;
     background-color: white;
     z-index: 100;
+
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
+#wrapper {
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
 /* till navven */
 footer {
     position: sticky;
@@ -41,8 +78,8 @@ nav > div {
     flex-grow: 1;
     height: 50px;
 
-    background-color: white;
-    border-top: 1px solid grey;
+    background-color: var(--white);
+    border-top: 1px solid var(--black);
 }
 
 #navList {
@@ -56,7 +93,7 @@ nav > div {
 
 .navListSelected {
     background-image: url(../ICONS_WHITE/list-white.svg);
-    background-color: black;
+    background-color: var(--black);
     transition: background-color 2s;
 }
 
@@ -71,7 +108,7 @@ nav > div {
 
 .navFocusSelected {
     background-image: url(../ICONS_WHITE/timer-white.svg);
-    background-color: black;
+    background-color: var(--black);
     transition: background-color 2s;
 }
 
@@ -86,7 +123,7 @@ nav > div {
 
 .navProfileSelected {
     background-image: url(../ICONS_WHITE/user-white.svg);
-    background-color: black;
+    background-color: var(--black);
     transition: background-color 2s;
 }
 

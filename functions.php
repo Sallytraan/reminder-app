@@ -34,15 +34,14 @@ function getMaxID($data, $id){
     return $maxID;
 }
 
-// Lägger till en ny hundägare eller hundvakt med data från formuläret
-function addEntry ($filename, $entry) {
+function addEntry($filename, $entry) {
     $data = loadJSON($filename);
     array_push($data, $entry);
     saveJson($filename, $data);
 }
 
-//Uppdatera user
-function updateUser ($filename, $entry) {
+/*
+function updateUser($filename, $entry) {
     $data = loadJSON($filename);
     array_push($data, $entry);
     saveJson($filename, $data);
@@ -59,7 +58,6 @@ function idInfoUser($id){
     }
 }
 
-/*
 $changeTheContract = function(){
 
     $id = $_SESSION["id"];

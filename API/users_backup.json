@@ -5,7 +5,7 @@
         "email": "johndoe@hotmail.com",
         "password": "johnisgone",
         "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
-        "color-scheme": 0
+        "color-scheme": 1
     },
     {
         "id": 2,
@@ -20,7 +20,8 @@
         "email": "hej@gmail.com",
         "password": "heej",
         "image": "538b28b780b512f2cec126e3503909acdd211714.svg",
-        "id": 3
+        "id": 3,
+        "color-scheme": 0
     },{
         "id": 4,
         "username": "Johgsgsen",
