@@ -46,7 +46,6 @@ session_start();
             $userName = json_encode($_SESSION["username"], JSON_PRETTY_PRINT);
             $id = $_SESSION["id"];
                 
-            $changeContract = 'changeIt';
         }
 
         // kollar om man är inloggad + kontrakt = visar headern för användaren.
@@ -60,7 +59,6 @@ session_start();
             <script> 
                 const ID = $id 
                 const USER = $userName
-                const theContract = $changeContract()
             </script>
             ";
         }

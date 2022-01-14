@@ -4,8 +4,8 @@ let transitionDuration = 250;
 
 navList.addEventListener("click", () => {
     //Fade out
-    wrapper.style.opacity = 0.6;
-    logotyp.style.opacity = 0.6;
+    wrapper.style.opacity = 0.3;
+    logotyp.style.opacity = 0.3;
 
     //Fade In
     setTimeout(function(){
