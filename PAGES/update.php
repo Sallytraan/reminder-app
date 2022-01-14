@@ -1,19 +1,19 @@
 <?php
 session_start();
 //error_reporting(-1);
-require_once __DIR__ . "../functions.php";
+require_once __DIR__ . "/../functions.php";
 
 if (!isset($_SESSION["id"])) {
     header("Location: ../index.php");
     exit();
 }
 
-$data = loadJson(__DIR__ . "../API/users.json");
+$data = loadJson(__DIR__ . "/../API/users.json");
 $loggedInID = $_SESSION["id"];
 
 // funktion för att hämta en id:s hela objekt.
 function getUser($id) {
-    $allUsers = loadJson(__DIR__ . "../API/users.json");
+    $allUsers = loadJson(__DIR__ . "/../API/users.json");
     foreach ($allUsers as $user) {
         if ($user["id"] == $id) {
             return $user;
@@ -29,7 +29,7 @@ $currentProfile = $userInfo["image"];
 $thePassword = $userInfo["password"];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $userData = loadJson(__DIR__ . "../API/users.json");
+    $userData = loadJson(__DIR__ . "/../API/users.json");
     $imageInfo = $currentProfile;
     $file = $_FILES["newFile"];
 
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $fileInfo = pathinfo($filename);
         $ext = strtolower($fileInfo["extension"]);
         
-        move_uploaded_file($tempname, __DIR__ . "../userImages/$uniqueFilename.$ext");
+        move_uploaded_file($tempname, __DIR__ . "/../userImages/$uniqueFilename.$ext");
         $imageInfo = $uniqueFilename . "." . $ext;
     }
 
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //Kopierar databasen till en backup-fil innan ändringen görs
     copy("../API/users.json", "../API/users_backup.json");
-    saveJson(__DIR__ . "../API/users.json", $userData);
+    saveJson(__DIR__ . "/../API/users.json", $userData);
     
     header("Location: update.php?saved");
     exit();

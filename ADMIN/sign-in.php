@@ -1,9 +1,9 @@
 <?php
 session_start();
 //require_once "../API/api.php";
-require_once __DIR__ . "../functions.php";
+require_once __DIR__ . "/../functions.php";
 
-$userData = loadJson("../API/users.json"); // ska hämta användarens info.
+$userData = loadJson(__DIR__ . "/../API/users.json"); // ska hämta användarens info.
 
 // behöver inte kolla om 
 if (isset($_POST["email"], $_POST["password"])) {
